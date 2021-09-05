@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="uSpice is a spice rub recipe utility to help users build and buy spice rubs they like.">
+    <meta name="author" content="George Lychock">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css' ) }}" type="text/css">
+
+    <script src="https://kit.fontawesome.com/0f32915ec7.js" crossorigin="anonymous"></script>
+
+    <title>George Lychock's MS3 Project - uSpice</title>
+    <link rel="shortcut icon" type="image/jpg" href="{{ url_for('static', filename='img/favicon.png' ) }}"/>
+</head>
+
+<body>
+    <main>
+        
+        {% block index_banner %}
+        {% endblock %}
+        
+        <div class="container-fluid">
+            <div class="row">
+                <!-- User Menu - Mobile -->
+                <nav class="d-lg-none">
+                    <div class="col-12 us-text-center us-user-menu-box">
+                        <div class="us-user-name">Hello George!</div>
+                        <ul class="nav flex-row">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i
+                                        class="bi bi-tools us-user-menu-link-01 us-i-color-01"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i
+                                        class="bi bi-cart2 us-user-menu-link-01 us-i-color-01"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i
+                                        class="bi bi-info-circle us-user-menu-link-01 us-i-color-01"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i
+                                        class="bi bi-person us-user-menu-link-01 us-i-color-01"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!-- Header -->
+                <header class="col-12 col-lg-3 us-text-center us-header-box">
+                    <div id="logo-outer">
+                        <div id="logo-image"></div>
+                    </div>
+                    <div class="">
+                        <h1 class="us-header us-h1-color-01">Welcome to uSpice.</h1>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-outline-success us-nav-btn">Build Recipes</button>
+                        <button type="button" class="btn btn-outline-success us-nav-btn">Recipe Ratings</button>
+                        <button type="button" class="btn btn-outline-success us-nav-btn">Rate a Recipe</button>
+                        <button type="button" class="btn btn-outline-success us-nav-btn">Buy</button>
+                    </div>
+                </header>
+                <!-- Highest Rated -->
+                <div  id="us-hr-box-id" class="col-12 col-lg-6 us-text-center us-hr-box us-b-color-02a">
+                    <h2 class="us-hr-header us-h2-color-01">Highest Rated Spice Recipes</h2>
+                    <div class="btn-group btn-group-lg d-block" role="group" aria-label="...">
+                        <button type="button" class="btn btn-outline-secondary us-btn-rated-a us-btn-color-01">George's Kick Ass Cajun
+                            Rub</button>
+                        <button type="button" class="btn btn-outline-secondary us-btn-rated-a us-btn-color-01">Nicole's Lemon Pepper
+                            Pizazz</button>
+                        <button type="button" class="btn btn-outline-secondary us-btn-rated-a us-btn-color-01">Revolution Memphis Dry
+                            Rub</button>
+                    </div>
+                    <div class="btn-group d-block" role="group" aria-label="...">
+                        <button type="button" class="btn btn-outline-secondary us-btn-rated-b us-btn-color-01">Montreal Steak
+                            Seasoning</button>
+                        <button type="button" class="btn btn-outline-secondary us-btn-rated-b us-btn-color-01">Rub ala St. Louis</button>
+                        <button type="button" class="btn btn-outline-secondary us-btn-rated-b us-btn-color-01">California Burger
+                            Salt</button>
+                    </div>
+                    <div class="btn-group btn-group-sm d-block" role="group" aria-label="...">
+                        <button type="button" class="btn btn-outline-secondary us-btn-rated-c us-btn-color-01">Roasted Potato Salt
+                            Mix</button>
+                        <button type="button" class="btn btn-outline-secondary us-btn-rated-c us-btn-color-01">Potato Salad
+                            Seasoning</button>
+                        <button type="button" class="btn btn-outline-secondary us-btn-rated-c us-btn-color-01">Crunchy Balls
+                            Coating</button>
+                    </div>
+                </div>
+                <!-- User Menu - Desktop -->
+                <div class="col-12 col-lg-3 us-text-center us-side-01">
+                    <nav class="d-none d-lg-block">
+                        <div class="us-user-name">Hello George!</div>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="bi bi-tools us-menu-link-01 us-i-color-01"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="bi bi-cart2 us-menu-link-01 us-i-color-01"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i
+                                        class="bi bi-info-circle us-menu-link-01 us-i-color-01"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="bi bi-person us-menu-link-01 us-i-color-01"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- Revenue Aside 1 -->
+                    <aside class="us-revenue-s1">
+                        <div>
+                            <h1 class="us-revenue-s1-header us-b-color-01">Revenue Stream Side 1</h1>
+                            <div class="us-revenue-s1-body us-b-color-01">
+                                <p>
+                                    Saleable/Ad Space Content
+                                </p>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <!-- Social Media Links -->
+            <nav class="container-fluid us-footer-box">
+                <div class="row no-gutters us-footer-row">
+                    <div class="col">
+                        <div>
+                            <div class="us-social-icon">
+                                <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/georgelychock">
+                                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                    <span class="sr-only">LinkedIn</span>
+                                </a>
+                            </div>
+                            <div class="list-group-item us-social-icon">
+                                <a target="_blank" rel="noreferrer" href="https://github.com/GeorgeLychock">
+                                    <i class="fab fa-github" aria-hidden="true"></i>
+                                    <span class="sr-only">GitHub</span>
+                                </a>
+                            </div>
+                            <div class="list-group-item us-social-icon">
+                                <a target="_blank" rel="noreferrer" href="https://www.pinterest.com/georgelychock/">
+                                    <i class="fa fa-pinterest" aria-hidden="true"></i>
+                                    <span class="sr-only">Pinterest</span>
+                                </a>
+                            </div>
+                            <div class="list-group-item us-social-icon">
+                                <a target="_blank" rel="noreferrer" href="https://twitter.com/glychock?lang=en">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                    <span class="sr-only">Twitter</span>
+                                </a>
+                            </div>
+                            <div class="list-group-item us-social-icon">
+                                <a target="_blank" rel="noreferrer" href="https://www.facebook.com/george.lychock">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    <span class="sr-only">Facebook</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="gl-cr">
+                            <span>www.uspice.com | &copy; 2021</span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </footer>
+    </main>
+
+    <!-- Load Bootstrap 5.0.2 js and its dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

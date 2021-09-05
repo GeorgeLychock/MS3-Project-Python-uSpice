@@ -1,0 +1,346 @@
+/* george lychock MS3 stylesheet */
+/* NOTES:
+    - Except for base html elements, common colors, and Bootstrap styles, all other custom selectors names begin with "us" to make it easier to see in the markup */
+
+
+/* ######## CSS TOC - In Order of Appearance: */
+/* @imports */
+/* Bootstrap Overides */
+/* Base Elements */
+/* Common Text Colors */
+/* Common Background Colors*/
+/* Banners */
+/* Header */
+/* Highest Rated */
+/* Revenue Side 1 */
+/* Footer Section */
+/* @media styles */
+
+/* Common Button Colors*/
+/* Spacers */
+/* Font Styles */
+/* Common Positioning */
+/* Common Other*/
+/* Buttons */
+/* Nav */
+/* Mobile Library Dropdown */
+/* Project Form */
+/* Dashboard */
+/* Dashboard Panels */
+/* Active Projects Dashboard /*
+/* Active Widgets Dashboard */
+/* Progress Bar */
+/* Widget Library */
+
+/* Social Links */
+/* @media */
+/* Color Schemes */
+
+
+
+
+/* Imports */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600&display=swap');
+
+/* Bootstrap Overides */
+button:focus {
+    outline: none;
+}
+
+.btn-outline-success {
+  margin: 5px;
+}
+
+.btn-outline-secondary {
+  border-color: beige;
+}
+
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+
+  /* Base Elements */
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-family: 'Montserrat', 'FreeSans', sans-serif;
+}
+
+/* Common Text Colors */
+.us-p-color-01 {color: #004d99;}
+.us-i-color-01 {color: #93d49d;}
+.us-h1-color-01 {color: #666;}
+.us-h2-color-01 {color: #fff;}
+.us-btn-color-01 {color: rgba(147, 212, 157, .25);}
+
+/* Common Background Colors*/
+.us-b-color-01 {background-color: rgba(147, 212, 157, .25);}
+.us-b-color-02 {background-color: rgba(205, 92, 92, .75);}
+.us-b-color-02a {background-color: rgba(205, 92, 92, .25);}
+
+/* Common Positioning */
+.us-text-center {
+    text-align: center;
+}
+
+/* Banners */
+.us-banner-top {
+    text-align: center;
+    font-size: .8rem;
+    min-height: 40px;
+    margin-bottom: 10px;
+    padding-top: 8px;
+}
+
+.us-banner-search {
+  text-align: center;
+  font-size: .9rem;
+  min-height: 40px;
+  margin-bottom: 10px;
+  padding-top: 8px;
+}
+
+.us-search-box {
+  max-width: 200px;
+}
+
+.us-advsearch-link {
+  float: right;
+}
+
+.us-qsearch-input {
+  display: inline;
+}
+
+/* Header */
+.us-header {
+  font-size: 1.5rem;
+  margin: 30px 0 30px 0;
+}
+
+.us-nav-btn {
+  font-size: .8rem;
+  border-color: rgba(147, 212, 157, .75);
+}
+
+
+/* Highest Rated */
+.us-hr-header {
+  margin-bottom: 20px;
+}
+.us-btn-rated-a {
+    margin: 10px;
+    padding: 10px !important;
+    border-radius: 100% !important;
+    border-width: 3px;
+    width: 100px;
+    height: 100px;
+    font-size: .9rem !important;
+}
+
+.us-btn-rated-b {
+    margin: 10px;
+    padding: 10px !important;
+    border-radius: 100% !important;
+    border-width: 2px;
+    width: 90px;
+    height: 90px;
+    font-size: .8rem !important;
+}
+
+.us-btn-rated-c {
+    margin: 10px;
+    padding: 10px !important;
+    border-radius: 100% !important;
+    width: 80px;
+    height: 80px;
+    font-size: .7rem !important;
+}
+
+/* Revenue Side 1 */
+.us-revenue-s1 {
+  margin-top: 20px;
+}
+
+.us-revenue-s1-header {
+  font-size: 1.1rem;
+  color: #004d99;
+}
+
+.us-revenue-s1-body {
+  color: #004d99;
+  max-height: 120px;
+}
+
+/* Footer Section */
+.us-footer-box {
+  padding: 0;
+  height: 80px;
+}
+
+.us-footer-row {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.us-social-icon {
+  display: inline;
+  background-color: transparent;
+  border: none;
+  padding: .5rem .5rem;
+}
+
+.us-social-icon a i {
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, .2);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  padding: .5rem;
+}
+
+.us-social-icon i:hover {
+  background-color: rgba(0, 85, 250, .5);
+}
+
+/* @media styles */
+@media only screen and (min-width: 1072px) {
+/* Base Background Colors */
+  .us-b-color-02 {background-color: rgba(205, 92, 92, .75);}
+
+  #logo-image {
+      background: url("https://www.georgelychock-career.com/pages/_sandbox/MS3/images/logo-1000.png") no-repeat center center;
+      background-size: 400px 500px;
+      height: 500px;
+      width: 400px;
+  }
+  
+  #logo-outer {
+      height: 600px;
+      width: 400px;
+      overflow: hidden;
+      position: relative;
+  }
+
+  .us-header {
+    font-size: 2.0rem;
+    margin-bottom: 10px;
+  }
+
+  .us-high-rated-box {
+    padding: 100px 0 0 100px;
+  }
+
+  .us-btn-rated-a {
+    margin: 10px;
+    padding: 5px;
+    border-radius: 100% !important;
+    width: 160px;
+    height: 160px;
+    font-size: 1rem !important;
+  }
+
+  .us-btn-rated-b {
+  margin: 10px;
+  padding: 5px;
+  border-radius: 100% !important;
+  width: 120px;
+  height: 120px;
+  font-size: .9rem !important;
+  }
+
+  .us-btn-rated-c {
+  margin: 10px;
+  padding: 5px;
+  border-radius: 100% !important;
+  width: 80px;
+  height: 80px;
+  font-size: .8rem !important;
+  }
+
+  .us-side-01 {
+    padding-top: 10px;
+  }
+
+  .us-user-menu-link-01 {
+    font-size: 1.25rem;
+  }
+
+  .us-revenue-s1-body {
+    min-height: 500px;
+  }
+
+  .us-banner-search {
+    padding-right: 400px;
+  }
+
+}
+
+@media only screen and (max-width: 1071px) {
+  #logo-image {
+    background: url("https://www.georgelychock-career.com/pages/_sandbox/MS3/images/logo-1000.png") no-repeat center center;
+    height: 1000px;
+    width: 800px;
+    animation: logo-zoom 4s forwards;
+  }
+  
+  @keyframes logo-zoom {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(.25) translate(-1000px, -1400px) rotate(90deg);
+    }
+  }
+
+  #logo-outer {
+      height: 1000px;
+      width: 800px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      position: relative;
+      animation: logo-outer 4s forwards;
+  }
+
+  @keyframes logo-outer {
+    from {
+        height: 1000px;
+        width: 800px;
+    }
+    to {
+        height: 250px;
+        width: 300px;
+    }
+  }
+
+  .us-header-box {
+    margin: 0 0 30px 0;
+  }
+
+  .us-hr-box {
+    padding: 30px 0;
+  }
+
+  .us-user-name {
+    float: right;
+    padding: 4px 4px 0 0;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+  
