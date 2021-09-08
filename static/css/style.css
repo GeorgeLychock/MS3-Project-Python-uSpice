@@ -215,7 +215,7 @@ h1, h2, h3, h4, h5, h6 {
   .us-b-color-02 {background-color: rgba(205, 92, 92, .75);}
 
   #logo-image {
-      background: url("https://www.georgelychock-career.com/pages/_sandbox/MS3/images/logo-1000.png") no-repeat center center;
+      background: url("../img/logo-1000.png") no-repeat center center;
       background-size: 400px 500px;
       height: 500px;
       width: 400px;
@@ -284,7 +284,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media only screen and (max-width: 1071px) {
   #logo-image {
-    background: url("https://www.georgelychock-career.com/pages/_sandbox/MS3/images/logo-1000.png") no-repeat center center;
+    background: url("../img/logo-1000.png") no-repeat center center;
     height: 1000px;
     width: 800px;
     animation: logo-zoom 4s forwards;
