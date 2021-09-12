@@ -145,38 +145,40 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
     <a name="UI"></a>
     -   ### Wireframes
         <a name="UIWF"></a>
-        -   UI Map (Site Map aligned to data structures and functions) - [View](https://github.com/GeorgeLychock/MS3-Project---uSpice/blob/master/_documentation/wireframes/Site-UI-Map-.jpg)
+        -   UI Map (Site Map aligned to data structures and functions) - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/wireframes/Site-UI-Map-.jpg)
     -   ### Sprints
-        -   UI Sprint Map - [View](https://github.com/GeorgeLychock/MS3-Project---uSpice/blob/master/_documentation/wireframes/Site-UI-Sprints-.jpg)
+        -   UI Sprint Map - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/wireframes/Site-UI-Sprints-.jpg)
 
 
 -   ## UX - Design
     <a name="DES"></a>
     -   ### Wireframes
         <a name="UXWF"></a>
-        -   Home Page - Desktop and Tablet Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project---uSpice/blob/master/_documentation/wireframes/p1-uSpice-desktop-home-page.jpg)
+        -   Home Page - Desktop and Tablet Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/wireframes/p1-uSpice-desktop-home-page.jpg)
 
-        -   Home Page - Mobile Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project---uSpice/blob/master/_documentation/wireframes/p2-uSpice-mobile-home-page.jpg)
+        -   Home Page - Mobile Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/wireframes/p2-uSpice-mobile-home-page.jpg)
 
-        -   Advanced Search Page - Desktop and Tablet Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project---uSpice/blob/master/_documentation/wireframes/p3-uSpice-desktop-advanced-search-page.jpg)
+        -   Advanced Search Page - Desktop and Tablet Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/wireframes/p3-uSpice-desktop-advanced-search-page.jpg)
 
-        -   Advanced Search Page - Mobile Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project---uSpice/blob/master/_documentation/wireframes/p4-uSpice-mobile-advanced-search-page.jpg)
+        -   Advanced Search Page - Mobile Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/wireframes/p4-uSpice-mobile-advanced-search-page.jpg)
 
-        -   Recipe View Page - Bar Chart - Desktop and Tablet Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project---uSpice/blob/master/_documentation/wireframes/p5-uSpice-desktop-recipe-page-1.jpg)
+        -   Recipe View Page - Bar Chart - Desktop and Tablet Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/wireframes/p5-uSpice-desktop-recipe-page-1.jpg)
 
-        -   Recipe View Page - Pie Chart - Desktop and Tablet Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project---uSpice/blob/master/_documentation/wireframes/p5-uSpice-desktop-recipe-page-2.jpg)
+        -   Recipe View Page - Pie Chart - Desktop and Tablet Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/wireframes/p5-uSpice-desktop-recipe-page-2.jpg)
 
-        -   Recipe View Page - Mobile Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project---uSpice/blob/master/_documentation/wireframes/p6-uSpice-mobile-recipe-page.jpg)
+        -   Recipe View Page - Mobile Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/wireframes/p6-uSpice-mobile-recipe-page.jpg)
 
-        -   Recipe Build Page - Desktop and Tablet Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project---uSpice/blob/master/_documentation/wireframes/p7-uSpice-desktop-build-recipe-page.jpg)
+        -   Recipe Build Page - Desktop and Tablet Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/wireframes/p7-uSpice-desktop-build-recipe-page.jpg)
 
-        -   Recipe Build Page - Mobile Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project---uSpice/blob/master/_documentation/wireframes/p8-uSpice-mobile-build-recipe-page.jpg)
+        -   Recipe Build Page - Mobile Wireframe - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/wireframes/p8-uSpice-mobile-build-recipe-page.jpg)
 
 
 <a name="TECH"></a>
 # Technical Background
--   ## Data Structures and Dataflow
-    -   Data Structure Mapping - [View](https://github.com/GeorgeLychock/MS3-Project---uSpice/blob/master/_documentation/data/Site-Data-Map.jpg)
+-   ## Sitemap, UI, and Data Structures
+    -   UI Sitemap  - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/ui/Site-UI-Map.jpg)
+    -   Sprints  - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/ui/Site-UI-Sprints.jpg)
+    -   Data Structures  - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/ui/uspice-data-structures.jpg)
 
 -   ## Languages Used
 
@@ -223,7 +225,7 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
     <a name="PROJ"></a>
     -   ### Projected Sprints
         <a name="UIWF"></a>
-        -   UI Sprint Map - [View](https://github.com/GeorgeLychock/MS3-Project---uSpice/blob/master/_documentation/wireframes/Site-UI-Sprints-.jpg)
+        -   UI Sprint Map - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/wireframes/Site-UI-Sprints-.jpg)
 
 <a name="DPLY"></a>
 # Deployment
