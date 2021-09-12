@@ -145,9 +145,9 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
     <a name="UI"></a>
     -   ### Wireframes
         <a name="UIWF"></a>
-        -   UI Map (Site Map aligned to data structures and functions) - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/wireframes/Site-UI-Map-.jpg)
+        -   UI Map (Site Map aligned to data structures and functions) - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/ui/Site-UI-Map.jpg)
     -   ### Sprints
-        -   UI Sprint Map - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/wireframes/Site-UI-Sprints-.jpg)
+        -   UI Sprint Map - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/ui/Site-UI-Sprints.jpg)
 
 
 -   ## UX - Design
