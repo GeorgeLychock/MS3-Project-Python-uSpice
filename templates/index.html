@@ -17,6 +17,7 @@
                 <form method="POST" class="form-inline us-search-form" id="quick-search-form">
                     <select class="form-control us-search-box" id="quick-search" name="quick-search" placeholder="Quick Search"
                         aria-label="Quick Search">
+                        <option value="savory">Quick Search</option>
                         <option value="savory">Savory</option>
                         <option value="sweet">Sweet</option>
                         <option value="spicy">Spicy</option>
@@ -24,7 +25,7 @@
                     <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
                 </form>
                 <div class="us-advsearch-link">
-                    <a class="nav-link" href="{{ url_for('search') }}"><i class="bi bi-tools us-user-menu-link-01 us-i-color-01"></i>Advanced
+                    <a class="nav-link" href="{{ url_for('search') }}"><i class="bi bi-search us-user-menu-link-01 us-i-color-01"></i><sup>ADV </sup>Advanced
                         Search</a>
                 </div>
             </div>
@@ -32,6 +33,34 @@
     </div>
 
 {% endblock %}
+
+{% block recipe_panel%}
+    {% for recipe in recipes %}
+        {% if loop.index % 2 != 0 %}
+        <div class="col-md-7">
+            <h3><a href="about/{{ recipe.url }}">{{ loop.index }}. {{recipe.name}}</a></h3>
+            <p>{{recipe.description}}</p>
+        </div>
+        <div class="col-md-5">
+            <img src="{{ recipe.image }}" alt="Image of {{ recipe.name }}">
+        </div>
+
+        {% else %}
+        <div class="col-md-5">
+            <img src="{{ recipe.image }}" alt="Image of {{ recipe.name }}">
+        </div>
+        <div class="col-md-7">
+            <h3><a href="about/{{ recipe.url }}">{{ loop.index }}. {{recipe.name}}</a></h3>
+            <p>{{recipe.description}}</p>
+        </div>
+        {% endif %}
+        {% if loop.index != loop.length %}
+            <hr class="featurette-divider">
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+
+
 
 {% block highest_rated %}
     <!-- Highest Rated -->
