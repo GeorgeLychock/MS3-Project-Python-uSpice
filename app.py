@@ -7,15 +7,8 @@ if os.path.exists("env.py"):
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY")
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def index():
-
-    if request.method == "POST":
-        print("Hello brother!")
-        print(request.form)
-        print(request.form.get("name"))
-        flash("Thanks {}, we have received your message!".format(request.form.get(
-            "name")))
 
     data = []
     with open("data/recipes.json", "r") as json_data:

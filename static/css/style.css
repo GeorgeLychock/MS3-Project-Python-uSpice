@@ -221,13 +221,12 @@ h1, h2, h3, h4, h5, h6 {
 
   #logo-image {
       background: url("../img/logo-1000.png") no-repeat center center;
-      background-size: 400px 500px;
-      height: 500px;
-      width: 400px;
+      background-size: 200px 250px;
+      height: 300px;
+      width: 200px;
   }
   
   #logo-outer {
-      height: 600px;
       width: 400px;
       overflow: hidden;
       position: relative;

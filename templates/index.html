@@ -35,29 +35,25 @@
 {% endblock %}
 
 {% block recipe_panel%}
+<div class="col-12 col-lg-6 us-text-center us-hr-box us-b-color-02a">
+    <h2 class="us-hr-header us-h2-color-01">Highest Rated Spice Recipes</h2>
     {% for recipe in recipes %}
-        {% if loop.index % 2 != 0 %}
-        <div class="col-md-7">
-            <h3><a href="about/{{ recipe.url }}">{{ loop.index }}. {{recipe.name}}</a></h3>
-            <p>{{recipe.description}}</p>
+        <div class="row">
+            <div class="col-md-2">
+                <h3><a href="about/{{ recipe.url }}">{{ loop.index }}. {{recipe.name}}</a></h3>
+            </div>
+            <div class="col-md-2">
+                <p>{{recipe.description}}</p>
+            </div>
+            <div class="col-md-2">
+                <img src="{{ recipe.image }}" alt="Image of {{ recipe.name }}">
+            </div>
         </div>
-        <div class="col-md-5">
-            <img src="{{ recipe.image }}" alt="Image of {{ recipe.name }}">
-        </div>
-
-        {% else %}
-        <div class="col-md-5">
-            <img src="{{ recipe.image }}" alt="Image of {{ recipe.name }}">
-        </div>
-        <div class="col-md-7">
-            <h3><a href="about/{{ recipe.url }}">{{ loop.index }}. {{recipe.name}}</a></h3>
-            <p>{{recipe.description}}</p>
-        </div>
-        {% endif %}
         {% if loop.index != loop.length %}
             <hr class="featurette-divider">
         {% endif %}
     {% endfor %}
+</div>
 {% endblock %}
 
 
