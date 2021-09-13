@@ -61,6 +61,10 @@ button:focus {
     box-sizing: content-box;
   }
 
+.nav-link i {
+  font-size: 2rem;
+}
+
   /* Base Elements */
 body {
     background-color: #fff;
