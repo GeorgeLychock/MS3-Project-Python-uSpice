@@ -1,7 +1,7 @@
 # George Lychock - MS3 Project: uSpice
 ### Salem State University Fullstack Software Developer Certificate
 #### Python Module
--   [View Live Dev Site](https://www.georgelychock-career.com/pages/_sandbox/MS3/index.html)
+-   [View Live Dev Site](https://gl-uspice-dev-01.herokuapp.com/)
 
 <hr>
 
