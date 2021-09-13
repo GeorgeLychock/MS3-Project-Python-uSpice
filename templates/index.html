@@ -5,7 +5,7 @@
     <!-- Revenue Stream - Banner -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col us-banner-top us-b-color-01 us-p-color-01">
+            <div class="col us-banner-top">
                 Revenue Stream - Banner - Saleable/Ad Space Content
             </div>
         </div>
@@ -35,18 +35,18 @@
 {% endblock %}
 
 {% block recipe_panel%}
-<div class="col-12 col-lg-6 us-text-center us-hr-box us-b-color-02a">
+<div class="col-12 col-lg-6 us-text-center us-hr-box">
     <h2 class="us-hr-header us-h2-color-01">Highest Rated Spice Recipes</h2>
     {% for recipe in recipes %}
         <div class="row">
-            <div class="col-md-2">
-                <h3><a href="about/{{ recipe.url }}">{{ loop.index }}.{{recipe.name}}</a></h3>
+            <div class="col-md-4">
+                <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="about/{{ recipe.url }}"><sup>#</sup>{{ loop.index }} {{recipe.name}}</a></h3>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-6">
                 <p>{{recipe.description}}</p>
             </div>
             <div class="col-md-2">
-                <img class="recipe-img" src="{{ recipe.image_url }}" alt="Image of {{ recipe.name }}">
+                <img class="us-recipe-img" src="{{ recipe.image_url }}" alt="Image of {{ recipe.name }}">
             </div>
         </div>
         {% if loop.index != loop.length %}
@@ -97,8 +97,8 @@
     <!-- Revenue Aside 1 -->
     <aside class="us-revenue-s1">
         <div>
-            <h1 class="us-revenue-s1-header us-b-color-01">Revenue Stream Side 1</h1>
-            <div class="us-revenue-s1-body us-b-color-01">
+            <h1 class="us-revenue-s1-header">Revenue Stream Side 1</h1>
+            <div class="us-revenue-s1-body">
                 <p>
                     Saleable/Ad Space Content
                 </p>
