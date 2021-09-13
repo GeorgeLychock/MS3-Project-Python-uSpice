@@ -12,6 +12,7 @@
 /* Banners */
 /* Header */
 /* Highest Rated */
+/* Recipe Card/Panel */
 /* Revenue Side 1 */
 /* Footer Section */
 /* @media styles */
@@ -166,6 +167,11 @@ h1, h2, h3, h4, h5, h6 {
     width: 80px;
     height: 80px;
     font-size: .7rem !important;
+}
+
+/* Recipe Card/Panel */
+.recipe-img {
+  width: 100px;
 }
 
 /* Revenue Side 1 */
