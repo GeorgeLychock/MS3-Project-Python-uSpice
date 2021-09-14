@@ -16,6 +16,17 @@ def index():
     return render_template("index.html", page_title="Home", recipes=data)
 
 
+@app.route("/about/<recipe_name>")
+def about_recipe(recipe_name):
+    recipe = {}
+    with open("data/recipes.json", "r") as json_data:
+        data = json.load(json_data)
+        for obj in data:
+            if obj["url"] == recipe_name:
+                recipe = obj
+    return render_template("recipe.html", recipe=recipe)
+
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
