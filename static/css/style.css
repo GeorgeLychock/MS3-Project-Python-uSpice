@@ -101,10 +101,18 @@ a {
 /* Banners */
 .us-banner-top {
     text-align: center;
-    font-size: .8rem;
+    font-size: 1.75rem;
     min-height: 40px;
     padding-top: 8px;
     border: 1px solid rgba(147, 212, 157, .25);
+}
+
+.us-banner-top-rev {
+  font-size: 1.0rem;
+}
+
+.us-banner-backbtn {
+  display: contents;
 }
 
 .us-banner-search {
@@ -300,7 +308,7 @@ a {
   }
 
   .us-user-menu-link-01::before {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .us-revenue-s1-body {
