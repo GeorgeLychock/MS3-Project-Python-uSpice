@@ -2,31 +2,37 @@
 
 {% block recipe_card_banner %}
 
-        <!-- Recipe Card - Banner -->
-        <div class="container-fluid">
-            <div class="row">
-                <div class="us-banner-backbtn"><a class="nav-link" href="{{ url_for('index') }}"><i class="bi bi-arrow-left us-user-menu-link-01 us-i-color-01"></i>Back</a></div>
-                <div class="col us-banner-top us-b-color-01 us-p-color-01">
-                    Recipe Card
-                </div>
+    <!-- Recipe Card - Banner -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="us-banner-backbtn"><a class="nav-link" href="{{ url_for('index') }}"><i class="bi bi-arrow-left us-user-menu-link-01 us-i-color-01"></i>Back</a></div>
+            <div class="col us-banner-top us-b-color-01 us-p-color-01">
+                <h1 class="us-banner-top-title">Recipe Card</h1>
             </div>
         </div>
+    </div>
 
 {% endblock %}
 
 {% block recipe_panel %}
+    <article class="col-md-5">
+        <row>
+            <div class="col col-8"><img class="us-recipe-card-image" src="{{ recipe.image_url }}" alt="Image of {{ recipe.name }}" width=100%></div>
+            <div class="col col-4"><h2 class="us-recipe-name">{{ recipe.name }}</h2></div>
+        </row>
+        <row>
+            <div class="col">
+            <p>{{ recipe.description }}</p>
+            </div>
+        </row>
+        <row>
+            <div class="col">
+            <h3>Recipe Info</h3>
+            <p>Author: {{ recipe.author }}</p>
+            <p>Flavor Profile: {{ recipe.flavor }}</p>
+            <p>Region: {{ recipe.region }}</p>
+            </div>
+        </row>
 
-<div class="row">
-    <div class="col-md-5">
-        <img src="{{ recipe.image_url }}" alt="Image of {{ recipe.name }}" width=100%>
-        <h2 class="col-md-7">{{ recipe.name }}</h2>
-    </div>
-</div>
-
-<div class="col-md-12">
-    <p>{{ recipe.description }}</p>
-</div>
-
-
-
+    </article>
 {% endblock%}

@@ -11,8 +11,8 @@
 /* Common Background Colors*/
 /* Banners */
 /* Header */
-/* Highest Rated */
-/* Recipe Card/Panel */
+/* Home - Highest Rated */
+/* Home - Recipe Panel */
 /* Revenue Side 1 */
 /* Footer Section */
 /* @media styles */
@@ -101,11 +101,15 @@ a {
 /* Banners */
 .us-banner-top {
     text-align: center;
-    font-size: 1.75rem;
     min-height: 40px;
     padding-top: 8px;
     border: 1px solid rgba(147, 212, 157, .25);
 }
+
+.us-banner-top-title {
+  font-size: 1.5rem;
+}
+
 
 .us-banner-top-rev {
   font-size: 1.0rem;
@@ -156,7 +160,7 @@ a {
 }
 
 
-/* Highest Rated */
+/* Home - Highest Rated */
 .us-hr-header {
   margin-bottom: 20px;
 }
@@ -189,7 +193,7 @@ a {
     font-size: .7rem !important;
 }
 
-/* Recipe Card/Panel */
+/* Home - Recipe Panel */
 .us-recipe-header {
   font-size: 1rem;
 }
@@ -200,6 +204,15 @@ a {
 
 .us-recipe-img {
   width: 100px;
+}
+
+/* Recipe Card */
+.us-recipe-card-image {
+  width: 200px;
+}
+
+.us-recipe-name {
+  font-size: 1.25rem;
 }
 
 /* Revenue Side 1 */
