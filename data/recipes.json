@@ -1,26 +1,52 @@
 [
     {
         "name": "George's Super Cajun Rub",
+        "recipe_uid": "usrecipe0001",
         "author": "George Lychock",
-        "flavor_profile": ["savory", "spicy"],
+        "flavors": ["savory", "spicy"],
         "region": "American",
-        "ingredients": "List of Ingredients",
-        "instructions": "Mix all ingredients in a bowl and add to a shaker",
-        "description":  "I tried to replicate this recipe based on sandwiches I ordered from a favorite local restaurant.",
+        "ingredients": [
+            {
+            "name": "salt",
+            "quantity": 1.5,
+            "measure": "tsp"
+            },
+            {
+            "name": "garlic",
+            "quantity": 1.0,
+            "measure": "tsp"
+            }
+        ],
+        "preparation": "Mix all ingredients in a bowl and add to a shaker",
+        "description":  "I tried to replicate this recipe based on sandwiches I ordered from a favorite local restaurant, the Fowler House Cafe in Quincy, MA.",
         "date_posted": "07/25/2021",
         "image_url": "../static/img/recipe-georges-super-cajun-rub-03.png",
+        "image_alt": "Great picture of George's Super Cajun Rub",
         "url": "georges-super-cajun-rub"
     },
     {
         "name": "Memphis Dry Rub",
+        "recipe_uid": "usrecipe0002",
         "author": "George Lychock",
-        "flavor_profile": ["sweet", "spicy"],
+        "flavors": ["sweet", "spicy"],
         "region": "American",
-        "ingredients": "List of Ingredients",
-        "instructions": "Mix all ingredients in a bowl and add to a shaker",
+        "ingredients": [
+            {
+            "name": "salt",
+            "quantity": 1.5,
+            "measure": "tsp"
+            },
+            {
+            "name": "garlic",
+            "quantity": 1.0,
+            "measure": "tsp"
+            }
+        ],
+        "preparation": "Mix all ingredients in a bowl and add to a shaker",
         "description":  "I re-created this recipe based on a spice rub mixture I purchased from Stuart's",
         "date_posted": "07/25/2021",
         "image_url": "../static/img/recipe-memphis-dry-rub-01.png",
+        "image_alt": "Lovely picture of the Memphis Dry Rub on a rib",
         "url": "memphis-dry-rub"
     }
 ]
