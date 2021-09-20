@@ -22,14 +22,15 @@
 
 <body>
     <main>
-        <!-- Insert unique top banner depending on page type -->
-        {% block index_banner %}
-        {% endblock %}
-        {% block recipe_card_banner %}
-        {% endblock %}
-        {% block search_banner %}
-        {% endblock %}
-        
+        <div class="us-banner-row">
+            <!-- Insert unique top banner depending on page type -->
+            {% block index_banner %}
+            {% endblock %}
+            {% block recipe_card_banner %}
+            {% endblock %}
+            {% block search_banner %}
+            {% endblock %}
+        </div>
         <div class="container-fluid us-index-main">
             <div class="row">
                 <!-- User Menu - Mobile -->

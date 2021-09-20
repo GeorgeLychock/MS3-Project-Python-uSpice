@@ -13,7 +13,7 @@
     <!-- Search - Banner -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col us-banner-search us-b-color-02">
+            <div class="col us-index-banner us-b-color-02">
                 <form method="POST" class="form-inline us-search-form" id="quick-search-form">
                     <select class="form-control us-search-box" id="quick-search" name="quick-search" placeholder="Quick Search"
                         aria-label="Quick Search">
@@ -22,10 +22,10 @@
                         <option value="sweet">Sweet</option>
                         <option value="spicy">Spicy</option>
                     </select>
-                    <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+                    <button class="btn btn-outline-success us-search-btn" type="submit"><i class="bi bi-search"></i></button>
                 </form>
-                <div class="us-advsearch-link">
-                    <a class="nav-link" href="{{ url_for('search') }}"><i class="bi bi-search us-user-menu-link-01 us-i-color-01"></i><sup>ADV </sup>Advanced
+                <div class="float-end">
+                    <a class="nav-link us-advsearch-link" href="{{ url_for('search') }}"><i class="bi bi-search us-user-menu-link-01 us-i-color-01"></i><sup>ADV </sup>Advanced
                         Search</a>
                 </div>
             </div>
@@ -39,7 +39,7 @@
     <h2 class="us-hr-header us-h2-color-01">Highest Rated Spice Recipes</h2>
     {% for recipe in recipes %}
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 text-start">
                 <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="about/{{ recipe.url }}"><sup>#</sup>{{ loop.index }} {{recipe.name}}</a></h3>
             </div>
             <div class="col-md-6">

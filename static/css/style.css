@@ -94,7 +94,7 @@ p {
 
 /* Common Background Colors*/
 .us-b-color-01 {background-color: rgba(147, 212, 157, .25);}
-.us-b-color-02 {background-color: rgba(205, 92, 92, .75);}
+.us-b-color-02 {background-color: rgba(205, 92, 92, .35);}
 .us-b-color-02a {background-color: rgba(205, 92, 92, .25);}
 
 /* Common Positioning */
@@ -103,11 +103,20 @@ p {
 }
 
 /* Banners */
+.us-banner-row {
+  max-height: 50px;
+}
+
 .us-banner-top {
     text-align: center;
     min-height: 40px;
     padding-top: 8px;
     border: 1px solid rgba(147, 212, 157, .25);
+}
+
+.us-index-banner {
+  text-align: center;
+  padding-left: 100px;
 }
 
 .us-banner-top-title {
@@ -136,11 +145,16 @@ p {
 
 .us-search-box {
   max-width: 200px;
+  font-size: .85rem;
   display: inline;
 }
 
+.us-search-btn {
+  border: none;
+}
+
 .us-advsearch-link {
-  float: right;
+  padding: 0;
 }
 
 .us-qsearch-input {
@@ -148,8 +162,8 @@ p {
 }
 
 .us-index-main {
-  padding-top: 30px;
-  min-height: 700px;
+  margin-top: 80px;
+  min-height: 600px;
 }
 
 /* Header */
@@ -272,8 +286,6 @@ p {
 
 /* @media styles */
 @media only screen and (min-width: 1072px) {
-/* Base Background Colors */
-  .us-b-color-02 {background-color: rgba(205, 92, 92, .75);}
 
   #logo-image {
       background: url("../img/logo-1000.png") no-repeat center center;
@@ -334,10 +346,6 @@ p {
 
   .us-revenue-s1-body {
     min-height: 500px;
-  }
-
-  .us-banner-search {
-    padding-right: 400px;
   }
 
 }
