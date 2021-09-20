@@ -89,6 +89,7 @@ p {
 .us-p-color-01 {color: #004d99;}
 .us-i-color-01 {color: #93d49d;}
 .us-h1-color-01 {color: #666;}
+.us-h1-color-02 {color: whitesmoke;}
 .us-h2-color-01 {color: #93d49d;}
 .us-btn-color-01 {color: rgba(147, 212, 157, .25);}
 
@@ -103,34 +104,32 @@ p {
     text-align: center;
 }
 
+.us-banner-top-rev {
+  font-size: 1.0rem;
+  background-color: #93d49d;
+}
+
 /* Banners */
-.us-banner-row {
-  max-height: 50px;
-}
-
-.us-banner-top {
-    text-align: center;
-    min-height: 40px;
-    padding-top: 8px;
-    border: 1px solid rgba(147, 212, 157, .25);
-}
-
 .us-index-banner {
   text-align: center;
   padding-left: 100px;
+}
+
+.us-banner-top {
+  padding-top: 8px;
+  text-align: center;
+}
+
+.us-banner-top-title-div {
+  display: inline-block;
 }
 
 .us-banner-top-title {
   font-size: 1.5rem;
 }
 
-.us-banner-top-rev {
-  font-size: 1.0rem;
-  background-color: #93d49d;
-}
-
 .us-banner-backbtn {
-  display: contents;
+  float: left;
 }
 
 .us-banner-search {
