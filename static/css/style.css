@@ -93,6 +93,7 @@ p {
 .us-btn-color-01 {color: rgba(147, 212, 157, .25);}
 
 /* Common Background Colors*/
+.us-b-color-00 {background-color: #000;}
 .us-b-color-01 {background-color: rgba(147, 212, 157, .25);}
 .us-b-color-02 {background-color: rgba(205, 92, 92, .35);}
 .us-b-color-02a {background-color: rgba(205, 92, 92, .25);}
@@ -125,6 +126,7 @@ p {
 
 .us-banner-top-rev {
   font-size: 1.0rem;
+  background-color: #93d49d;
 }
 
 .us-banner-backbtn {
