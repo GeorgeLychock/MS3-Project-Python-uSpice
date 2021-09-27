@@ -1,39 +1,27 @@
 import os
-import pymongo
 import json
-from flask import Flask, render_template, request, flash
+from flask import (
+    Flask, flash, render_template,
+    redirect, request, session, url_for)
+from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 
 if os.path.exists("env.py"):
     import env
 
 app = Flask(__name__)
 
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
-MONGO_URI = os.environ.get("MONGO_URI")
-DATABASE = "uSpice"
-
-
-def mongo_connect(url):
-    try:
-        conn = pymongo.MongoClient(url)
-        print("Mongo is connected")
-        return conn
-    except pymongo.errors.ConnectionFailure as e:
-        print("Could not connect to MongoDB: %s") % e
+mongo = PyMongo(app)
 
 
 @app.route("/")
 def index():
 
-    data = []
-    collection = "recipes"
-
-    conn = mongo_connect(MONGO_URI)
-
-    coll = conn[DATABASE][collection]
-
-    data = coll.find()
+    data = mongo.db.recipes.find()
 
     return render_template("index.html", page_title="Home", recipes=data)
 
