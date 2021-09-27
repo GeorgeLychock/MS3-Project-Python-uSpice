@@ -104,15 +104,15 @@ p {
     text-align: center;
 }
 
-.us-banner-top-rev {
-  font-size: 1.0rem;
-  background-color: #93d49d;
-}
-
 /* Banners */
 .us-index-banner {
   text-align: center;
   padding-left: 100px;
+}
+
+.us-banner-top-rev {
+  font-size: 1.0rem;
+  background-color: #93d49d;
 }
 
 .us-banner-top {
@@ -129,6 +129,10 @@ p {
 }
 
 .us-banner-backbtn {
+  float: left;
+}
+
+.us-banner-homebtn {
   float: left;
 }
 
@@ -164,6 +168,7 @@ p {
 
 .us-index-main {
   margin-top: 80px;
+  max-width: 1400px;
   min-height: 600px;
 }
 
