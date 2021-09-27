@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block index_banner %}
+{% block banner %}
 
     <!-- Revenue Stream - Banner -->
     <div class="container-fluid">
@@ -34,7 +34,7 @@
 
 {% endblock %}
 
-{% block recipe_list%}
+{% block content %}
 <div class="col-12 col-md-7 us-text-center us-hr-box">
     <h2 class="us-hr-header us-h2-color-01">Highest Rated Spice Recipes</h2>
     {% for recipe in recipes %}
@@ -54,43 +54,6 @@
         {% endif %}
     {% endfor %}
 </div>
-{% endblock %}
-
-
-
-{% block highest_rated %}
-    <!-- Highest Rated -->
-    <div id="us-hr-box-id" class="col-12 col-md-6 us-text-center us-hr-box us-b-color-02a">
-        <h2 class="us-hr-header us-h2-color-01">Highest Rated Spice Recipes</h2>
-        <div class="btn-group btn-group-lg d-block" role="group" aria-label="...">
-            <button type="button" class="btn btn-outline-secondary us-btn-rated-a us-btn-color-01">George's Kick Ass
-                Cajun
-                Rub</button>
-            <button type="button" class="btn btn-outline-secondary us-btn-rated-a us-btn-color-01">Nicole's Lemon
-                Pepper
-                Pizazz</button>
-            <button type="button" class="btn btn-outline-secondary us-btn-rated-a us-btn-color-01">Revolution
-                Memphis Dry
-                Rub</button>
-        </div>
-        <div class="btn-group d-block" role="group" aria-label="...">
-            <button type="button" class="btn btn-outline-secondary us-btn-rated-b us-btn-color-01">Montreal Steak
-                Seasoning</button>
-            <button type="button" class="btn btn-outline-secondary us-btn-rated-b us-btn-color-01">Rub ala St.
-                Louis</button>
-            <button type="button" class="btn btn-outline-secondary us-btn-rated-b us-btn-color-01">California Burger
-                Salt</button>
-        </div>
-        <div class="btn-group btn-group-sm d-block" role="group" aria-label="...">
-            <button type="button" class="btn btn-outline-secondary us-btn-rated-c us-btn-color-01">Roasted Potato
-                Salt
-                Mix</button>
-            <button type="button" class="btn btn-outline-secondary us-btn-rated-c us-btn-color-01">Potato Salad
-                Seasoning</button>
-            <button type="button" class="btn btn-outline-secondary us-btn-rated-c us-btn-color-01">Crunchy Balls
-                Coating</button>
-        </div>
-    </div>
 {% endblock %}
 
 {% block index_rev_side %}
