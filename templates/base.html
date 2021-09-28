@@ -22,7 +22,8 @@
 
 <body>
     <main>
-        <!-- Insert unique top banner depending on page type -->
+
+        <!-- Insert page specific top banner  -->
         {% block banner %}
         {% endblock %}
 
@@ -65,9 +66,22 @@
                 </header>
 
                 <!-- Insert main content depending on page type -->
-                {% block content %}
-                {% endblock %}
+                <article class="col-12 col-md-7 us-text-center">
+                    <!-- flash messages -->
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                            <div class="row flashes">
+                                <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+                            </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
 
+                    {% block content %}
+                    {% endblock %}
+                    
+                </article>
                 <!-- User Menu - Desktop -->
                 <div class="col-12 col-lg-2 us-text-center us-side-01">
                     <nav class="d-none d-lg-block">

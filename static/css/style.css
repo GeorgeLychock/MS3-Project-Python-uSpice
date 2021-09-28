@@ -172,6 +172,11 @@ p {
   min-height: 600px;
 }
 
+/* Flashes */
+.flashes h4 {
+  line-height: 2;
+}
+
 /* Header */
 .us-header {
   font-size: 1.5rem;
@@ -228,6 +233,11 @@ p {
 
 .us-recipe-img {
   width: 100px;
+}
+
+/* Register Page */
+.us-reg-box {
+padding: 0 10%;
 }
 
 /* Recipe Card */
