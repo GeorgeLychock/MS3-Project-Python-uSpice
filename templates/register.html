@@ -1,54 +1,58 @@
 {% extends "base.html" %}
 
 {% block banner %}
-
-<!-- Revenue Stream - Banner -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col us-banner-top-rev">
-            Revenue Stream - Banner - Saleable/Ad Space Content
-        </div>
-    </div>
-</div>
-<!-- Register - Banner -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col us-banner-top us-b-color-00">
-            <div class="us-banner-homebtn">
-                <a class="nav-link" href="{{ url_for('index') }}"><i class="bi bi-house-door us-user-menu-link-01 us-i-color-01"></i></a>
-            </div>
-            <div class="us-banner-backbtn">
-                <a class="nav-link" href="{{ url_for('index') }}"><i class="bi bi-arrow-left us-user-menu-link-01 us-i-color-01"></i>Back</a>
-            </div>
-            <div class="us-banner-top-title-div us-b-color-00 us-p-color-01">
-                <h1 class="us-banner-top-title us-h1-color-02">Register</h1>
+    <!-- Register - Banner -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col us-banner-top us-b-color-00">
+                <div class="us-banner-homebtn">
+                    <a class="nav-link" href="{{ url_for('index') }}"><i class="bi bi-house-door us-user-menu-link-01 us-i-color-01"></i></a>
+                </div>
+                <div class="us-banner-backbtn">
+                    <a class="nav-link" href="{{ url_for('index') }}"><i class="bi bi-arrow-left us-user-menu-link-01 us-i-color-01"></i>Back</a>
+                </div>
+                <div class="us-banner-top-title-div us-b-color-00 us-p-color-01">
+                    <h1 class="us-banner-top-title us-h1-color-02">Register</h1>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
 {% endblock %}
 
 {% block content %}
+    <!-- Register - Form -->
+    <!-- RegEx input patterns from W3Schools - https://www.w3schools.com/tags/att_input_pattern.asp -->
     <form method="POST" action="{{ url_for('register') }}">
         <div class="form-group">
             <label for="username">Username</label>
             <i class="bi bi-person-plus"></i>
-            <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp" required>
+            <input type="text" id="username" name="username" 
+                aria-describedby="usernameHelp" 
+                pattern="[A-Za-z0-9]{5,15}" 
+                minlength="5" maxlength="15" 
+                title="Must be between 5 and 15 characters."
+                required
+                class="form-control">
             <small id="usernameHelp" class="form-text text-muted">Enter a valid username.</small>
           </div>
         <div class="form-group">
           <label for="email">Email address</label>
-          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
+          <input type="email" id="email" name="email"
+                 aria-describedby="emailHelp"  
+                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                 minlength="7" maxlength="32" 
+                 required
+                 class="form-control" >
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input type="password" name="password" class="form-control" id="password" required>
-        </div>
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          <input type="password" name="password" id="password" 
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+          title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+          minlength="5" maxlength="15" 
+          required
+          class="form-control" >
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
     </form>

@@ -280,6 +280,7 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 <a name="CREDS"></a>
 # Credits
 ## Code Credits
+-   RegEx input patterns from W3Schools - https://www.w3schools.com/tags/att_input_pattern.asp
 -   All Reused styles are in reused-styles.css
 -   Scrollbar CSS Styling: from Digital Ocean: https://www.digitalocean.com/community/tutorials/css-scrollbars, in reused-styles.css
 

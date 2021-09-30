@@ -108,6 +108,7 @@ p {
 .us-index-banner {
   text-align: center;
   padding-left: 100px;
+  height: 60px;
 }
 
 .us-banner-top-rev {
@@ -118,6 +119,7 @@ p {
 .us-banner-top {
   padding-top: 8px;
   text-align: center;
+  height: 60px;
 }
 
 .us-banner-top-title-div {

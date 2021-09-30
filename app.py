@@ -19,9 +19,10 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-@app.route("/")
+@app.route('/')
+@app.route('/index')
 def index():
-
+    # obtail highest rated recipe data
     data = mongo.db.recipes.find()
 
     return render_template("index.html", page_title="Home", recipes=data)
@@ -38,7 +39,7 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
 
-        # Future functionality: Confirm with secondary pw field
+        ## Future functionality: Confirm with secondary pw field
         # add new user to db
         register = {
             "username": request.form.get("username").lower(),
@@ -48,7 +49,7 @@ def register():
 
         # put user into session
         session["user"] = request.form.get("username").lower()
-        flash("Registeration Successful")
+        flash("Registration Successful")
     return render_template("register.html")
 
 

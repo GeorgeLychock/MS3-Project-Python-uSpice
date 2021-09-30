@@ -1,36 +1,26 @@
 {% extends "base.html" %}
 
 {% block banner %}
-
-<!-- Revenue Stream - Banner -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col us-banner-top-rev">
-            Revenue Stream - Banner - Saleable/Ad Space Content
-        </div>
-    </div>
-</div>
-<!-- Recipe Card - Banner -->
-<div class="container-fluid">
-    <div class="row">
-        <div class="col us-banner-top us-b-color-00">
-            <div class="us-banner-homebtn">
-                <a class="nav-link" href="{{ url_for('index') }}"><i class="bi bi-house-door us-user-menu-link-01 us-i-color-01"></i></a>
-            </div>
-            <div class="us-banner-backbtn">
-                <a class="nav-link" href="{{ url_for('index') }}"><i class="bi bi-arrow-left us-user-menu-link-01 us-i-color-01"></i>Back</a>
-            </div>
-            <div class="us-banner-top-title-div us-b-color-00 us-p-color-01">
-                <h1 class="us-banner-top-title us-h1-color-02">Recipe Card</h1>
-            </div>
-            <div class="float-end">
-                <a class="nav-link us-advsearch-link" href="{{ url_for('search') }}"><i class="bi bi-search us-user-menu-link-01 us-i-color-01"></i><sup>ADV </sup>Advanced
-                    Search</a>
+    <!-- Recipe Card - Banner -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col us-banner-top us-b-color-00">
+                <div class="us-banner-homebtn">
+                    <a class="nav-link" href="{{ url_for('index') }}"><i class="bi bi-house-door us-user-menu-link-01 us-i-color-01"></i></a>
+                </div>
+                <div class="us-banner-backbtn">
+                    <a class="nav-link" href="{{ url_for('index') }}"><i class="bi bi-arrow-left us-user-menu-link-01 us-i-color-01"></i>Back</a>
+                </div>
+                <div class="us-banner-top-title-div us-b-color-00 us-p-color-01">
+                    <h1 class="us-banner-top-title us-h1-color-02">Recipe Card</h1>
+                </div>
+                <div class="float-end">
+                    <a class="nav-link us-advsearch-link" href="{{ url_for('search') }}"><i class="bi bi-search us-user-menu-link-01 us-i-color-01"></i><sup>ADV </sup>Advanced
+                        Search</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
 {% endblock %}
 
 {% block content %}
