@@ -57,3 +57,28 @@
         <button type="submit" class="btn btn-primary">Register</button>
     </form>
 {% endblock %}
+
+{% block user_menu %}
+    <nav class="d-none d-lg-block">
+        <div class="us-user-name">Hello George!</div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="bi bi-door-open us-menu-link-01 us-i-color-01"></i>Login</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block minor_column %}
+    <!-- Revenue Aside 1 -->
+    <aside class="us-revenue-s1">
+        <div>
+            <h1 class="us-revenue-s1-header">Revenue Stream Side 1</h1>
+            <div class="us-revenue-s1-body">
+                <p>
+                    Saleable/Ad Space Content
+                </p>
+            </div>
+        </div>
+    </aside>
+{% endblock %}

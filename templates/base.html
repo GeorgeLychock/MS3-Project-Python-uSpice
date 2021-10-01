@@ -89,25 +89,12 @@
                     {% endblock %}
 
                 </article>
-                <!-- User Menu - Desktop -->
+                <!-- User Menu and Minor Column Content - Desktop -->
                 <div class="col-12 col-lg-2 us-text-center us-side-01">
-                    <nav class="d-none d-lg-block">
-                        <div class="us-user-name">Hello George!</div>
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('register') }}"><i class="bi bi-pencil-square us-menu-link-01 us-i-color-01"></i>Register</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="bi bi-cart2 us-menu-link-01 us-i-color-01"></i>Logout</a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                    {% block search_form %}
+                    {% block user_menu %}
                     {% endblock %}
-                    {% block index_rev_side %}
-                    {% endblock %}
-                    {% block recipe_rev_side %}
+                    <!-- Minor Column Content -->
+                    {% block minor_column %}
                     {% endblock %}
 
                 </div>

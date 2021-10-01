@@ -27,8 +27,21 @@
     </div>
 {% endblock %}
 
+{% block user_menu %}
+    <nav class="d-none d-lg-block">
+        <div class="us-user-name">Hello George!</div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('register') }}"><i class="bi bi-pencil-square us-menu-link-01 us-i-color-01"></i>Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="bi bi-door-open us-menu-link-01 us-i-color-01"></i>Login</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
 
-{% block search_form %}
+{% block minor_column %}
 <!-- Code Credit - from StartBootstrap.com Clean Blog Template-->
 <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
