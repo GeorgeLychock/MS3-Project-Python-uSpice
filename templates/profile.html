@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block banner %}
+    <!-- Profile - Banner -->
+    <!-- #### Add a list of the user's recipes submitted -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col us-banner-top us-b-color-00">
+                <div class="us-banner-homebtn">
+                    <a class="nav-link" href="{{ url_for('index') }}"><i class="bi bi-house-door us-user-menu-link-01 us-i-color-01"></i></a>
+                </div>
+                <div class="us-banner-backbtn">
+                    <a class="nav-link" href="{{ url_for('index') }}"><i class="bi bi-arrow-left us-user-menu-link-01 us-i-color-01"></i>Back</a>
+                </div>
+                <div class="us-banner-top-title-div us-b-color-00 us-p-color-01">
+                    <h1 class="us-banner-top-title us-h1-color-02">{{ username }}'s Profile</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-4 text-start">
+            <h3>Username: {{ username }}</h3>
+        </div>
+        <div class="col-md-6">
+            <p>uSER dESCRIPTION</p>
+        </div>
+        <div class="col-md-2">
+            <img class="us-recipe-img" src="{{ avitar }}" alt="Image of {{ username }}'s avitar">
+        </div>
+    </div>
+    <hr class="featurette-divider">
+{% endblock %}
+
+{% block user_menu %}
+    <nav class="d-none d-lg-block">
+        <div class="us-user-name">Hello George!</div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href=""><i class="bi bi-person-x us-menu-link-01 us-i-color-01"></i>Log Out</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block minor_column %}
+    <!-- Revenue Aside 1 -->
+    <aside class="us-revenue-s1">
+        <div>
+            <h1 class="us-revenue-s1-header">Revenue Stream Side 1</h1>
+            <div class="us-revenue-s1-body">
+                <p>
+                    Saleable/Ad Space Content
+                </p>
+            </div>
+        </div>
+    </aside>
+{% endblock %}

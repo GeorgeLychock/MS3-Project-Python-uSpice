@@ -44,13 +44,15 @@ def register():
         # add new user to db
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "avitar_url": request.form.get("avitar_url").lower()
         }
         mongo.db.users.insert_one(register)
 
         # put user into session
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
+        return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
 
@@ -66,10 +68,10 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
-                    user = session["user"]
-                    print(user)
-                    flash("Welcome back, {}".format(request.form.get("username")))
-                    return redirect(url_for("index"))
+                    flash("Welcome back, {}".format(
+                        request.form.get("username")))
+                    return redirect(url_for(
+                        "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -80,6 +82,16 @@ def login():
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
     return render_template("login.html")
+
+
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    # grab the session user's username from db
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    avitar = mongo.db.users.find_one(
+        {"username": session["user"]})["avitar_url"]
+    return render_template("profile.html", username=username, avitar=avitar)
 
 
 @app.route("/about/<recipe_name>")

@@ -47,14 +47,21 @@
 
 {% block user_menu %}
     <nav class="d-none d-lg-block">
-        <div class="us-user-name">Hello George!</div>
+        {% if session['user'] %}
+            <div class="us-user-name">Hi {{ session['user'] }}!</div>
         <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}"><i class="bi bi-person us-menu-link-01 us-i-color-01"></i>Profile</a>
+            </li>
+        {% endif %}
+        {% if  not session['user'] %}
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('register') }}"><i class="bi bi-pencil-square us-menu-link-01 us-i-color-01"></i>Register</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('login') }}"><i class="bi bi-door-open us-menu-link-01 us-i-color-01"></i>Login</a>
             </li>
+        {% endif %}
         </ul>
     </nav>
 {% endblock %}
