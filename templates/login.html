@@ -12,7 +12,7 @@
                     <a class="nav-link" href="{{ url_for('index') }}"><i class="bi bi-arrow-left us-user-menu-link-01 us-i-color-01"></i>Back</a>
                 </div>
                 <div class="us-banner-top-title-div us-b-color-00 us-p-color-01">
-                    <h1 class="us-banner-top-title us-h1-color-02">Register</h1>
+                    <h1 class="us-banner-top-title us-h1-color-02">Log In</h1>
                 </div>
             </div>
         </div>
@@ -22,39 +22,23 @@
 {% block content %}
     <!-- Register - Form -->
     <!-- RegEx input patterns from W3Schools - https://www.w3schools.com/tags/att_input_pattern.asp -->
-    <form method="POST" action="{{ url_for('register') }}">
+    <form method="POST" action="{{ url_for('login') }}">
         <div class="form-group">
-            <i class="bi bi-person-plus"></i>
+            <i class="bi bi-person-check"></i>
             <label for="username">Username</label>
             <input type="text" id="username" name="username" 
                 aria-describedby="usernameHelp" 
-                pattern="[A-Za-z0-9]{5,15}" 
-                minlength="5" maxlength="15" 
-                title="Must be between 5 and 15 characters."
                 required
                 class="form-control">
             <small id="usernameHelp" class="form-text text-muted">Enter a valid username.</small>
         </div>
         <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email"
-                 aria-describedby="emailHelp"  
-                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                 minlength="7" maxlength="32" 
-                 required
-                 class="form-control" >
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
           <label for="password">Password</label>
           <input type="password" name="password" id="password" 
-          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-          title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-          minlength="5" maxlength="15" 
           required
           class="form-control" >
         </div>
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary">Log In</button>
     </form>
 {% endblock %}
 
@@ -63,7 +47,7 @@
         <div class="us-user-name">Hello George!</div>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('login') }}"><i class="bi bi-door-open us-menu-link-01 us-i-color-01"></i>Login</a>
+                <a class="nav-link" href="{{ url_for('register') }}"><i class="bi bi-pencil-square us-menu-link-01 us-i-color-01"></i>Register</a>
             </li>
         </ul>
     </nav>

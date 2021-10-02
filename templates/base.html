@@ -34,28 +34,23 @@
         {% block banner %}
         {% endblock %}
 
-        <div class="container-fluid us-index-main">
+        <div class="container-fluid">
             <div class="row">
                 <!-- User Menu - Mobile -->
-                <nav class="d-lg-none">
-                    <div class="col-12 us-text-center us-user-menu-box">
+                <div class="d-lg-none">
+                    <nav class="col-12 us-text-center us-user-menu-box">
                         <div class="us-user-name">Hello Georgie!</div>
                         <ul class="nav flex-row">
                             <li class="nav-item">
-                                <div class="nav-link" href="#"><i class="bi bi-tools us-i-color-01"></i></div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="bi bi-cart2 us-user-menu-link-01 us-i-color-01"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="bi bi-info-circle us-user-menu-link-01 us-i-color-01"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="bi bi-person us-user-menu-link-01 us-i-color-01"></i></a>
+                                <a class="nav-link" href="{{ url_for('login') }}"><i class="bi bi-door-open us-menu-link-01 us-i-color-01"></i>Login</a>
                             </li>
                         </ul>
-                    </div>
-                </nav>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid us-index-main">
+            <div class="row">
                 <!-- Header -->
                 <header class="col-12 col-lg-3 us-text-center us-header-box">
                     <div id="logo-outer">

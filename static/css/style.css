@@ -107,8 +107,9 @@ p {
 /* Banners */
 .us-index-banner {
   text-align: center;
-  padding-left: 100px;
-  height: 60px;
+  padding-left: 5px;
+  height: 30px;
+  font-size: .75rem;
 }
 
 .us-banner-top-rev {
@@ -316,6 +317,12 @@ padding: 0 10%;
       width: 400px;
       overflow: hidden;
       position: relative;
+  }
+
+  .us-index-banner {
+    text-align: center;
+    padding-left: 100px;
+    height: 60px;
   }
 
   .us-header {
