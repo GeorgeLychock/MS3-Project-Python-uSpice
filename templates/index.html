@@ -16,7 +16,7 @@
                     <button class="btn btn-outline-success us-search-btn" type="submit"><i class="bi bi-search us-btn-color-01"></i></button>
                 </form>
                 <div class="float-end">
-                    <a class="nav-link us-advsearch-link" href="{{ url_for('search') }}"><i class="bi bi-search us-user-menu-link-01 us-i-color-01"></i><sup>ADV </sup>Advanced
+                    <a class="nav-link us-advsearch-link" href="{{ url_for('search') }}" title="Goto Advanced Search."><i class="bi bi-search us-user-menu-link-01 us-i-color-01"></i><sup>ADV </sup>Advanced
                         Search</a>
                 </div>
             </div>
@@ -30,7 +30,7 @@
     {% for recipe in recipes %}
         <div class="row">
             <div class="col-md-4 text-start">
-                <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="about/{{ recipe.url }}"><sup>#</sup>{{ loop.index }} {{recipe.name}}</a></h3>
+                <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="about/{{ recipe.url }}" title="See {{ recipe.name }}'s recipe card."><sup>#</sup>{{ loop.index }} {{recipe.name}}</a></h3>
             </div>
             <div class="col-md-6">
                 <p>{{recipe.description}}</p>
