@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
+<!-- Profile - Banner -->
 {% block banner %}
-    <!-- Profile - Banner -->
     <!-- #### Add a list of the user's recipes submitted -->
     <div class="container-fluid">
         <div class="row">
@@ -35,19 +35,15 @@
     <hr class="featurette-divider">
 {% endblock %}
 
-{% block user_menu %}
-    <nav class="d-none d-lg-block">
-        <div class="us-user-name">Hello George!</div>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href=""><i class="bi bi-person-x us-menu-link-01 us-i-color-01"></i>Log Out</a>
-            </li>
-        </ul>
-    </nav>
+<!-- Variable user menu items -->
+{% block user_menu_item_1 %}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('register') }}"><i class="bi bi-pencil-square us-menu-link-01 us-i-color-01"></i>Register</a>
+    </li>
 {% endblock %}
 
+<!-- Revenue Aside 1 -->
 {% block minor_column %}
-    <!-- Revenue Aside 1 -->
     <aside class="us-revenue-s1">
         <div>
             <h1 class="us-revenue-s1-header">Revenue Stream Side 1</h1>

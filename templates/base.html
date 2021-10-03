@@ -86,8 +86,25 @@
                 </article>
                 <!-- User Menu and Minor Column Content - Desktop -->
                 <div class="col-12 col-lg-2 us-text-center us-side-01">
-                    {% block user_menu %}
-                    {% endblock %}
+                    <nav class="d-none d-lg-block">
+                        {% if session.user %}
+                            <div class="us-user-name">Hi {{ session.user }}!</div>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}"><i class="bi bi-person us-menu-link-01 us-i-color-01"></i>Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('logout') }}"><i class="bi bi-person-x us-menu-link-01 us-i-color-01"></i>Log Out</a>
+                                </li>
+                        {% else %}
+                            <ul class="nav flex-column">
+                                {% block user_menu_item_1 %}
+                                {% endblock %}
+                                {% block user_menu_item_2 %}
+                                {% endblock %}
+                        {% endif %}
+                            </ul>
+                    </nav>
                     <!-- Minor Column Content -->
                     {% block minor_column %}
                     {% endblock %}

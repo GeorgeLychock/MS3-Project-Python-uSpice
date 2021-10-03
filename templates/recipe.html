@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
+<!-- Recipe Card - Banner -->
 {% block banner %}
-    <!-- Recipe Card - Banner -->
     <div class="container-fluid">
         <div class="row">
             <div class="col us-banner-top us-b-color-00">
@@ -63,22 +63,20 @@
     </row>
 {% endblock%}
 
-{% block user_menu %}
-    <nav class="d-none d-lg-block">
-        <div class="us-user-name">Hello George!</div>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('register') }}"><i class="bi bi-pencil-square us-menu-link-01 us-i-color-01"></i>Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('login') }}"><i class="bi bi-door-open us-menu-link-01 us-i-color-01"></i>Login</a>
-            </li>
-        </ul>
-    </nav>
+<!-- Variable user menu items -->
+{% block user_menu_item_1 %}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('register') }}"><i class="bi bi-pencil-square us-menu-link-01 us-i-color-01"></i>Register</a>
+    </li>
+{% endblock %}
+{% block user_menu_item_2 %}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('login') }}"><i class="bi bi-door-open us-menu-link-01 us-i-color-01"></i>Log In</a>
+    </li>
 {% endblock %}
 
+<!-- Revenue Aside 1 -->
 {% block minor_column %}
-    <!-- Revenue Aside 1 -->
     <aside class="us-revenue-s1">
         <div>
             <h1 class="us-revenue-s1-header">Revenue Stream Side 1</h1>

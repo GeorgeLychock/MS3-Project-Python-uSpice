@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
+<!-- Home Search Banner -->
 {% block banner %}
-    <!-- Home Search Banner -->
     <div class="container-fluid">
         <div class="row">
             <div class="col us-index-banner us-b-color-00">
@@ -24,8 +24,8 @@
     </div>
 {% endblock %}
 
+<!-- Highest Rated Section -->
 {% block content %}
-    <!-- Highest Rated Section -->
     <h2 class="us-hr-header us-h2-color-01">Highest Rated Spice Recipes</h2>
     {% for recipe in recipes %}
         <div class="row">
@@ -45,29 +45,20 @@
     {% endfor %}
 {% endblock %}
 
-{% block user_menu %}
-    <nav class="d-none d-lg-block">
-        {% if session['user'] %}
-            <div class="us-user-name">Hi {{ session['user'] }}!</div>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}"><i class="bi bi-person us-menu-link-01 us-i-color-01"></i>Profile</a>
-            </li>
-        {% endif %}
-        {% if  not session['user'] %}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('register') }}"><i class="bi bi-pencil-square us-menu-link-01 us-i-color-01"></i>Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('login') }}"><i class="bi bi-door-open us-menu-link-01 us-i-color-01"></i>Login</a>
-            </li>
-        {% endif %}
-        </ul>
-    </nav>
+<!-- Variable user menu items -->
+{% block user_menu_item_1 %}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('register') }}"><i class="bi bi-pencil-square us-menu-link-01 us-i-color-01"></i>Register</a>
+    </li>
+{% endblock %}
+{% block user_menu_item_2 %}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('login') }}"><i class="bi bi-door-open us-menu-link-01 us-i-color-01"></i>Log In</a>
+    </li>
 {% endblock %}
 
+<!-- Revenue Aside 1 -->
 {% block minor_column %}
-    <!-- Revenue Aside 1 -->
     <aside class="us-revenue-s1">
         <div>
             <h1 class="us-revenue-s1-header">Revenue Stream Side 1</h1>

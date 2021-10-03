@@ -91,7 +91,19 @@ def profile(username):
         {"username": session["user"]})["username"]
     avitar = mongo.db.users.find_one(
         {"username": session["user"]})["avitar_url"]
-    return render_template("profile.html", username=username, avitar=avitar)
+
+    if session["user"]:
+        return render_template("profile.html", username=username, avitar=avitar)
+
+    return redirect(url_for("login"))
+
+
+@app.route("/logout")
+def logout():
+    # remove session cookie
+    flash("You have been logged out!")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 @app.route("/about/<recipe_name>")
