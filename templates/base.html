@@ -30,16 +30,17 @@
                 </div>
             </div>
         </div>
+
         <!-- Insert page specific top banner  -->
         {% block banner %}
         {% endblock %}
 
-        <div class="container-fluid">
+        <div class="container-fluid fixed-top">
             <div class="row">
                 <!-- User Menu - Mobile -->
                 <div class="d-lg-none">
                     <nav class="col-12 us-text-center us-user-menu-box">
-                        <div class="us-user-name">Hello Georgie!</div>
+                        <div class="us-user-name">{{ session.user }}</div>
                         <ul class="nav flex-row">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url_for('login') }}"><i class="bi bi-door-open us-menu-link-01 us-i-color-01"></i>Login</a>
@@ -60,7 +61,7 @@
                         <h1 class="us-header us-h1-color-01">Welcome to uSpice.</h1>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-outline-success us-nav-btn">Build Recipes</button>
+                        <button type="button" class="btn btn-outline-success us-nav-btn"><a class="nav-link" href="{{ url_for('build_recipe') }}">Build Recipes</a></button>
                         <button type="button" class="btn btn-outline-success us-nav-btn">Recipe Ratings</button>
                         <button type="button" class="btn btn-outline-success us-nav-btn">Rate a Recipe</button>
                         <button type="button" class="btn btn-outline-success us-nav-btn">Buy</button>
@@ -88,7 +89,7 @@
                 <div class="col-12 col-lg-2 us-text-center us-side-01">
                     <nav class="d-none d-lg-block">
                         {% if session.user %}
-                            <div class="us-user-name">Hi {{ session.user }}!</div>
+                            <div class="us-user-name">Hi {{ session.user.capitalize() }}!</div>
                             <ul class="nav flex-column">
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}"><i class="bi bi-person us-menu-link-01 us-i-color-01"></i>Profile</a>

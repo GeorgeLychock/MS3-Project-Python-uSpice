@@ -65,6 +65,10 @@ button:focus {
   font-size: 2rem;
 }
 
+.form-check label {
+  float: left;
+}
+
   /* Base Elements */
 body {
     background-color: #fff;
@@ -170,9 +174,17 @@ p {
 }
 
 .us-index-main {
-  margin-top: 80px;
   max-width: 1400px;
   min-height: 600px;
+}
+
+/* Forms */
+.us-dropdown {
+  width: 300px;
+}
+
+.us-check-box {
+  padding-left: 80px;
 }
 
 /* Flashes */
@@ -191,6 +203,18 @@ p {
   border-color: rgba(147, 212, 157, .75);
 }
 
+.us-nav-btn a {
+  color: #3a9247;
+}
+
+.us-nav-btn a:hover {
+  color: white;
+}
+
+/* Content Blocks */
+.us-content-header {
+  margin: 10px 0 20px 0;
+}
 
 /* Home - Highest Rated */
 .us-hr-header {
@@ -323,6 +347,12 @@ padding: 0 10%;
     text-align: center;
     padding-left: 100px;
     height: 60px;
+  }
+
+  .us-index-main {
+    margin-top: 80px;
+    max-width: 1400px;
+    min-height: 600px;
   }
 
   .us-header {

@@ -9,9 +9,9 @@
                     <select class="form-control us-search-box" id="quick-search" name="quick-search" placeholder="Quick Search"
                         aria-label="Quick Search">
                         <option value="savory">Quick Search</option>
-                        <option value="savory">Savory</option>
-                        <option value="sweet">Sweet</option>
-                        <option value="spicy">Spicy</option>
+                        {% for category in categories %}
+                            <option value="{{ category.category_name }}">{{ category.category_name.capitalize() }}</option>
+                        {% endfor%}
                     </select>
                     <button class="btn btn-outline-success us-search-btn" type="submit"><i class="bi bi-search us-btn-color-01"></i></button>
                 </form>

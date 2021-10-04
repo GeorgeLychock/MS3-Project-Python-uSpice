@@ -25,8 +25,9 @@ mongo = PyMongo(app)
 def index():
     # obtail highest rated recipe data
     data = mongo.db.recipes.find()
-
-    return render_template("index.html", page_title="Home", recipes=data)
+    # obtail flavor category data
+    categories = mongo.db.categories.find()
+    return render_template("index.html", recipes=data, categories=categories)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -127,6 +128,14 @@ def search():
             "name")))
         
     return render_template("search.html")
+
+
+@app.route("/build_recipe", methods=["GET", "POST"])
+def build_recipe():
+        # obtail flavor category data
+    categories = mongo.db.categories.find()
+    regions = mongo.db.region.find()
+    return render_template("build_recipe.html", categories=categories, regions=regions)
 
 
 if __name__ == "__main__":
