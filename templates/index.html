@@ -30,13 +30,13 @@
     {% for recipe in recipes %}
         <div class="row">
             <div class="col-md-4 text-start">
-                <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="about/{{ recipe.url }}" title="See {{ recipe.name }}'s recipe card."><sup>#</sup>{{ loop.index }} {{recipe.name}}</a></h3>
+                <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="about/{{ recipe.url }}" title="See {{ recipe.recipe_name }}'s recipe card."><sup>#</sup>{{ loop.index }} {{recipe.recipe_name}}</a></h3>
             </div>
             <div class="col-md-6">
                 <p>{{recipe.description}}</p>
             </div>
             <div class="col-md-2">
-                <img class="us-recipe-img" src="{{ recipe.image_url }}" alt="Image of {{ recipe.name }}">
+                <img class="us-recipe-img" src="{{ recipe.image_url }}" alt="Image of {{ recipe.recipe_name }}">
             </div>
         </div>
         {% if loop.index != loop.length %}
