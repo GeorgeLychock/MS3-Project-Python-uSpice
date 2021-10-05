@@ -132,9 +132,40 @@ def search():
 
 @app.route("/build_recipe", methods=["GET", "POST"])
 def build_recipe():
-        # obtail flavor category data
-    categories = mongo.db.categories.find()
-    regions = mongo.db.region.find()
+    if request.method == "POST":
+        recipe = {
+            "author": session["user"],
+            "recipe_name": request.form.get("recipe_name"),
+            "recipe_uid": "enter unique #",
+            "ingredients": [
+                {
+                    "name": "tequila",
+                    "quantity": 2.5,
+                    "measure": "tsp"
+                },
+                {
+                    "name": "girl",
+                    "quantity": 2.5,
+                    "measure": "tbls"
+                }
+            ],
+            "recipe_region": request.form.get("recipe_region"),
+            "date_posted": "07-25-1968",
+            "description": request.form.get("recipe_description"),
+            "preparation": request.form.get("recipe_prep"),
+            "image_url":  request.form.get("recipe_image_url"),
+            "image_alt":  request.form.get("recipe_image_alt"),
+            "url": request.form.get("recipe_name"),
+            "flavors": request.form.getlist("category"),
+            "rating": 4.7
+        }
+        mongo.db.recipes.insert_one(recipe)
+        flash("Recipe added to view by the entire world!")
+        return redirect(url_for("index"))
+        
+    # obtail flavor category data
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    regions = mongo.db.region.find().sort("region_name", 1)
     return render_template("build_recipe.html", categories=categories, regions=regions)
 
 
