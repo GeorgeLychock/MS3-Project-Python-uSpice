@@ -110,14 +110,12 @@ p {
 
 /* Banners */
 .us-index-banner {
-  text-align: center;
   padding-left: 5px;
-  height: 30px;
   font-size: .75rem;
 }
 
 .us-banner-top-rev {
-  font-size: 1.0rem;
+  font-size: .7rem;
   background-color: #93d49d;
 }
 
@@ -341,6 +339,10 @@ padding: 0 10%;
       width: 400px;
       overflow: hidden;
       position: relative;
+  }
+
+  .us-banner-top-rev {
+    font-size: 1.0rem;
   }
 
   .us-index-banner {

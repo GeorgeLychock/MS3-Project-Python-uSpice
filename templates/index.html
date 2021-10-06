@@ -56,6 +56,17 @@
         <a class="nav-link" href="{{ url_for('login') }}"><i class="bi bi-door-open us-menu-link-01 us-i-color-01"></i>Log In</a>
     </li>
 {% endblock %}
+<!-- Variable user menu items DUPLICATED for Mobile -->
+{% block user_menu_item_1m %}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('register') }}"><i class="bi bi-pencil-square us-menu-link-01 us-i-color-01"></i>Register</a>
+    </li>
+{% endblock %}
+{% block user_menu_item_2m %}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('login') }}"><i class="bi bi-door-open us-menu-link-01 us-i-color-01"></i>Log In</a>
+    </li>
+{% endblock %}
 
 <!-- Revenue Aside 1 -->
 {% block minor_column %}
