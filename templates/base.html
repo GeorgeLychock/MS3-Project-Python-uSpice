@@ -28,8 +28,10 @@
                 <div class="d-lg-none">
                     <nav class="col-12 us-user-menu-box">
                         {% if session.user %}
-                        <div class="us-user-name">Hi {{ session.user.capitalize() }}!</div>
                         <ul class="nav">
+                            <li class="nav-item">
+                                Hi {{ session.user.capitalize() }}!
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}"><i class="bi bi-person us-menu-link-01 us-i-color-01"></i>Profile</a>
                             </li>
@@ -37,7 +39,6 @@
                                 <a class="nav-link" href="{{ url_for('logout') }}"><i class="bi bi-door-closed-fill us-menu-link-01 us-i-color-01"></i>Log Out</a>
                             </li>
                     {% else %}
-                        <ul class="nav">
                             {% block user_menu_item_1m %}
                             {% endblock %}
                             {% block user_menu_item_2m %}

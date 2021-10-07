@@ -197,8 +197,7 @@ p {
 }
 
 #logo-outer {
-    margin-bottom: 20px;
-    height: 200px;
+    margin-bottom: 5rem;
 }
 
 .us-header {
@@ -423,18 +422,6 @@ padding: 0 10%;
 
 @media only screen and (max-width: 1071px) {
 
-  .us-header-box {
-    margin: 0 0 30px 0;
-  }
-
-  .us-hr-box {
-    padding: 30px 0;
-  }
-
-  .us-user-name {
-    float: right;
-    padding: 4px 4px 0 0;
-  }
 
 }
 
