@@ -13,11 +13,10 @@
                             <option value="{{ category.category_name }}">{{ category.category_name.capitalize() }}</option>
                         {% endfor%}
                     </select>
-                    <button class="btn btn-outline-success us-search-btn" type="submit"><i class="bi bi-search us-btn-color-01"></i></button>
+                    <button class="btn btn-outline-success us-search-btn" type="submit"><i class="bi bi-search us-btn-color-02"></i></button>
                 </form>
                 <div class="float-end">
-                    <a class="nav-link us-advsearch-link" href="{{ url_for('search') }}" title="Goto Advanced Search."><i class="bi bi-search us-user-menu-link-01 us-i-color-01"></i><sup>ADV </sup>Advanced
-                        Search</a>
+                    <a class="nav-link us-advsearch-link" href="{{ url_for('search') }}" title="Goto Advanced Search."><i class="bi bi-search us-menu-link-02 us-i-color-02"></i><sup>ADV </sup></a>
                 </div>
             </div>
         </div>

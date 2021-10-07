@@ -96,9 +96,10 @@ p {
 .us-h1-color-02 {color: whitesmoke;}
 .us-h2-color-01 {color: #93d49d;}
 .us-btn-color-01 {color: rgba(147, 212, 157, .25);}
+.us-btn-color-02 {color: whitesmoke;}
 
 /* Common Background Colors*/
-.us-b-color-00 {background-color: #000;}
+.us-b-color-00 {background-color: rgb(213, 121, 102, .75);}
 .us-b-color-01 {background-color: rgba(147, 212, 157, .25);}
 .us-b-color-02 {background-color: rgba(205, 92, 92, .35);}
 .us-b-color-02a {background-color: rgba(205, 92, 92, .25);}
@@ -110,7 +111,7 @@ p {
 
 /* Banners */
 .us-index-banner {
-  padding-left: 5px;
+  padding: 5px 10px 0 5px;
   font-size: .75rem;
 }
 
@@ -216,6 +217,14 @@ p {
 
 .us-nav-btn a:hover {
   color: white;
+}
+
+.us-menu-link-01:before {
+  font-size: 1rem;
+}
+
+.us-menu-link-02:before {
+  font-size: .75rem;
 }
 
 /* Content Blocks */
