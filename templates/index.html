@@ -3,8 +3,8 @@
 <!-- Home Search Banner -->
 {% block banner %}
     <div class="container-fluid">
-        <div class="row">
-            <div class="col us-index-banner us-b-color-00">
+        <nav class="row">
+            <div class="col-6 us-index-banner us-b-color-00">
                 <form method="POST" class="form-inline us-search-form" id="quick-search-form">
                     <select class="form-control us-search-box" id="quick-search" name="quick-search" placeholder="Quick Search"
                         aria-label="Quick Search">
@@ -15,11 +15,13 @@
                     </select>
                     <button class="btn btn-outline-success us-search-btn" type="submit"><i class="bi bi-search us-btn-color-02"></i></button>
                 </form>
-                <div class="float-end">
+            </div>
+            <div class="col-6 us-index-banner us-b-color-00">
+                <div class="">
                     <a class="nav-link us-advsearch-link" href="{{ url_for('search') }}" title="Goto Advanced Search."><i class="bi bi-search us-menu-link-02 us-i-color-02"></i><sup>ADV </sup></a>
                 </div>
             </div>
-        </div>
+        </nav>
     </div>
 {% endblock %}
 

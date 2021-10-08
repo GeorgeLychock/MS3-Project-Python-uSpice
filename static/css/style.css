@@ -92,6 +92,7 @@ p {
 /* Common Text Colors */
 .us-p-color-01 {color: #004d99;}
 .us-i-color-01 {color: #93d49d;}
+.us-i-color-02 {color: whitesmoke;}
 .us-h1-color-01 {color: #666;}
 .us-h1-color-02 {color: whitesmoke;}
 .us-h2-color-01 {color: #93d49d;}
@@ -109,6 +110,10 @@ p {
     text-align: center;
 }
 
+.us-padding-0 {
+  padding: 0;
+}
+
 /* Banners */
 .us-index-banner {
   padding: 5px 10px 0 5px;
@@ -121,9 +126,7 @@ p {
 }
 
 .us-banner-top {
-  padding-top: 8px;
-  text-align: center;
-  height: 60px;
+  padding: 8px 0;
 }
 
 .us-banner-top-title-div {
@@ -138,8 +141,12 @@ p {
   float: left;
 }
 
+.us-banner-backbtn a{
+  color: whitesmoke;
+}
+
 .us-banner-homebtn {
-  float: left;
+  margin-right: 10px;
 }
 
 .us-banner-search {
@@ -348,10 +355,6 @@ padding: 0 10%;
 
 /* @media styles */
 @media only screen and (min-width: 1072px) {
-
-  .nav-link i {
-    font-size: 2rem;
-  }
 
   .logo-image {
     width: 200px;
