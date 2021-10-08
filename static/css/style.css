@@ -62,7 +62,7 @@ button:focus {
   }
 
 .nav-link i {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .form-check label {
@@ -222,11 +222,11 @@ p {
   color: white;
 }
 
-.us-menu-link-01:before {
+.us-menu-link-01 {
   font-size: 1rem;
 }
 
-.us-menu-link-02:before {
+.us-menu-link-02 {
   font-size: .75rem;
 }
 
@@ -348,6 +348,10 @@ padding: 0 10%;
 
 /* @media styles */
 @media only screen and (min-width: 1072px) {
+
+  .nav-link i {
+    font-size: 2rem;
+  }
 
   .logo-image {
     width: 200px;

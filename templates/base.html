@@ -27,8 +27,8 @@
                 <!-- User Menu - Mobile -->
                 <div class="d-lg-none">
                     <nav class="col-12 us-user-menu-box">
-                        {% if session.user %}
                         <ul class="nav">
+                        {% if session.user %}
                             <li class="nav-item">
                                 Hi {{ session.user.capitalize() }}!
                             </li>
