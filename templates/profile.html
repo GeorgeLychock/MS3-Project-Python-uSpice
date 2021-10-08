@@ -41,6 +41,13 @@
         <a class="nav-link" href="{{ url_for('register') }}"><i class="bi bi-pencil-square us-menu-link-01 us-i-color-01"></i>Register</a>
     </li>
 {% endblock %}
+<!-- Variable user menu items DUPLICATED for Mobile -->
+{% block user_menu_item_1m %}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('register') }}"><i class="bi bi-pencil-square us-menu-link-01 us-i-color-01"></i>Register</a>
+    </li>
+{% endblock %}
+{% endblock %}
 
 <!-- Revenue Aside 1 -->
 {% block minor_column %}
