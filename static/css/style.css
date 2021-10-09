@@ -149,12 +149,9 @@ p {
   margin-right: 10px;
 }
 
-.us-banner-search {
-  text-align: center;
-  font-size: .9rem;
-  min-height: 60px;
-  margin-bottom: 10px;
-  padding-top: 8px;
+.us-adv-search-col {
+  text-align: right;
+  padding: 12px 12px 0 0;
 }
 
 .us-search-form {
@@ -304,6 +301,11 @@ padding: 0 10%;
 
 .us-recipe-info {
   font-size: 1.25rem;
+}
+
+/* Recipe Card */
+.us-user-menu-navitem {
+  margin-left: 30px;
 }
 
 /* Revenue Side 1 */
