@@ -364,7 +364,6 @@ padding: 0 10%;
 
   #logo-outer {
       margin-bottom: 20px;
-      height: 200px;
   }
 
   .us-banner-top-rev {
@@ -386,6 +385,11 @@ padding: 0 10%;
   .us-header {
     font-size: 2.0rem;
     margin-bottom: 10px;
+  }
+
+  .us-header-menu {
+    height: 290px;
+    border: solid 1px rgba(147, 212, 157, .25);
   }
 
   .us-high-rated-box {
