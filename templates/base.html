@@ -62,10 +62,12 @@
         {% block banner %}
         {% endblock %}
 
-        <div class="container-fluid us-index-main">
+        <div class="container-fluid us-main-content">
             <div class="row">
                 <!-- Header -->
-                <header class="col-12 col-lg-3 us-text-center us-header-box">
+                {% block header %}
+                {% endblock %}
+                <header class="d-none d-md-block col-12 col-md-3 us-text-center us-header-box">
                     <div id="logo-outer">
                         <div><img class="logo-image" src="{{ url_for('static', filename='img/logo-1000.png' ) }}"></div>
                     </div>
@@ -79,7 +81,6 @@
                         <button type="button" class="btn btn-outline-success us-nav-btn">Buy</button>
                     </div>
                 </header>
-
                 <!-- Insert main content depending on page type -->
                 <article class="col-12 col-md-7 us-text-center">
                     <!-- flash messages -->

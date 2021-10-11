@@ -2,9 +2,9 @@
 
 <!-- Home Search Banner -->
 {% block banner %}
-    <div class="container-fluid">
+    <div class="container-fluid us-banner-container us-b-color-00">
         <nav class="row">
-            <div class="col-9 col-md-6 us-index-banner us-b-color-00">
+            <div class="col-9 col-md-6 us-index-banner">
                 <form method="POST" class="form-inline us-search-form" id="quick-search-form">
                     <select class="form-control us-search-box" id="quick-search" name="quick-search" placeholder="Quick Search"
                         aria-label="Quick Search">
@@ -16,13 +16,31 @@
                     <button class="btn btn-outline-success us-search-btn" type="submit"><i class="bi bi-search us-btn-color-02"></i></button>
                 </form>
             </div>
-            <div class="col-3 col-md-6 us-index-banner us-adv-search-col us-b-color-00">
+            <div class="col-3 col-md-6 us-index-banner us-adv-search-col">
                 <div class="">
                     <a class="nav-link us-advsearch-link" href="{{ url_for('search') }}" title="Goto Advanced Search."><i class="bi bi-search us-menu-link-02 us-i-color-02"></i><sup>ADV </sup></a>
                 </div>
             </div>
         </nav>
     </div>
+{% endblock %}
+
+<!-- Header Section -->
+{% block header %}
+    <header class="col-12 d-md-none us-text-center us-header-box">
+        <div id="logo-outer">
+            <div><img class="logo-image" src="{{ url_for('static', filename='img/logo-1000.png' ) }}"></div>
+        </div>
+        <div class="">
+            <h1 class="us-header us-h1-color-01">Welcome to uSpice.</h1>
+        </div>
+        <div class="us-header-menu">
+            <button type="button" class="btn btn-outline-success us-nav-btn"><a class="nav-link" href="{{ url_for('build_recipe') }}">Build Recipes</a></button>
+            <button type="button" class="btn btn-outline-success us-nav-btn">Recipe Ratings</button>
+            <button type="button" class="btn btn-outline-success us-nav-btn">Rate a Recipe</button>
+            <button type="button" class="btn btn-outline-success us-nav-btn">Buy</button>
+        </div>
+    </header>
 {% endblock %}
 
 <!-- Highest Rated Section -->

@@ -2,25 +2,29 @@
 
 <!-- Profile - Banner -->
 {% block banner %}
-    <!-- #### Add a list of the user's recipes submitted -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col us-banner-top us-b-color-00">
-                <div class="us-banner-homebtn">
-                    <a class="nav-link" href="{{ url_for('index') }}" title="Home"></a>><i class="bi bi-house-door us-user-menu-link-01 us-i-color-01"></i></a>
-                </div>
+    <div class="container-fluid us-banner-container us-b-color-00">
+        <nav class="row text-center">
+            <div class="col-4 col-md-3 us-banner-top">
                 <div class="us-banner-backbtn">
-                    <a class="nav-link" href="{{ url_for('index') }}"><i class="bi bi-arrow-left us-user-menu-link-01 us-i-color-01"></i>Back</a>
-                </div>
-                <div class="us-banner-top-title-div us-b-color-00 us-p-color-01">
-                    <h1 class="us-banner-top-title us-h1-color-02">{{ username }}'s Profile</h1>
+                    <a class="nav-link us-padding-0" href="{{ url_for('index') }}"><i class="bi bi-arrow-left us-user-menu-link-01 us-i-color-02"></i>Back</a>
                 </div>
             </div>
-        </div>
+            <div class="col-4 col-md-6 us-banner-top">
+                <div class="us-banner-top-title-div us-p-color-01">
+                    <h1 class="us-banner-top-title us-h1-color-02">{{ username.capitalize() }}'s Profile</h1>
+                </div>
+            </div>
+            <div class="col-4 col-md-3 us-banner-top">
+                <div class="us-banner-homebtn">
+                    <a class="nav-link us-padding-0" href="{{ url_for('index') }}" title="Home"></a><i class="bi bi-house-door us-user-menu-link-01 us-i-color-02"></i></a>
+                </div>
+            </div>
+        </nav>
     </div>
 {% endblock %}
 
 {% block content %}
+    <!-- #### Add a list of the user's recipes submitted -->
     <div class="row">
         <div class="col-md-4 text-start">
             <h3>Username: {{ username }}</h3>

@@ -63,6 +63,7 @@ button:focus {
 
 .nav-link i {
   font-size: 1rem;
+  margin: 0 5px;
 }
 
 .form-check label {
@@ -95,7 +96,7 @@ p {
 .us-i-color-02 {color: whitesmoke;}
 .us-h1-color-01 {color: #666;}
 .us-h1-color-02 {color: whitesmoke;}
-.us-h2-color-01 {color: #93d49d;}
+.us-h2-color-01 {color: #333;}
 .us-btn-color-01 {color: rgba(147, 212, 157, .25);}
 .us-btn-color-02 {color: whitesmoke;}
 
@@ -115,9 +116,18 @@ p {
 }
 
 /* Banners */
+.us-banner-container {
+  min-height: 60px;
+  padding: 5px 10px;
+}
+
 .us-index-banner {
   padding: 5px 10px 0 5px;
   font-size: .75rem;
+}
+
+.us-banner-top  {
+  padding: 15px 0 3px 0;
 }
 
 .us-banner-top-rev {
@@ -125,16 +135,12 @@ p {
   background-color: #93d49d;
 }
 
-.us-banner-top {
-  padding: 8px 0;
-}
-
 .us-banner-top-title-div {
   display: inline-block;
 }
 
 .us-banner-top-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .us-banner-backbtn {
@@ -145,8 +151,13 @@ p {
   color: whitesmoke;
 }
 
+.us-banner-backbtn :hover {
+  color: #333;
+}
+
 .us-banner-homebtn {
   margin-right: 10px;
+  text-align: right;
 }
 
 .us-adv-search-col {
@@ -170,15 +181,11 @@ p {
 
 .us-advsearch-link {
   padding: 0;
+  margin: 0 10px;
 }
 
 .us-qsearch-input {
   display: inline;
-}
-
-.us-index-main {
-  max-width: 1400px;
-  min-height: 600px;
 }
 
 /* Forms */
@@ -228,6 +235,7 @@ p {
 
 .us-menu-link-01 {
   font-size: 1rem;
+  margin-right: 2px;
 }
 
 .us-menu-link-02 {
@@ -235,6 +243,13 @@ p {
 }
 
 /* Content Blocks */
+
+.us-main-content {
+  max-width: 1400px;
+  min-height: 600px;
+  margin-top: 30px;
+}
+
 .us-content-header {
   margin: 10px 0 20px 0;
 }
@@ -358,12 +373,20 @@ padding: 0 10%;
 /* @media styles */
 @media only screen and (min-width: 1072px) {
 
+  .nav-link i {
+    font-size: 1.5rem;
+  }
+
   .logo-image {
     width: 200px;
   }
 
   #logo-outer {
       margin-bottom: 20px;
+  }
+
+  .us-banner-container {
+    padding: 5px 10px 0px 10px;
   }
 
   .us-banner-top-rev {
@@ -374,6 +397,26 @@ padding: 0 10%;
     text-align: center;
     padding-left: 100px;
     height: 60px;
+  }
+
+  .us-banner-top  {
+    padding: 10px 10px 3px 0;
+  }
+
+  .us-banner-top-title {
+    font-size: 1.5rem;
+  }
+
+  .us-banner-backbtn {
+    margin: -10px 0 0 20px;
+  }
+
+  .us-banner-homebtn {
+    margin-right: 40px;
+  }
+
+  .us-advsearch-link {
+    margin: 0 40px;
   }
 
   .us-index-main {
