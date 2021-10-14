@@ -190,7 +190,11 @@ p {
 
 /* Forms */
 .us-dropdown {
-  width: 300px;
+
+}
+
+.us-form-btn {
+  margin-top: 10px;
 }
 
 .us-check-box {
@@ -318,9 +322,29 @@ padding: 0 10%;
   font-size: 1.25rem;
 }
 
-/* Recipe Card */
+/* User Menu */
 .us-user-menu-navitem {
   margin-left: 30px;
+}
+
+/* Build Recipe */
+.us-ingredient-col {
+  padding: 0 10px;
+  text-align: left;
+}
+
+.us-ingredient-header {
+  margin-bottom: 20px;
+}
+
+.us-ingredient-box {
+  background-color: whitesmoke;
+  margin-bottom: 10px;
+}
+
+.us-ingredient-addbtn {
+  font-size: .85rem;
+  float: left;
 }
 
 /* Revenue Side 1 */

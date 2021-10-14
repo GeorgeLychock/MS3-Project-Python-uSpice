@@ -1,4 +1,5 @@
 import os
+import datetime
 import json
 from dns.rdatatype import NULL
 from flask import (
@@ -133,40 +134,62 @@ def search():
 @app.route("/build_recipe", methods=["GET", "POST"])
 def build_recipe():
     if request.method == "POST":
+        # Create ingredient list
+        ing_names = request.form.getlist("ingredient_name")
+        ing_quantities = request.form.getlist("ingredient_quantity")
+        ing_measures = request.form.getlist("ingredient_measure")
+        ing_list = []
+
+        for ind in range(len(ing_names)):
+            ing_dict = {
+                "name": ing_names[ind],
+                "quantity": ing_quantities[ind],
+                "measure": ing_measures[ind]
+            }
+            ing_list.append(ing_dict)
+        # Create date posted
+        x = datetime.datetime.now()
+        post_date = x.strftime("%x")
+
+        # Create recipe url replacing spaces in name w/ underscores and making lowercase
+        y = request.form.get("recipe_name")
+        post_url = y.lower().replace(" ", "_")
+
+        # Create object to upload to db
         recipe = {
             "author": session["user"],
             "recipe_name": request.form.get("recipe_name"),
             "recipe_uid": "enter unique #",
-            "ingredients": [
-                {
-                    "name": "tequila",
-                    "quantity": 2.5,
-                    "measure": "tsp"
-                },
-                {
-                    "name": "girl",
-                    "quantity": 2.5,
-                    "measure": "tbls"
-                }
-            ],
+            "ingredients": ing_list,
             "recipe_region": request.form.get("recipe_region"),
-            "date_posted": "07-25-1968",
+            "date_posted": post_date,
             "description": request.form.get("recipe_description"),
             "preparation": request.form.get("recipe_prep"),
             "image_url":  request.form.get("recipe_image_url"),
             "image_alt":  request.form.get("recipe_image_alt"),
-            "url": request.form.get("recipe_name"),
+            "url": post_url,
             "flavors": request.form.getlist("category"),
             "rating": 4.7
         }
-        mongo.db.recipes.insert_one(recipe)
+        # mongo.db.recipes.insert_one(recipe)
         flash("Recipe added to view by the entire world!")
-        return redirect(url_for("index"))
-        
+        return render_template("edit_recipe.html", recipe=recipe)
+    
     # obtail flavor category data
     categories = mongo.db.categories.find().sort("category_name", 1)
     regions = mongo.db.region.find().sort("region_name", 1)
-    return render_template("build_recipe.html", categories=categories, regions=regions)
+    measures = list(mongo.db.measures.find())
+    ingredients = list(mongo.db.ingredients.find())
+    return render_template("build_recipe.html", categories=categories, regions=regions, measures=measures, ingredients=ingredients)
+
+@app.route("/edit_recipe", methods=["GET", "POST"])
+def edit_recipe():
+    # obtail flavor category data
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    regions = mongo.db.region.find().sort("region_name", 1)
+    measures = list(mongo.db.measures.find())
+    ingredients = list(mongo.db.ingredients.find())
+    return render_template("edit_recipe.html", categories=categories, regions=regions, measures=measures, ingredients=ingredients)
 
 
 if __name__ == "__main__":

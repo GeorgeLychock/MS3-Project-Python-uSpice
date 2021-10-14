@@ -11,7 +11,7 @@
             </div>
             <div class="col-4 col-md-6 us-banner-top">
                 <div class="us-banner-top-title-div us-p-color-01">
-                    <h1 class="us-banner-top-title us-h1-color-02">Build Recipe</h1>
+                    <h1 class="us-banner-top-title us-h1-color-02">Edit Recipe</h1>
                 </div>
             </div>
             <div class="col-4 col-md-3 us-banner-top">
@@ -39,7 +39,6 @@
             Create a new recipe to share with the world!</h4>
     </div>
     <div class="">{{ recipe }}</div>
-    <div class="">{{ ing_list }}</div>
     <row>
         <div class="col">
             <form class="row g-3" id="ingredientForm" name="ingredientForm" method="POST" action="{{ url_for('build_recipe') }}">
