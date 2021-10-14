@@ -171,9 +171,12 @@ def build_recipe():
             "flavors": request.form.getlist("category"),
             "rating": 4.7
         }
+        url = post_url
+
         # mongo.db.recipes.insert_one(recipe)
         flash("Recipe added to view by the entire world!")
-        return render_template("edit_recipe.html", recipe=recipe)
+        # return render_template("edit_recipe.html", recipe=recipe)
+        return redirect(url_for("edit_recipe", url=url))
     
     # obtail flavor category data
     categories = mongo.db.categories.find().sort("category_name", 1)
@@ -182,14 +185,15 @@ def build_recipe():
     ingredients = list(mongo.db.ingredients.find())
     return render_template("build_recipe.html", categories=categories, regions=regions, measures=measures, ingredients=ingredients)
 
-@app.route("/edit_recipe", methods=["GET", "POST"])
-def edit_recipe():
+@app.route("/edit_recipe/<url>", methods=["GET", "POST"])
+def edit_recipe(url):
     # obtail flavor category data
     categories = mongo.db.categories.find().sort("category_name", 1)
     regions = mongo.db.region.find().sort("region_name", 1)
     measures = list(mongo.db.measures.find())
     ingredients = list(mongo.db.ingredients.find())
-    return render_template("edit_recipe.html", categories=categories, regions=regions, measures=measures, ingredients=ingredients)
+    recipe = url
+    return render_template("edit_recipe.html", categories=categories, regions=regions, measures=measures, ingredients=ingredients, recipe=recipe)
 
 
 if __name__ == "__main__":
