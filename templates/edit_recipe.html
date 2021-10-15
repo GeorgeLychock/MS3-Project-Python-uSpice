@@ -38,7 +38,7 @@
             {% endif %}
             Create a new recipe to share with the world!</h4>
     </div>
-    <div class="">{{ recipe }}</div>
+    <div class="">{{ url }}</div>
     <row>
         <div class="col">
             <form class="row g-3" id="ingredientForm" name="ingredientForm" method="POST" action="{{ url_for('build_recipe') }}">
