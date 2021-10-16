@@ -171,13 +171,17 @@ def build_recipe():
         flash("Recipe added to view by the entire world!")
         return redirect(url_for("recipe", ruid=ruid))
     
-    # obtail flavor category data
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    regions = mongo.db.region.find().sort("region_name", 1)
-    measures = list(mongo.db.measures.find())
-    ingredients = list(mongo.db.ingredients.find())
-    return render_template("build_recipe.html", categories=categories, regions=regions, measures=measures, ingredients=ingredients)
-
+    try:
+        session["user"]
+        # obtail flavor category data
+        categories = mongo.db.categories.find().sort("category_name", 1)
+        regions = mongo.db.region.find().sort("region_name", 1)
+        measures = list(mongo.db.measures.find())
+        ingredients = list(mongo.db.ingredients.find())
+        return render_template("build_recipe.html", categories=categories, regions=regions, measures=measures, ingredients=ingredients)
+    except:
+        flash("Please log on or register before submitting a recipe. Thanks!")
+        return redirect(url_for("login"))
 
 @app.route("/recipe/<ruid>", methods=["GET"])
 def recipe(ruid):
