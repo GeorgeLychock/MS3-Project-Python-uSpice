@@ -115,6 +115,22 @@ p {
   padding: 0;
 }
 
+/* Button Styles */
+.us-nav-btn-01 {
+  font-size: 1rem;
+  border: 2px solid rgba(0, 107, 179, .90);
+  border-radius: 10px;
+}
+
+.us-nav-btn-01 a {
+  font-weight: 500;
+}
+
+.us-nav-btn-01 a:hover {
+  font-weight: 700;
+  color: white;
+}
+
 /* Banners */
 .us-banner-container {
   min-height: 60px;
@@ -190,10 +206,6 @@ p {
 }
 
 /* Forms */
-.us-dropdown {
-
-}
-
 .us-form-btn {
   margin-top: 10px;
 }

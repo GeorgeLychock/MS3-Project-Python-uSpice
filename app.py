@@ -27,7 +27,7 @@ mongo = PyMongo(app)
 @app.route('/index')
 def index():
     # obtail highest rated recipe data
-    data = mongo.db.recipes.find()
+    data = mongo.db.recipes.find().sort(str("rating"), 1)
     # obtail flavor category data
     categories = mongo.db.categories.find()
     return render_template("index.html", recipes=data, categories=categories)
@@ -183,10 +183,26 @@ def build_recipe():
         flash("Please log on or register before submitting a recipe. Thanks!")
         return redirect(url_for("login"))
 
-@app.route("/recipe/<ruid>", methods=["GET"])
+
+@app.route("/recipe/<ruid>", methods=["GET", "POST"])
 def recipe(ruid):
+    if request.method == "POST":
+        rating = {
+            "rating": 5.0,
+            "rater": session["user"],
+            "ruid": ruid
+        }
+        mongo.db.ratings.insert_one(rating)
+        return redirect(url_for("rate_recipe", ruid=ruid))
+
     data = mongo.db.recipes.find_one_or_404({"recipe_uid": ruid})
     return render_template("recipe.html", recipe=data)
+
+
+@app.route("/rate_recipe/<ruid>", methods=["GET"])
+def rate_recipe(ruid):
+    data = mongo.db.recipes.find_one_or_404({"recipe_uid": ruid})
+    return render_template("rate_recipe.html", recipe=data)
 
 
 @app.route("/edit_recipe/<url>", methods=["GET", "POST"])

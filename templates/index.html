@@ -49,7 +49,7 @@
     {% for recipe in recipes %}
         <div class="row">
             <div class="col-md-4 text-start">
-                <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="about/{{ recipe.url }}" title="See {{ recipe.recipe_name }}'s recipe card."><sup>#</sup>{{ loop.index }} {{recipe.recipe_name}}</a></h3>
+                <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="recipe/{{ recipe.recipe_uid }}" title="See {{ recipe.recipe_name }}'s recipe card."><sup>#</sup>{{ loop.index }} {{recipe.recipe_name}}</a></h3>
             </div>
             <div class="col-md-6">
                 <p>{{recipe.description}}</p>

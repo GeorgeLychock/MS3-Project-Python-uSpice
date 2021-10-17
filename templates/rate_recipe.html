@@ -10,7 +10,7 @@
             </div>
             <div class="col-4 col-md-6 us-banner-top">
                 <div class="us-banner-top-title-div us-p-color-01">
-                    <h1 class="us-banner-top-title us-h1-color-02">Recipe Card</h1>
+                    <h1 class="us-banner-top-title us-h1-color-02">Your Recipe Ratings</h1>
                 </div>
             </div>
             <div class="col-4 col-md-3 us-banner-top">
@@ -69,23 +69,6 @@
             <p>{{ recipe.preparation }}</p>
         </div>
     </row>
-    <row>
-        {% if session.user %}
-            <div class="col">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary us-recipe-rate-btn" data-bs-toggle="modal"
-                    data-bs-target="#ratingModal">
-                    Rate this recipe!
-                </button>
-            </div>
-        {% else %}
-            <div class="col">
-                <!-- Login Button -->
-                <button type="button" class="btn btn-primary us-nav-btn-01"><a class="nav-link us-i-color-02" href="{{ url_for('login') }}">Log in to Rate this recipe!</a>
-                </button>
-            </div>
-        {% endif %}
-    </row>
 {% endblock%}
 
 <!-- Variable user menu items -->
@@ -124,54 +107,3 @@
         </div>
     </aside>
 {% endblock %}
-
-{% block modals %}
-<div class="modal fade" id="ratingModal" tabindex="-1" aria-labelledby="ratingModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="ratingModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form class="row g-3" id="ratingForm" name="ratingForm" method="POST" action="{{ url_for('recipe', ruid=recipe.recipe_uid) }}">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rating" id="ratingOne" value=1>
-                    <label class="form-check-label" for="ratingOne">
-                      1
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rating" id="ratingTwo" value=2>
-                    <label class="form-check-label" for="ratingTwo">
-                      2
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rating" id="ratingThree" value=3>
-                    <label class="form-check-label" for="ratingThree">
-                      3
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rating" id="ratingFour" value=4>
-                    <label class="form-check-label" for="ratingFour">
-                      4
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rating" id="ratingFive" value=5>
-                    <label class="form-check-label" for="ratingFive">
-                      5
-                    </label>
-                  </div>
-                  <button type="submit" class="btn btn-outline-success us-nav-btn"><a class="nav-link">Submit Rating</a></button>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-    </div>
-    </div>
-</div>
-{% endblock%}

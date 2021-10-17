@@ -2,6 +2,11 @@ $(document).ready(function () {
     $(".tooltipped").tooltip();
 });
 
+function ratingConfirm() {
+    let txt = "Thank you for submitting your rating!";
+    confirm(txt)
+}
+
 function addIngredient() {
     var passIngredientData = {
         name: "",
