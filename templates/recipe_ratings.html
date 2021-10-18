@@ -10,7 +10,7 @@
             </div>
             <div class="col-4 col-md-6 us-banner-top">
                 <div class="us-banner-top-title-div us-p-color-01">
-                    <h1 class="us-banner-top-title us-h1-color-02">Your Recipe Ratings</h1>
+                    <h1 class="us-banner-top-title us-h1-color-02">{{ session.user.capitalize() }}'s Rated Recipes</h1>
                 </div>
             </div>
             <div class="col-4 col-md-3 us-banner-top">
@@ -30,46 +30,48 @@
 {% endblock %}
 
 {% block content %}
+<!-- Latest Rated Section -->
+    <h2 class="us-hr-header us-h2-color-01">Last Rated Recipe</h2>
     <div>
         <div class="float-end"><img class="us-recipe-card-image" src="{{ recipe.image_url }}" alt="{{ recipe.image_alt }}" width=100%></div>
-        <div class=""><h2 class="us-recipe-name">{{ recipe.recipe_name }}</h2></div>
+        <div class=""><h3 class="us-recipe-name">{{ recipe.recipe_name }}</h3></div>
     </div>
     <row>
         <div class="col">
-        <p>{{ recipe.description }}</p>
-    </div>
-    </row>
-    <row>
+            <p>{{ recipe.description }}</p>
+        </div>
         <div class="col">
             <h3 class="us-recipe-info">Recipe Info</h3>
             <p>Author: {{ recipe.author }}</p>
-            <p>Flavor Profile: 
+            <p>Flavor Profile:
                 {% for flavor in recipe.flavors %}
-                    {{ flavor }}
-                    {% if loop.index != loop.length %}
-                        ,
-                    {% endif %}
+                {{ flavor }}
+                {% if loop.index != loop.length %}
+                ,
+                {% endif %}
                 {% endfor %}
             </p>
             <p>Region: {{ recipe.region }}</p>
             <p>Date Posted: {{ recipe.date_posted }}</p>
         </div>
     </row>
-    <row>
-        <div class="col">
-            <h3 class="us-recipe-info">Ingredients</h3>
-            {% for ingredient in recipe.ingredients %}
-                <p>{{ ingredient.name }}: {{ ingredient.quantity }} {{ ingredient.measure }}</p>
-            {% endfor %}
+    {% for rating in ratings %}
+        <div class="row">
+            <div class="col-md-4 text-start">
+                <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="recipe/{{ rating.ruid }}" title="See {{ rating.recipe_name }}'s recipe card."><sup>#</sup>{{ loop.index }} {{rating.recipe_name}}</a></h3>
+            </div>
+            <div class="col-md-6">
+                <p>{{rating.post_date}}</p>
+            </div>
+            <div class="col-md-6">
+                <p>{{rating.rating}}</p>
+            </div>
         </div>
-    </row>
-    <row>
-        <div class="col">
-            <h3 class="us-recipe-info">Preparation</h3>
-            <p>{{ recipe.preparation }}</p>
-        </div>
-    </row>
-{% endblock%}
+        {% if loop.index != loop.length %}
+            <hr class="featurette-divider">
+        {% endif %}
+    {% endfor %}
+{% endblock %}
 
 <!-- Variable user menu items -->
 {% block user_menu_item_1 %}

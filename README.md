@@ -283,7 +283,7 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 -   RegEx input patterns from W3Schools - https://www.w3schools.com/tags/att_input_pattern.asp
 -   Avatar Icons made by [Flaticon](https://www.flaticon.com/)
 
-
+-   pythonguides.com/python-for-loop-index/
 
 -   All Reused styles are in reused-styles.css
 -   Scrollbar CSS Styling: from Digital Ocean: https://www.digitalocean.com/community/tutorials/css-scrollbars, in reused-styles.css

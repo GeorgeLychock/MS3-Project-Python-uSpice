@@ -73,7 +73,7 @@
         {% if session.user %}
             <div class="col">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary us-recipe-rate-btn" data-bs-toggle="modal"
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                     data-bs-target="#ratingModal">
                     Rate this recipe!
                 </button>
@@ -165,7 +165,7 @@
                       5
                     </label>
                   </div>
-                  <button type="submit" class="btn btn-outline-success us-nav-btn"><a class="nav-link">Submit Rating</a></button>
+                  <button type="submit" class="btn btn-outline-success us-nav-btn" onclick="ratingConfirm()"><a class="nav-link">Submit Rating</a></button>
             </form>
         </div>
         <div class="modal-footer">

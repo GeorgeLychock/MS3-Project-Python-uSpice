@@ -1,5 +1,6 @@
 import os
 import datetime
+import math
 from random import *
 import json
 from random import random
@@ -7,8 +8,10 @@ from dns.rdatatype import NULL
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
+from flask.helpers import total_seconds
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from pymongo import cursor
 from werkzeug.security import generate_password_hash, check_password_hash
 
 if os.path.exists("env.py"):
@@ -22,12 +25,14 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+global new_rating
+
 
 @app.route('/')
 @app.route('/index')
 def index():
     # obtail highest rated recipe data
-    data = mongo.db.recipes.find().sort(str("rating"), 1)
+    data = mongo.db.recipes.find().sort("rating", -1)
     # obtail flavor category data
     categories = mongo.db.categories.find()
     return render_template("index.html", recipes=data, categories=categories)
@@ -186,23 +191,52 @@ def build_recipe():
 
 @app.route("/recipe/<ruid>", methods=["GET", "POST"])
 def recipe(ruid):
+    new_rating = NULL
+    total = 0
+    inc = 0
+    recipe_data = dict(mongo.db.recipes.find_one_or_404({"recipe_uid": ruid}))
+
+    # Create date posted
+    x = datetime.datetime.now()
+    post_date = x.strftime("%x")
+
     if request.method == "POST":
-        rating = {
-            "rating": 5.0,
+        rating_input = request.form.get("rating")
+        rating_post = {
+            "rating": int(rating_input),
             "rater": session["user"],
-            "ruid": ruid
+            "ruid": ruid,
+            "post_date": post_date,
+            "recipe_name": recipe_data["recipe_name"]
         }
-        mongo.db.ratings.insert_one(rating)
-        return redirect(url_for("rate_recipe", ruid=ruid))
+        mongo.db.ratings.insert_one(rating_post)
+        # recalculate recipe rating average and populate the rating key in the recipe data
+        ratings = list(mongo.db.ratings.find({"ruid": ruid}))
+        print(f"Hoello {ratings}")
+        for rating in ratings:
+            print(f"Jopy {rating}")
+            rate_val = rating["rating"]
+            total = total + rate_val
+            inc = inc + 1
+        print(total)
+        print(inc)
+
+        new_rating = round(float(total / inc), 1)
+        print(new_rating)
+        mongo.db.recipes.update_one({"recipe_uid": ruid}, {"$set": {"rating": new_rating}})
+        return redirect(url_for("recipe_ratings", username=session["user"]))
 
     data = mongo.db.recipes.find_one_or_404({"recipe_uid": ruid})
     return render_template("recipe.html", recipe=data)
 
 
-@app.route("/rate_recipe/<ruid>", methods=["GET"])
-def rate_recipe(ruid):
-    data = mongo.db.recipes.find_one_or_404({"recipe_uid": ruid})
-    return render_template("rate_recipe.html", recipe=data)
+@app.route("/recipe_ratings/<username>", methods=["GET"])
+def recipe_ratings(username):
+    ratings = mongo.db.ratings.find({"rater": username}).sort("post_date", -1)
+    last_rating = dict(mongo.db.ratings.find_one({"rater": username}))
+    ruid = last_rating["ruid"]
+    recipe_data = mongo.db.recipes.find_one_or_404({"recipe_uid": ruid})
+    return render_template("recipe_ratings.html", ratings=ratings, recipe=recipe_data)
 
 
 @app.route("/edit_recipe/<url>", methods=["GET", "POST"])
