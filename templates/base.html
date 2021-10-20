@@ -77,6 +77,7 @@
                     <div class="us-header-menu">
                         <button type="button" class="btn btn-outline-success us-nav-btn"><a class="nav-link" href="{{ url_for('build_recipe') }}">Build Recipes</a></button>
                         <button type="button" class="btn btn-outline-success us-nav-btn">Recipe Ratings</button>
+
                         <button type="button" class="btn btn-outline-success us-nav-btn">Rate a Recipe</button>
                         <button type="button" class="btn btn-outline-success us-nav-btn">Buy</button>
                     </div>
@@ -106,6 +107,9 @@
                             <ul class="nav flex-column">
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}"><i class="bi bi-person us-menu-link-01 us-i-color-01"></i>Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('recipe_ratings', username=session['user']) }}"><i class="bi bi-hand-thumbs-down us-menu-link-02 us-i-color-01"></i><i class="bi bi-hand-thumbs-up us-menu-link-02 us-i-color-01"></i>My Ratings</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ url_for('logout') }}"><i class="bi bi-door-closed-fill us-menu-link-01 us-i-color-01"></i>Log Out</a>

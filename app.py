@@ -191,10 +191,11 @@ def build_recipe():
 
 @app.route("/recipe/<ruid>", methods=["GET", "POST"])
 def recipe(ruid):
+    # Capture rating input from user
     new_rating = NULL
     total = 0
     inc = 0
-    recipe_data = dict(mongo.db.recipes.find_one_or_404({"recipe_uid": ruid}))
+    recipe_data_dict = dict(mongo.db.recipes.find_one_or_404({"recipe_uid": ruid}))
 
     # Create date posted
     x = datetime.datetime.now()
@@ -202,32 +203,39 @@ def recipe(ruid):
 
     if request.method == "POST":
         rating_input = request.form.get("rating")
-        rating_post = {
-            "rating": int(rating_input),
-            "rater": session["user"],
-            "ruid": ruid,
-            "post_date": post_date,
-            "recipe_name": recipe_data["recipe_name"]
-        }
-        mongo.db.ratings.insert_one(rating_post)
+        print(session["user"])
+        print(ruid)
+        existing_rating = mongo.db.ratings.find_one({"ruid": ruid, "rater": session["user"]})
+        print(existing_rating)
+        print(recipe_data_dict["_id"])
+        if existing_rating:
+            # update the existing rating
+            mongo.db.ratings.update({"_id": existing_rating["_id"]}, {"$set": {"rating": rating_input}})
+            flash("Your rating has been updated!")
+            return redirect(url_for("recipe_ratings", username=session["user"]))
+        else:
+            rating_post = {
+                "rating": int(rating_input),
+                "rater": session["user"],
+                "ruid": ruid,
+                "post_date": post_date,
+                "recipe_name": recipe_data_dict["recipe_name"]
+            }
+            mongo.db.ratings.insert_one(rating_post)
+
         # recalculate recipe rating average and populate the rating key in the recipe data
         ratings = list(mongo.db.ratings.find({"ruid": ruid}))
-        print(f"Hoello {ratings}")
         for rating in ratings:
-            print(f"Jopy {rating}")
             rate_val = rating["rating"]
             total = total + rate_val
             inc = inc + 1
-        print(total)
-        print(inc)
 
         new_rating = round(float(total / inc), 1)
-        print(new_rating)
         mongo.db.recipes.update_one({"recipe_uid": ruid}, {"$set": {"rating": new_rating}})
         return redirect(url_for("recipe_ratings", username=session["user"]))
 
-    data = mongo.db.recipes.find_one_or_404({"recipe_uid": ruid})
-    return render_template("recipe.html", recipe=data)
+    recipe_data = mongo.db.recipes.find_one_or_404({"recipe_uid": ruid})
+    return render_template("recipe.html", recipe=recipe_data)
 
 
 @app.route("/recipe_ratings/<username>", methods=["GET"])
