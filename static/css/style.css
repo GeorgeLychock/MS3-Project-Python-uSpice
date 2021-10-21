@@ -159,21 +159,25 @@ p {
   font-size: 1.25rem;
 }
 
-.us-banner-backbtn {
+.us-banner-navbtn {
   float: left;
 }
 
-.us-banner-backbtn a{
+.us-banner-navbtn a{
   color: whitesmoke;
 }
 
-.us-banner-backbtn :hover {
-  color: #333;
+.us-banner-navbtn :hover {
+  color: #b3d9ff;
 }
 
 .us-banner-homebtn {
   margin-right: 10px;
   text-align: right;
+}
+
+.us-banner-homebtn :hover {
+  color: #b3d9ff;
 }
 
 .us-adv-search-col {
@@ -198,6 +202,14 @@ p {
 .us-advsearch-link {
   padding: 0;
   margin: 0 10px;
+}
+
+.us-advsearch-link i:hover {
+  color: whitesmoke;
+}
+
+.us-advsearch-link :hover {
+  color: #b3d9ff;
 }
 
 .us-qsearch-input {
@@ -443,8 +455,8 @@ padding: 0 10%;
     font-size: 1.5rem;
   }
 
-  .us-banner-backbtn {
-    margin: -10px 0 0 20px;
+  .us-banner-navbtn {
+    margin: 0 0 0 20px;
   }
 
   .us-banner-homebtn {

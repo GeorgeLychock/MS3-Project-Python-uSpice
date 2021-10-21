@@ -3,26 +3,25 @@
 {% block banner %}
     <div class="container-fluid us-banner-container us-b-color-00">
         <nav class="row text-center">
-            <div class="col-4 col-md-3 us-banner-top">
-                <div class="us-banner-backbtn">
-                    <a class="nav-link us-padding-0" href="{{ url_for('index') }}"><i class="bi bi-arrow-left us-user-menu-link-01 us-i-color-02"></i>Back</a>
-                </div>
-            </div>
-            <div class="col-4 col-md-6 us-banner-top">
+            <div class="col-4 col-md-2 us-banner-top">
                 <div class="us-banner-top-title-div us-p-color-01">
                     <h1 class="us-banner-top-title us-h1-color-02">{{ session.user.capitalize() }}'s Rated Recipes</h1>
                 </div>
             </div>
-            <div class="col-4 col-md-3 us-banner-top">
-                <div class="d-none d-md-block float-end">
-                    <a class="nav-link us-advsearch-link" href="{{ url_for('search') }}"><i class="bi bi-search us-user-menu-link-01 us-i-color-01"></i><sup>ADV </sup>Advanced
-                        Search</a>
+            <div class="col-4 col-md-2 us-banner-top">
+                <div class="us-banner-navbtn">
+                    <a class="nav-link us-padding-0" href="{{ url_for('index') }}"><i class="bi bi-chevron-left us-user-menu-link-01 us-i-color-02"></i></a>
                 </div>
-                <div class=".d-none d-xs-block d-md-none float-end">
-                    <a class="nav-link us-advsearch-link" href="{{ url_for('search') }}"><i class="bi bi-search us-user-menu-link-01 us-i-color-01"></i><sup>ADV </sup></a>
+                <div class="us-banner-navbtn">
+                    <a class="nav-link us-padding-0" href="{{ url_for('index') }}"><i class="bi bi-chevron-right us-user-menu-link-01 us-i-color-02"></i></a>
+                </div>
+            </div>
+            <div class="col-4 col-md-8 us-banner-top">
+                <div class="float-end">
+                    <a class="nav-link us-advsearch-link us-i-color-02" href="{{ url_for('search') }}" title="Goto Advanced Search."><i class="bi bi-search us-menu-link-02 us-i-color-02"></i><sup>ADV </sup></a>
                 </div>
                 <div class="us-banner-homebtn">
-                    <a class="nav-link us-padding-0" href="{{ url_for('index') }}" title="Home"></a><i class="bi bi-house-door us-user-menu-link-01 us-i-color-02"></i></a>
+                    <a class="nav-link us-padding-0" href="{{ url_for('index') }}" title="Home"><i class="bi bi-house-door us-user-menu-link-01 us-i-color-02"></i></a>
                 </div>
             </div>
         </nav>
