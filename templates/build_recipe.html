@@ -37,9 +37,7 @@
             {% endif %}
             Create a new recipe to share with the world!</h4>
     </div>
-    <div class="">{{ recipe }}</div>
-    <div class="">{{ ing_list }}</div>
-    <row>
+    <div class="row">
         <div class="col">
             <form class="row g-3" id="ingredientForm" name="ingredientForm" method="POST" action="{{ url_for('build_recipe') }}">
                 <!-- Add Recipe Name -->
@@ -104,8 +102,8 @@
                     <!-- Added Ingredients -->
                     <div class="us-ingredient-box" id="ingredient_region" name="ingredient_region"></div>
                     <!-- Add Ingredient Input Fields -->
-                    <div class="row" id="ingredientInputFields">
-                        <div class="col-4 us-ingredient-name">
+                    <div class="row us-ingredient-row" id="ingredientInputFields">
+                        <div class="col-6 us-ingredient-name">
                             <label for="ingredient_region_1_name" class="form-label">Ingredient Name</label>
                             <select id="ingredient_region_1_name" name="ingredient_region_1_name"
                                 class="form-select us-dropdown" value="">
@@ -115,15 +113,17 @@
                                 {% endfor %}
                             </select>
                         </div>
-                        <div class="col-4 us-ingredient-quantity">
+                        <div class="col-3">
                             <label for="ingredient_region_1_quantity" class="form-label">Quantity</label>
-                            <input class="" type="number" id="ingredient_region_1_quantity" name="ingredient_region_1_quantity">
+                            <input class="us-ingredient-quantity" type="number" id="ingredient_region_1_quantity" name="ingredient_region_1_quantity" 
+                            min=".25" max="10" step=".25"
+                            >
                         </div>
-                        <div class="col-2 us-ingredient-measure">
+                        <div class="col-3 us-ingredient-measure">
                             <label for="ingredient_region_1_measure" class="form-label">Measure</label>
                             <select id="ingredient_region_1_measure" name="ingredient_region_1_measure"
                                 class="form-select us-dropdown">
-                                <option selected>Choose...</option>
+                                <option selected></option>
                                 {% for measure in measures %}
                                 <option>{{ measure.measure_name }}</option>
                                 {% endfor %}
@@ -142,11 +142,11 @@
                 </div>
                 <!-- Submit Recipe -->
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary us-form-btn">Submit Recipe</button>
+                    <button type="submit" class="btn btn-primary us-form-btn" onclick="clearLocalStorage('ingredientIDLocalStorage')">Submit Recipe</button>
                 </div>
             </form>
         </div>
-    </row>
+    </div>
 {% endblock%}
 
 <!-- Variable user menu items -->

@@ -225,6 +225,10 @@ p {
   padding-left: 80px;
 }
 
+.us-dropdown {
+  font-size: .8rem;
+}
+
 /* Flashes */
 .flashes h4 {
   line-height: 2;
@@ -369,6 +373,16 @@ padding: 0 10%;
 .us-ingredient-addbtn {
   font-size: .85rem;
   float: left;
+  margin: 4px 0 0 0;
+}
+
+.us-ingredient-row {
+  font-size: .8rem;
+}
+
+.us-ingredient-quantity {
+  width: 60px;
+  height: 32px;
 }
 
 /* Revenue Side 1 */
