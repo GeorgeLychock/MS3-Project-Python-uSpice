@@ -103,6 +103,7 @@ p {
 /* Common Background Colors*/
 .us-b-color-00 {background-color: rgb(213, 121, 102, .75);}
 .us-b-color-01 {background-color: rgba(147, 212, 157, .25);}
+.us-b-color-01a {background-color: rgba(147, 212, 157, 1);}
 .us-b-color-02 {background-color: rgba(205, 92, 92, .35);}
 .us-b-color-02a {background-color: rgba(205, 92, 92, .25);}
 
@@ -253,12 +254,16 @@ p {
 }
 
 .us-nav-btn {
-  font-size: .8rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 10px;
+  width: 80%;
   border-color: rgba(147, 212, 157, .75);
+  background-color: rgba(147, 212, 157, 1);
 }
 
 .us-nav-btn a {
-  color: #3a9247;
+  color: white;
 }
 
 .us-nav-btn a:hover {
@@ -494,8 +499,8 @@ padding: 0 10%;
   }
 
   .us-header-menu {
-    height: 290px;
-    border: solid 1px rgba(147, 212, 157, .25);
+    height: 300px;
+    padding: 20px 0 20px 5px;
   }
 
   .us-high-rated-box {

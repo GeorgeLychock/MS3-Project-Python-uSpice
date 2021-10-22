@@ -36,9 +36,9 @@
         </div>
         <div class="us-header-menu">
             <button type="button" class="btn btn-outline-success us-nav-btn"><a class="nav-link" href="{{ url_for('build_recipe') }}">Build Recipes</a></button>
-            <button type="button" class="btn btn-outline-success us-nav-btn">Recipe Ratings</button>
-            <button type="button" class="btn btn-outline-success us-nav-btn">Rate a Recipe</button>
-            <button type="button" class="btn btn-outline-success us-nav-btn">Buy</button>
+            <button type="button" class="btn btn-outline-success us-nav-btn"><a class="nav-link" href="{{ url_for('search') }}">Recipe Ratings</a></button>
+            <button type="button" class="btn btn-outline-success us-nav-btn"><a class="nav-link" href="{{ url_for('search') }}">Rate a Recipe</a></button>
+            <button type="button" class="btn btn-outline-success us-nav-btn"><a class="nav-link" href="{{ url_for('index') }}">Buy</a></button>
         </div>
     </header>
 {% endblock %}
