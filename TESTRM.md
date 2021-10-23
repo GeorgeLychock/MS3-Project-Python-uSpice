@@ -31,6 +31,7 @@ Used test writing guidelines from the following resources:
 #### OPEN 
 -   Field Region does not display correctly on Recipe page
 -   Field Flavor does not display correctly on Recipe page
+-   Links to recipes on My Ratings page do not work
 
 #### FIXED
 -   Library Buttons:
