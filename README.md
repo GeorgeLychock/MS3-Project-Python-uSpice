@@ -12,6 +12,7 @@
 - [Use Case](#UC)
     - [User Stories](#US)
     - [Requirements](#REQS)
+    - [Future Requirements](#FUTUREREQS)
 - [UI/UX](#UXUI)
     - [UI](#UI)
         -   [Wireframes](#UIWF)
@@ -19,6 +20,7 @@
         -   [Wireframes](#UXWF)
 - [Technical Background](#TECH)
 - [Testing](TESTRM.md)
+- [Known/Resolved Issues](#ISSUES)
 - [Product/Project Management](#PROJ)
 - [Deployment](#DPLY)
 - [Credits](#CREDS)
@@ -140,6 +142,14 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 -   Allow users to print a printable version of the recipe page
 -   Create a pie chart showing the porportions of the recipe ingredients on the recipe page
 
+<a name="FUTUREREQS"></a>
+## Future Requirements
+(Alignments to User Stories are in paratheses, if available)
+-   Admin fundtionality
+-   Admin Update Ingredients functionality
+-   Add a posted recipes section to the user profile page
+-   
+
 # UX/UI
 -   ## UI
     <a name="UI"></a>
@@ -217,8 +227,12 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
     -   [GitHub API: ](https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api) The GitHub API code came from Code Institute, see Code Credits, but information was used from the GitHub link provided here.
 
 #   Testing
-<a name="BUGS"></a>
-(link to testing.md)
+<a name="TESTING"></a>
+(link to testrm.md)
+
+#   Known/Resolved Issues
+<a name="ISSUES"></a>
+
 
 # Product/Project Management
 -   ## UI
