@@ -100,11 +100,17 @@
                 <div class="col us-ingredient-col">
                     <h4 class="us-ingredient-header">Ingredients</h4>
                     <!-- Added Ingredients -->
-                    <div class="us-ingredient-box" id="ingredient_region" name="ingredient_region"></div>
+                    <div class="us-ingredient-ctnr us-b-color-03 us-h1-color-02">
+                        <div class="row us-ingredient-header">
+                            <div class="col-5 us-ingredient-name">Ingredient Name</div>
+                            <div class="col-3 us-ingredient-quantity">Quantity</div>
+                            <div class="col-3 us-ingredient-measure">Measure</div>
+                        </div>
+                        <div class="us-ingredient-box" id="ingredient_region" name="ingredient_region"></div>
+                    </div>
                     <!-- Add Ingredient Input Fields -->
-                    <div class="row us-ingredient-row" id="ingredientInputFields">
-                        <div class="col-6">
-                            <label for="ingredient_region_1_name" class="form-label">Ingredient Name</label>
+                    <div class="row us-ingredient-input" id="ingredientInputFields">
+                        <div class="col-5">
                             <select id="ingredient_region_1_name" name="ingredient_region_1_name"
                                 class="form-select us-dropdown us-ingredient-name">
                                 <option selected>Choose...</option>
@@ -114,24 +120,24 @@
                             </select>
                         </div>
                         <div class="col-3">
-                            <div for="ingredient_region_1_quantity" class="form-label">Quantity</div>
-                            <input class="us-ingredient-quantity" type="number" id="ingredient_region_1_quantity" name="ingredient_region_1_quantity" 
-                            min=".25" max="10" step=".25"
-                            >
+                            <input class="us-ingredient-quantity" type="number" id="ingredient_region_1_quantity"
+                                name="ingredient_region_1_quantity" 
+                                min=".25" max="10" step=".25" 
+                                placeholder="0">
                         </div>
                         <div class="col-3">
-                            <label for="ingredient_region_1_measure" class="form-label">Measure</label>
                             <select id="ingredient_region_1_measure" name="ingredient_region_1_measure"
                                 class="form-select us-dropdown">
-                                <option selected></option>
                                 {% for measure in measures %}
                                 <option>{{ measure.measure_name }}</option>
                                 {% endfor %}
                             </select>
                         </div>
+                        <div class="col-1">
+                            <!-- Add the ingredient to the form -->
+                            <button type="button" class="us-ingredient-addbtn" onclick="addIngredient()">+</button>
+                        </div>
                     </div>
-                    <!-- Add the ingredient to the form -->
-                    <button type="button" class="us-ingredient-addbtn" onclick="addIngredient()">+ Add</button>
                 </div>
                 <!-- Add Recipe Preparation -->
                 <div class="col-12">

@@ -106,6 +106,7 @@ p {
 .us-b-color-01a {background-color: rgba(147, 212, 157, 1);}
 .us-b-color-02 {background-color: rgba(205, 92, 92, .35);}
 .us-b-color-02a {background-color: rgba(205, 92, 92, .25);}
+.us-b-color-03 {background-color: #777;}
 
 /* Common Positioning */
 .us-text-center {
@@ -361,28 +362,48 @@ padding: 0 10%;
 }
 
 /* Build Recipe */
+.us-ingredient-ctnr {
+  padding: 10px 10px 0 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
 .us-ingredient-col {
   padding: 0 10px;
   text-align: left;
+  margin-bottom: 50px;
 }
 
 .us-ingredient-header {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .us-ingredient-box {
-  background-color: whitesmoke;
-  margin-bottom: 10px;
+  background-color: #777;
+  padding: 0 8px 0 8px;
 }
 
 .us-ingredient-addbtn {
-  font-size: .85rem;
-  float: left;
-  margin: 4px 0 0 0;
+  font-size: 1.25rem;
+  border: 2px solid #fff;
+  border-radius: 5px;
+}
+
+.us-ingredient-delbtn {
+  font-size: .6rem;
+  border: 2px solid #fff;
+  border-radius: 5px;
 }
 
 .us-ingredient-row {
   font-size: .8rem;
+  margin-top: 5px;
+  padding: 0 10px;
+}
+
+.us-ingredient-input {
+  font-size: .8rem;
+  padding: 0 10px;
 }
 
 .us-ingredient-name {
@@ -392,6 +413,11 @@ padding: 0 10%;
 .us-ingredient-quantity {
   width: 60px;
   height: 32px;
+  margin-left: 30px;
+}
+
+.us-ingredient-measure {
+  margin-left: 30px;
 }
 
 /* Revenue Side 1 */
