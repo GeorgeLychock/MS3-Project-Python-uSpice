@@ -103,10 +103,10 @@
                     <div class="us-ingredient-box" id="ingredient_region" name="ingredient_region"></div>
                     <!-- Add Ingredient Input Fields -->
                     <div class="row us-ingredient-row" id="ingredientInputFields">
-                        <div class="col-6 us-ingredient-name">
+                        <div class="col-6">
                             <label for="ingredient_region_1_name" class="form-label">Ingredient Name</label>
                             <select id="ingredient_region_1_name" name="ingredient_region_1_name"
-                                class="form-select us-dropdown" value="">
+                                class="form-select us-dropdown us-ingredient-name">
                                 <option selected>Choose...</option>
                                 {% for ingredient in ingredients %}
                                 <option>{{ ingredient.ingredient_name }}</option>
@@ -114,12 +114,12 @@
                             </select>
                         </div>
                         <div class="col-3">
-                            <label for="ingredient_region_1_quantity" class="form-label">Quantity</label>
+                            <div for="ingredient_region_1_quantity" class="form-label">Quantity</div>
                             <input class="us-ingredient-quantity" type="number" id="ingredient_region_1_quantity" name="ingredient_region_1_quantity" 
                             min=".25" max="10" step=".25"
                             >
                         </div>
-                        <div class="col-3 us-ingredient-measure">
+                        <div class="col-3">
                             <label for="ingredient_region_1_measure" class="form-label">Measure</label>
                             <select id="ingredient_region_1_measure" name="ingredient_region_1_measure"
                                 class="form-select us-dropdown">
