@@ -25,6 +25,14 @@ function addIngredient() {
     passIngredientData.quantity = document.getElementById("ingredientForm").elements.namedItem("ingredient_region_1_quantity").value;
     passIngredientData.measure = document.getElementById("ingredientForm").elements.namedItem("ingredient_region_1_measure").value;
 
+    //Clear form
+    var x = document.getElementById("ingredient_region_1_name");
+    x.value = "Choose...";
+    x = document.getElementById("ingredient_region_1_quantity");
+    x.value = "0";
+    x = document.getElementById("ingredient_region_1_measure");
+    x.value = "Choose...";
+
     // Add ingredient ID to localStorage
     lsName = "ingredientIDLocalStorage";
     addToLocalStorage(passIngredientData.id, lsName);
@@ -50,7 +58,7 @@ function buildIngredientForm(i) {
     <div class="row us-ingredient-row" id="${ing.id}">
         <div class="col-5 us-ingredient-name">${ing.name}</div>
         <div class="col-2 us-ingredient-quantity">${ing.quantity}</div>
-        <div class="col-2 us-ingredient-measure">${ing.measure}</div>
+        <div class="col-2 md-col-3 us-ingredient-measure">${ing.measure}</div>
         <!-- Remove the ingredient from the form -->
         <div class="col-1">
             <button type="button" class="us-ingredient-delbtn" onclick="removeIngredient('${ing.id}')">Remove</button>

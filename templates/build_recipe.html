@@ -101,7 +101,7 @@
                     <h4 class="us-ingredient-header">Ingredients</h4>
                     <!-- Added Ingredients -->
                     <div class="us-ingredient-ctnr us-b-color-03 us-h1-color-02">
-                        <div class="row us-ingredient-header">
+                        <div class="row us-ingredient-titles">
                             <div class="col-5 us-ingredient-name">Ingredient Name</div>
                             <div class="col-2 us-ingredient-quantity">Quantity</div>
                             <div class="col-3 us-ingredient-measure">Measure</div>
@@ -128,6 +128,7 @@
                         <div class="col-3">
                             <select id="ingredient_region_1_measure" name="ingredient_region_1_measure"
                                 class="form-select us-dropdown">
+                                <option selected>Choose...</option>
                                 {% for measure in measures %}
                                 <option>{{ measure.measure_name }}</option>
                                 {% endfor %}
