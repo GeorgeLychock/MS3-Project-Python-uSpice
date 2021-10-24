@@ -5,12 +5,8 @@
     <div class="container-fluid us-banner-container us-b-color-00">
         <nav class="row text-center">
             <div class="col-4 col-md-1 us-banner-top">
-                <div class="us-banner-navbtn">
-                    <a class="nav-link us-padding-0" href="{{ url_for('index') }}"><i class="bi bi-chevron-left us-user-menu-link-01 us-i-color-02"></i></a>
-                </div>
-                <div class="us-banner-navbtn">
-                    <a class="nav-link us-padding-0" href="{{ url_for('index') }}"><i class="bi bi-chevron-right us-user-menu-link-01 us-i-color-02"></i></a>
-                </div>
+                <div id="backButton" class="us-banner-navbtn"></div>
+                <div id="forwardButton" class="us-banner-navbtn" onclick="updateCurrentIndex('up')"></div>
             </div>
             <div class="col-4 col-md-5 us-banner-top">
                 <div class="us-banner-top-title-div us-p-color-01">

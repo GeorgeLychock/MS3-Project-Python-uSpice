@@ -17,7 +17,7 @@
                 </form>
             </div>
             <div class="col-3 col-md-6 us-index-banner us-adv-search-col">
-                <div class="">
+                <div class="" onclick="storeClickPath('index')">
                     <a class="nav-link us-advsearch-link us-i-color-02" href="{{ url_for('search') }}" title="Goto Advanced Search."><i class="bi bi-search us-menu-link-02 us-i-color-02"></i><sup>ADV </sup></a>
                 </div>
             </div>
@@ -99,4 +99,9 @@
             </div>
         </div>
     </aside>
+{% endblock %}
+
+<!-- Load page specific js -->
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/index.js' ) }}"></script>
 {% endblock %}

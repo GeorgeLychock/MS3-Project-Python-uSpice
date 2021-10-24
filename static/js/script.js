@@ -1,14 +1,110 @@
 $(document).ready(function () {
     $(".tooltipped").tooltip();
+    buildBannerButton("back");
+    buildBannerButton("forward");
 });
+
+
+function getLocalStorageArray(lsName) {
+    if (localStorage.getItem(lsName)) {
+        var storedPaths = localStorage.getItem(lsName).split(',');
+        return storedPaths;
+    }
+}
 
 function clearLocalStorage(lsName) {
     localStorage.clear(lsName);
 }
 
-function ratingConfirm() {
-    let txt = "Thank you for submitting your rating!";
-    confirm(txt)
+function storeClickPath(path) {
+    // Add url click path localStorage
+    var lsName = "clickPathLocalStorage";
+    var addPath = path;
+    if (localStorage.getItem(lsName)) {
+        var storedPaths = getLocalStorageArray(lsName);
+        // Limit number of stored path clicks to 10
+        if (storedPaths.length >= 10) {
+            // remove first path item and add new path
+            storedPaths.shift();
+            storedPaths.push(addPath);
+        } else {
+            storedPaths.push(addPath);
+            updateCurrentIndex("up");
+            console.log("this is my NEW paths array" + storedPaths);
+        }
+    } else {
+        var storedPaths = [];
+        storedPaths.push(addPath);
+        updateCurrentIndex();
+    }
+    localStorage.setItem(lsName, storedPaths);
+
+    storedPaths = getLocalStorageArray(lsName);
+    console.log("this is my NEW stored paths" + storedPaths);
+
+}
+
+function updateCurrentIndex(direction) {
+        // Track current click path index in localStorage
+        var lsName = "clickPathIndexLocalStorage";
+        var lsName2 = "clickPathLocalStorage";
+        if (localStorage.getItem(lsName)) {
+            var storedIndex = parseInt(localStorage.getItem(lsName));
+
+            console.log("this is my stored index" + storedIndex); 
+
+            if (direction = "up") {
+                storedIndex = storedIndex + 1;
+                localStorage.setItem(lsName, storedIndex);
+            } else if (direction = "down") {
+                if (storedIndex == 0) {
+                    clearLocalStorage(lsName);
+                    clearLocalStorage(lsName2);
+                } else {
+                    storedIndex = storedIndex - 1;
+                    localStorage.setItem(lsName, storedIndex);
+                }
+            }
+        } else {
+            storedIndex = 0;
+            localStorage.setItem(lsName, storedIndex);
+        }
+
+        console.log("this is my NEW stored index" + storedIndex);
+
+}
+
+function buildBannerButton(direction) {
+
+    var lsName = "clickPathIndexLocalStorage";
+    var lsName2 = "clickPathLocalStorage";
+
+    if (localStorage.getItem(lsName)) {
+        var storedIndex = parseInt(localStorage.getItem(lsName));
+        var storedPaths = getLocalStorageArray(lsName2);
+
+        console.log("Stored index buildBannerBtton" + ": " + storedIndex);
+
+        if (direction = "back") {
+            var backBtnID = "backButton";
+            if (storedIndex != 0) {
+                var urlPath = storedPaths[storedIndex];
+            } else {
+                var urlPath = storedPaths[0];
+            }
+
+            console.log("Assigned urlPath in buildBannerBtton" + ": " + urlPath);
+
+            var iconDirection = "left";
+        } else if (direction = "forward") {
+            var backBtnID = "forwardButton";
+            var urlPath = storedPaths[storedIndex+1];
+            var iconDirection = "right";
+        }
+        return $("#" + backBtnID).html(`<a class="nav-link us-padding-0" onclick="updateCurrentIndex('down')" href="${urlPath}"><i class="bi bi-chevron-${iconDirection} us-user-menu-link-01 us-i-color-02"></i></a>`);
+    } else {
+        return $("#" + backBtnID).html(`<a class="nav-link us-padding-0"><i class="bi bi-chevron-${iconDirection} us-user-menu-link-01 us-i-color-02a"></i></a>`);
+    }
 }
 
 function addIngredient() {
@@ -67,6 +163,11 @@ function buildIngredientForm(i) {
     `
 }
 
+function ratingConfirm() {
+    let txt = "Thank you for submitting your rating!";
+    confirm(txt);
+}
+
 function addToLocalStorage(storeValue, lsName) {
     var localStoreName = lsName;
     var valueToSave = storeValue;
@@ -99,9 +200,6 @@ function removeFromLocalStorage(storeValue, lsName) {
     var localStoreName = lsName;
     var valueToDel = storeValue;
 
-    console.log(localStoreName);
-    console.log(valueToDel);
-
     if (localStorage.getItem(localStoreName)) {
         let savedValues = localStorage.getItem(localStoreName).split(',');
         let delValueIndex = savedValues.indexOf(valueToDel);
@@ -110,7 +208,6 @@ function removeFromLocalStorage(storeValue, lsName) {
         localStorage.setItem(localStoreName, savedValues);
 
         valuesSaved = localStorage.getItem(localStoreName).split(',');
-        console.log("Remaining ingredients" + valuesSaved);
 
     } // else capture error, if needed
 }
