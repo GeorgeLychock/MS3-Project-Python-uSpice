@@ -49,8 +49,8 @@ function buildIngredientForm(i) {
     return `
     <div class="row us-ingredient-row" id="${ing.id}">
         <div class="col-5 us-ingredient-name">${ing.name}</div>
-        <div class="col-3 us-ingredient-quantity">${ing.quantity}</div>
-        <div class="col-3 us-ingredient-measure">${ing.measure}</div>
+        <div class="col-2 us-ingredient-quantity">${ing.quantity}</div>
+        <div class="col-2 us-ingredient-measure">${ing.measure}</div>
         <!-- Remove the ingredient from the form -->
         <div class="col-1">
             <button type="button" class="us-ingredient-delbtn" onclick="removeIngredient('${ing.id}')">Remove</button>

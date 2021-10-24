@@ -406,12 +406,17 @@ padding: 0 10%;
   padding: 0 10px;
 }
 
+.us-quantity-input {
+  width: 60px;
+  height: 32px;
+  margin-left: 20px;
+}
+
 .us-ingredient-name {
   width: 150px;
 }
 
 .us-ingredient-quantity {
-  width: 60px;
   height: 32px;
   margin-left: 30px;
 }
