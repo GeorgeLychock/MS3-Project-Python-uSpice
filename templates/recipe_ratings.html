@@ -57,7 +57,7 @@
     {% for rating in ratings %}
         <div class="row">
             <div class="col-md-4 text-start">
-                <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="recipe/{{ rating.ruid }}" title="See {{ rating.recipe_name }}'s recipe card."><sup>#</sup>{{ loop.index }} {{rating.recipe_name}}</a></h3>
+                <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="../recipe/{{ rating.ruid }}" title="See {{ rating.recipe_name }}'s recipe card."><sup>#</sup>{{ loop.index }} {{rating.recipe_name}}</a></h3>
             </div>
             <div class="col-md-4">
                 <p>{{rating.post_date}}</p>

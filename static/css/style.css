@@ -118,6 +118,11 @@ p {
   padding: 0;
 }
 
+/* Spacers */
+.us-spacer-100p {
+  width: 100%;
+}
+
 /* Button Styles */
 .us-nav-btn-01 {
   font-size: 1rem;
@@ -342,6 +347,22 @@ p {
 /* Register Page */
 .us-reg-box {
 padding: 0 10%;
+}
+
+/* Profile Page */
+.us-profile-recipe-header-row {
+  font-size: .85rem;
+  text-align: left;
+}
+
+.us-profile-recipe-row {
+  font-size: .85rem;
+  text-align: left;
+}
+
+.us-update-rating-btn {
+  font-size: .75rem;
+  padding: 2px;
 }
 
 /* Recipe Card */

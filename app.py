@@ -96,13 +96,15 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from db
+    # Code reuse from Code Institute, Backend Development, Mini Project lesson
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     avitar = mongo.db.users.find_one(
         {"username": session["user"]})["avitar_url"]
+    recipes = mongo.db.recipes.find({"author": username}).sort("date_posted", -1)
 
     if session["user"]:
-        return render_template("profile.html", username=username, avitar=avitar)
+        return render_template("profile.html", username=username, avitar=avitar, recipes=recipes)
 
     return redirect(url_for("login"))
 
@@ -178,7 +180,7 @@ def build_recipe():
     
     try:
         session["user"]
-        # obtail flavor category data
+        # obtail category data
         categories = mongo.db.categories.find().sort("category_name", 1)
         regions = mongo.db.region.find().sort("region_name", 1)
         measures = list(mongo.db.measures.find())
@@ -203,11 +205,7 @@ def recipe(ruid):
 
     if request.method == "POST":
         rating_input = request.form.get("rating")
-        print(session["user"])
-        print(ruid)
         existing_rating = mongo.db.ratings.find_one({"ruid": ruid, "rater": session["user"]})
-        print(existing_rating)
-        print(recipe_data_dict["_id"])
         if existing_rating:
             # update the existing rating
             mongo.db.ratings.update({"_id": existing_rating["_id"]}, {"$set": {"rating": rating_input}})

@@ -148,7 +148,7 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 -   Admin fundtionality
 -   Admin Update Ingredients functionality
 -   Add a posted recipes section to the user profile page
--   
+-   Allow Users to choose an avatar from a pallet of avatars
 
 # UX/UI
 -   ## UI
