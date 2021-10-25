@@ -245,14 +245,15 @@ def recipe_ratings(username):
     return render_template("recipe_ratings.html", ratings=ratings, recipe=recipe_data)
 
 
-@app.route("/edit_recipe/<url>", methods=["GET", "POST"])
-def edit_recipe(url):
+@app.route("/edit_recipe/<ruid>", methods=["GET", "POST"])
+def edit_recipe(ruid):
     # obtail flavor category data
     categories = mongo.db.categories.find().sort("category_name", 1)
     regions = mongo.db.region.find().sort("region_name", 1)
     measures = list(mongo.db.measures.find())
     ingredients = list(mongo.db.ingredients.find())
-    return render_template("edit_recipe.html", categories=categories, regions=regions, measures=measures, ingredients=ingredients, url=url)
+    recipe_data = mongo.db.recipes.find_one_or_404({"recipe_uid": ruid})
+    return render_template("edit_recipe.html", categories=categories, regions=regions, measures=measures, ingredients=ingredients, recipe=recipe_data)
 
 
 if __name__ == "__main__":

@@ -80,15 +80,9 @@
             <p>{{recipe.rating}}</p>
         </div>
         <div class="col-md-3 us-text-center">
-            <button type="button" class="btn btn-primary us-update-rating-btn" href="recipe/{{ recipe.uid }}" title="See {{ recipe.recipe_name }}'s recipe card.">
-                Update Rating
-            </button>
-            <button type="button" class="btn btn-primary us-update-rating-btn" href="recipe/{{ recipe.uid }}" title="See {{ recipe.recipe_name }}'s recipe card.">
-                Delete
-            </button>
-            <button type="button" class="btn btn-primary us-update-rating-btn" href="recipe/{{ recipe.uid }}" title="See {{ recipe.recipe_name }}'s recipe card.">
-                Edit
-            </button>
+            <a class="us-recipe-head-link us-update-rating-btn" href="../recipe/{{ recipe.recipe_uid }}" title="Update {{ recipe.recipe_name }}'s rating.">Update Rating</a>
+            <a class="us-recipe-head-link us-update-rating-btn" href="{{ url_for('edit_recipe', ruid=recipe.recipe_uid) }}" title="Update {{ recipe.recipe_name }}'s rating.">Delete</a>
+            <a class="us-recipe-head-link us-update-rating-btn" href="{{ url_for('edit_recipe', ruid=recipe.recipe_uid) }}" title="Edit {{ recipe.recipe_name }}.">Edit</a>
         </div>
     </div>
     {% if loop.index != loop.length %}

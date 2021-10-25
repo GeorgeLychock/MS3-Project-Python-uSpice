@@ -31,16 +31,11 @@
 
 {% block content %}
     <div class="us-content-header">
-        <h4 class="content_title">
-            {% if session.user %}
-                {{ session.user.capitalize() }}! 
-            {% endif %}
-            Create a new recipe to share with the world!</h4>
+        <h4 class="content_title">Edit Your Recipe</h4>
     </div>
-    <div class="">{{ url }}</div>
-    <row>
+    <div class="row">
         <div class="col">
-            <form class="row g-3" id="ingredientForm" name="ingredientForm" method="POST" action="{{ url_for('build_recipe') }}">
+            <form class="row g-3" id="ingredientForm" name="ingredientForm" method="POST" action="{{ url_for('edit_recipe', ruid=recipe.recipe_uid) }}">
                 <!-- Add Recipe Name -->
                 <div class="col-12">
                     <label for="recipe_name" class="form-label">Recipe Name</label>
@@ -52,10 +47,8 @@
                 <!-- Add Recipe Description -->
                 <div class="col-12">
                     <label for="recipe_description" class="form-label">Description</label>
-                    <textarea type="text" id="recipe_description" name="recipe_description" 
-                        maxlength="200"
-                        class="form-control">
-                    </textarea>
+                    <textarea id="recipe_description" name="recipe_description" 
+                    class="form-control"></textarea>
                 </div>
                 <!-- Add Recipe Region -->
                 <div class="col-md-6">
@@ -103,25 +96,32 @@
                 <div class="col us-ingredient-col">
                     <h4 class="us-ingredient-header">Ingredients</h4>
                     <!-- Added Ingredients -->
-                    <div class="us-ingredient-box" id="ingredient_region" name="ingredient_region"></div>
+                    <div class="us-ingredient-ctnr us-b-color-03 us-h1-color-02">
+                        <div class="row us-ingredient-titles">
+                            <div class="col-5 us-ingredient-name">Ingredient Name</div>
+                            <div class="col-2 us-ingredient-quantity">Quantity</div>
+                            <div class="col-3 us-ingredient-measure">Measure</div>
+                        </div>
+                        <div class="us-ingredient-box" id="ingredient_region" name="ingredient_region"></div>
+                    </div>
                     <!-- Add Ingredient Input Fields -->
-                    <div class="row" id="ingredientInputFields">
-                        <div class="col-4 us-ingredient-name">
-                            <label for="ingredient_region_1_name" class="form-label">Ingredient Name</label>
+                    <div class="row us-ingredient-input" id="ingredientInputFields">
+                        <div class="col-5">
                             <select id="ingredient_region_1_name" name="ingredient_region_1_name"
-                                class="form-select us-dropdown" value="">
+                                class="form-select us-dropdown us-ingredient-name">
                                 <option selected>Choose...</option>
                                 {% for ingredient in ingredients %}
                                 <option>{{ ingredient.ingredient_name }}</option>
                                 {% endfor %}
                             </select>
                         </div>
-                        <div class="col-4 us-ingredient-quantity">
-                            <label for="ingredient_region_1_quantity" class="form-label">Quantity</label>
-                            <input class="" type="number" id="ingredient_region_1_quantity" name="ingredient_region_1_quantity">
+                        <div class="col-2">
+                            <input class="us-quantity-input" type="number" id="ingredient_region_1_quantity"
+                                name="ingredient_region_1_quantity" 
+                                min=".25" max="10" step=".25" 
+                                placeholder="0">
                         </div>
-                        <div class="col-2 us-ingredient-measure">
-                            <label for="ingredient_region_1_measure" class="form-label">Measure</label>
+                        <div class="col-3">
                             <select id="ingredient_region_1_measure" name="ingredient_region_1_measure"
                                 class="form-select us-dropdown">
                                 <option selected>Choose...</option>
@@ -130,25 +130,26 @@
                                 {% endfor %}
                             </select>
                         </div>
+                        <div class="col-1">
+                            <!-- Add the ingredient to the form -->
+                            <button type="button" class="us-ingredient-addbtn" onclick="addIngredient()">+</button>
+                        </div>
                     </div>
-                    <!-- Add the ingredient to the form -->
-                    <button type="button" class="us-ingredient-addbtn" onclick="addIngredient()">+ Add</button>
                 </div>
                 <!-- Add Recipe Preparation -->
                 <div class="col-12">
                     <label for="recipe_prep" class="form-label">Preparation</label>
-                    <textarea type="text" id="recipe_prep" name="recipe_prep" 
+                    <textarea id="recipe_prep" name="recipe_prep" 
                         maxlength="500"
-                        class="form-control">
-                    </textarea>
+                        class="form-control"></textarea>
                 </div>
                 <!-- Submit Recipe -->
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary us-form-btn">Submit Recipe</button>
+                    <button type="submit" class="btn btn-primary us-form-btn" onclick="clearLocalStorage('ingredientIDLocalStorage')">Submit Recipe</button>
                 </div>
             </form>
         </div>
-    </row>
+    </div>
 {% endblock%}
 
 <!-- Variable user menu items -->
