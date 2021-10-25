@@ -42,21 +42,24 @@
                     <input type="text" id="recipe_name" name="recipe_name" 
                         class="form-control" 
                         minlength="5" maxlength="50"
-                        required>
+                        required value="{{ recipe.recipe_name }}">
                 </div>
                 <!-- Add Recipe Description -->
                 <div class="col-12">
                     <label for="recipe_description" class="form-label">Description</label>
                     <textarea id="recipe_description" name="recipe_description" 
-                    class="form-control"></textarea>
+                    class="form-control">{{ recipe.description }}</textarea>
                 </div>
                 <!-- Add Recipe Region -->
                 <div class="col-md-6">
                     <label for="recipe_region" class="form-label">Region</label>
                     <select id="recipe_region" name="recipe_region" class="form-select us-dropdown">
-                        <option selected>Choose...</option>
                         {% for region in regions %}
-                        <option>{{region.region_name}}</option>
+                            {% if region.region_name == recipe.recipe_region %}
+                                <option selected>{{region.region_name}}</option>
+                            {% else %}
+                                <option>{{region.region_name}}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                 </div>
@@ -81,16 +84,13 @@
                     <label for="recipe_image_url" class="form-label">Provide an Image URL</label>
                     <input type="url" id="recipe_image_url" name="recipe_image_url" 
                         pattern="https?://.+" title="Include http://"
-                        value="https://"
-                        class="form-control">
-                    </textarea>
+                        class="form-control" value="{{ recipe.image_url }}">
                 </div>
                 <!-- Add Recipe Image Description -->
                 <div class="col-12">
                     <label for="recipe_image_alt" class="form-label">Provide an Image Description</label>
                     <input type="text" id="recipe_image_alt" name="recipe_image_alt" 
-                        class="form-control">
-                    </textarea>
+                        class="form-control" value="{{ recipe.image_alt }}">
                 </div>
                 <!-- Add Ingredient Region -->
                 <div class="col us-ingredient-col">
@@ -118,8 +118,7 @@
                         <div class="col-2">
                             <input class="us-quantity-input" type="number" id="ingredient_region_1_quantity"
                                 name="ingredient_region_1_quantity" 
-                                min=".25" max="10" step=".25" 
-                                placeholder="0">
+                                min="0" max="10" step=".25" value="1">
                         </div>
                         <div class="col-3">
                             <select id="ingredient_region_1_measure" name="ingredient_region_1_measure"
@@ -141,7 +140,7 @@
                     <label for="recipe_prep" class="form-label">Preparation</label>
                     <textarea id="recipe_prep" name="recipe_prep" 
                         maxlength="500"
-                        class="form-control"></textarea>
+                        class="form-control">{{ recipe.preparation }}</textarea>
                 </div>
                 <!-- Submit Recipe -->
                 <div class="col-12">

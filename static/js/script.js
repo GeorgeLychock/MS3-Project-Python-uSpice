@@ -116,7 +116,7 @@ function addIngredient() {
     };
     //Add a unique-ish ingredient ID to the data
     passIngredientData.id = "ing" + Math.floor(Math.random()*10000000);
-    //grab input form data from modal
+    //grab input form data from input fields
     passIngredientData.name = document.getElementById("ingredientForm").elements.namedItem("ingredient_region_1_name").value;
     passIngredientData.quantity = document.getElementById("ingredientForm").elements.namedItem("ingredient_region_1_quantity").value;
     passIngredientData.measure = document.getElementById("ingredientForm").elements.namedItem("ingredient_region_1_measure").value;
@@ -152,9 +152,9 @@ function buildIngredientForm(i) {
 
     return `
     <div class="row us-ingredient-row" id="${ing.id}">
-        <div class="col-5 us-ingredient-name">${ing.name}</div>
-        <div class="col-2 us-ingredient-quantity">${ing.quantity}</div>
-        <div class="col-2 md-col-3 us-ingredient-measure">${ing.measure}</div>
+        <input class="col-5 us-ingredient-name" name="ingredient_name" value="${ing.name}" readonly>
+        <input class="col-2 us-ingredient-quantity" name="ingredient_quantity" value="${ing.quantity}" readonly>
+        <input class="col-2 md-col-3 us-ingredient-measure" name="ingredient_measure" value="${ing.measure}" readonly>
         <!-- Remove the ingredient from the form -->
         <div class="col-1">
             <button type="button" class="us-ingredient-delbtn" onclick="removeIngredient('${ing.id}')">Remove</button>

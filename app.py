@@ -131,12 +131,15 @@ def search():
 @app.route("/build_recipe", methods=["GET", "POST"])
 def build_recipe():
     if request.method == "POST":
-        # Create ingredient list
+        # Create ingredient lists
         ing_names = request.form.getlist("ingredient_name")
         ing_quantities = request.form.getlist("ingredient_quantity")
         ing_measures = request.form.getlist("ingredient_measure")
         ing_list = []
 
+        print(ing_names)
+
+        #Build ingredients dictionary
         for ind in range(len(ing_names)):
             ing_dict = {
                 "name": ing_names[ind],
@@ -171,7 +174,7 @@ def build_recipe():
             "image_alt":  request.form.get("recipe_image_alt"),
             "url": post_url,
             "flavors": request.form.getlist("category"),
-            "rating": 4.7
+            "rating": 0
         }
 
         mongo.db.recipes.insert_one(recipe)
