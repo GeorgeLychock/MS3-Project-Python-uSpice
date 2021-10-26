@@ -239,11 +239,20 @@ def recipe(ruid):
     return render_template("recipe.html", recipe=recipe_data)
 
 
+@app.route("/rated_recipes", methods=["GET"])
+def rated_recipes():
+    # obtail highest rated recipe data
+    data = mongo.db.recipes.find().sort("rating", -1)
+    return render_template("rated_recipes.html", recipes=data)
+
+
 @app.route("/recipe_ratings/<username>", methods=["GET"])
 def recipe_ratings(username):
     ratings = mongo.db.ratings.find({"rater": username}).sort("post_date", -1)
+    ratings2 = mongo.db.ratings.find({"rater": username}).sort("rating", -1)
+    highest_rating = dict(ratings2[0])
     last_rating = dict(mongo.db.ratings.find_one({"rater": username}))
-    ruid = last_rating["ruid"]
+    ruid = highest_rating["ruid"]
     recipe_data = mongo.db.recipes.find_one_or_404({"recipe_uid": ruid})
     return render_template("recipe_ratings.html", ratings=ratings, recipe=recipe_data)
 

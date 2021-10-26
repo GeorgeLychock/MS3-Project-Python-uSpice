@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
+<!-- Profile - Banner -->
 {% block banner %}
     <div class="container-fluid us-banner-container us-b-color-00">
         <nav class="row text-center">
-            <div class="col-2 col-md-1 us-banner-top">
+            <div class="col-4 col-md-1 us-banner-top">
                 <div class="us-banner-navbtn">
                     <a class="nav-link us-padding-0" href="{{ url_for('index') }}"><i class="bi bi-chevron-left us-user-menu-link-01 us-i-color-02"></i></a>
                 </div>
@@ -13,13 +14,10 @@
             </div>
             <div class="col-4 col-md-5 us-banner-top">
                 <div class="us-banner-top-title-div us-p-color-01">
-                    <h1 class="us-banner-top-title us-h1-color-02">{{ session.user.capitalize() }}'s Rated Recipes</h1>
+                    <h1 class="us-banner-top-title us-h1-color-02">Rated Recipes</h1>
                 </div>
             </div>
             <div class="col-4 col-md-6 us-banner-top">
-                <div class="float-end">
-                    <a class="nav-link us-advsearch-link us-i-color-02" href="{{ url_for('search') }}" title="Goto Advanced Search."><i class="bi bi-search us-menu-link-02 us-i-color-02"></i><sup>ADV </sup></a>
-                </div>
                 <div class="us-banner-homebtn">
                     <a class="nav-link us-padding-0" href="{{ url_for('index') }}" title="Home"><i class="bi bi-house-door us-user-menu-link-01 us-i-color-02"></i></a>
                 </div>
@@ -29,47 +27,59 @@
 {% endblock %}
 
 {% block content %}
-<!-- Latest Rated Section -->
-    <h4 class="us-hr-header us-h2-color-01">Highest Recipe Rated by You</h4>
-    <div>
-        <div class="float-end"><img class="us-recipe-card-image" src="{{ recipe.image_url }}" alt="{{ recipe.image_alt }}" width=100%></div>
-        <div class=""><h3 class="us-recipe-name">{{ recipe.recipe_name }}</h3></div>
+    <!-- User Submitted Recipe Section -->
+    <h5 class="us-hr-header us-h2-color-01">Rated Recipes</h5>
+    <div class="row us-profile-recipe-header-row">
+        <div class="col-md-2 text-start">
+            <div class="us-spacer-100p"></div>
+        </div>
+        <div class="col-md-3">
+            <div class="us-spacer-100p"></div>
+        </div>
+        <div class="col-md-2">
+            <div class="us-spacer-100p"></div>
+        </div>
+        <div class="col-md-1">
+            <p>Date Posted</p>
+        </div>
+        <div class="col-md-1">
+            <p>Rating</p>
+        </div>
+        <div class="col-md-1">
+            <p>Submitted By</p>
+        </div>
+        <div class="col-md-2 us-text-center">
+            <p>Actions</p>
+        </div>
     </div>
-    <row>
-        <div class="col">
-            <p>{{ recipe.description }}</p>
+{% for recipe in recipes %}
+    <div class="row us-profile-recipe-row">
+        <div class="col-md-2 text-start">
+            <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="../recipe/{{ recipe.recipe_uid }}" title="See {{ recipe.recipe_name }}'s recipe card."><sup>#</sup>{{ loop.index }} {{recipe.recipe_name}}</a></h3>
         </div>
-        <div class="col">
-            <h3 class="us-recipe-info">Recipe Info</h3>
-            <p>Author: {{ recipe.author }}</p>
-            <p>Flavor Profile:
-                {% for flavor in recipe.flavors %}
-                {{ flavor }}
-                {% if loop.index != loop.length %}
-                ,
-                {% endif %}
-                {% endfor %}
-            </p>
-            <p>Region: {{ recipe.region }}</p>
-            <p>Date Posted: {{ recipe.date_posted }}</p>
+        <div class="col-md-3">
+            <p>{{recipe.description}}</p>
         </div>
-    </row>
-    {% for rating in ratings %}
-        <div class="row">
-            <div class="col-md-4 text-start">
-                <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="../recipe/{{ rating.ruid }}" title="See {{ rating.recipe_name }}'s recipe card."><sup>#</sup>{{ loop.index }} {{rating.recipe_name}}</a></h3>
-            </div>
-            <div class="col-md-4">
-                <p>{{rating.post_date}}</p>
-            </div>
-            <div class="col-md-4">
-                <p>{{rating.rating}}</p>
-            </div>
+        <div class="col-md-2">
+            <img class="us-recipe-img" src="{{ recipe.image_url }}" alt="Image of {{ recipe.recipe_name }}">
         </div>
-        {% if loop.index != loop.length %}
-            <hr class="featurette-divider">
-        {% endif %}
-    {% endfor %}
+        <div class="col-md-1">
+            <p>{{recipe.date_posted}}</p>
+        </div>
+        <div class="col-md-1 us-text-center">
+            <p>{{recipe.rating}}</p>
+        </div>
+        <div class="col-md-1 us-text-center">
+            <p>{{recipe.author}}</p>
+        </div>
+        <div class="col-md-2 us-text-center">
+            <a class="us-recipe-head-link us-update-rating-btn" href="../recipe/{{ recipe.recipe_uid }}" title="Update {{ recipe.recipe_name }}'s rating.">Update Rating</a>
+        </div>
+    </div>
+    {% if loop.index != loop.length %}
+        <hr class="featurette-divider">
+    {% endif %}
+{% endfor %}
 {% endblock %}
 
 <!-- Variable user menu items -->
