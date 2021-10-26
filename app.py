@@ -14,10 +14,6 @@ from bson.objectid import ObjectId
 from pymongo import cursor
 from werkzeug.security import generate_password_hash, check_password_hash
 
-import tkinter as tk
-from tkinter import ttk
-from tkinter.messagebox import askyesno
-
 if os.path.exists("env.py"):
     import env
 
@@ -310,19 +306,8 @@ def edit_recipe(ruid):
 @app.route("/delete_recipe/<ruid>")
 def delete_recipe(ruid):
 
-    # create the root window
-    root = tk.Tk()
-    root.title('Tkinter Yes/No Dialog')
-    root.geometry('300x150')
-    answer = askyesno(title='confirmation',
-                    message='Are you sure that you want to delete this recipe?')
-    if answer:
         mongo.db.recipes.remove({"recipe_uid": ruid})
         flash("Recipe successfully deleted.")
-        root.destroy()
-        return redirect(url_for("profile", username=session["user"]))
-    else:
-        root.destroy()
         return redirect(url_for("profile", username=session["user"]))
 
 if __name__ == "__main__":
