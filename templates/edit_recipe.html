@@ -69,12 +69,24 @@
                         <p>Flavor Profile</p>
                         <div class="col-md-5 us-check-box">
                             {% for category in categories %}
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="{{ category.category_name }}" name="category">
-                                <label class="form-check-label" for="{{ category.category_name }}">
-                                    {{ category.category_name.capitalize() }}
-                                </label>
-                            </div>
+                                {% for flavor in recipe.flavors %}
+                                    {% if category.category_name == flavor%}
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="{{ category.category_name }}" name="category" value="{{ category.category_name }}" checked>
+                                            <label class="form-check-label" for="{{ category.category_name }}">
+                                                {{ category.category_name.capitalize() }}
+                                            </label>
+                                        </div>
+                                    {% else %}
+                                        <div></div>
+                                    {% endif %}
+                                {% endfor %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="{{ category.category_name }}" name="category" value="{{ category.category_name }}">
+                                    <label class="form-check-label" for="{{ category.category_name }}">
+                                        {{ category.category_name.capitalize() }}
+                                    </label>
+                                </div>
                             {% endfor %}
                         </div>
                     </div>
@@ -102,7 +114,20 @@
                             <div class="col-2 us-ingredient-quantity">Quantity</div>
                             <div class="col-3 us-ingredient-measure">Measure</div>
                         </div>
-                        <div class="us-ingredient-box" id="ingredient_region" name="ingredient_region"></div>
+                        <div class="us-ingredient-box" id="ingredient_region" name="ingredient_region">
+                        {% for ingredient in recipe.ingredients %}
+                            <div class="row us-ingredient-row" id="{{ ingredient._id }}">
+                                <input name="ingredient_id" value="{{ ingredient._id }}" hidden readonly>
+                                <input class="col-5 us-ingredient-name" name="ingredient_name" value="{{ ingredient.name }}" readonly>
+                                <input class="col-2 us-ingredient-quantity" name="ingredient_quantity" value="{{ ingredient.quantity }}" readonly>
+                                <input class="col-2 md-col-3 us-ingredient-measure" name="ingredient_measure" value="{{ ingredient.measure }}" readonly>
+                                <!-- Remove the ingredient from the form -->
+                                <div class="col-1">
+                                    <button type="button" class="us-ingredient-delbtn" onclick="removeIngredient('{{ ingredient._id }}')">Remove</button>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
                     </div>
                     <!-- Add Ingredient Input Fields -->
                     <div class="row us-ingredient-input" id="ingredientInputFields">
@@ -144,7 +169,14 @@
                 </div>
                 <!-- Submit Recipe -->
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary us-form-btn" onclick="clearLocalStorage('ingredientIDLocalStorage')">Submit Recipe</button>
+                    <div class="us-cancelbtn">
+                        <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}"><i
+                                class="bi bi-x-lg us-menu-link-01 us-i-color-01"></i>Cancel</a>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary us-form-btn"
+                            onclick="clearLocalStorage('ingredientIDLocalStorage')">Update Recipe</button>
+                    </div>
                 </div>
             </form>
         </div>

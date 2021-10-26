@@ -4,6 +4,11 @@ $(document).ready(function () {
     buildBannerButton("forward");
 });
 
+//Confirm deletion
+function confirmDeleteRecipe() {
+    var txt ="Are you sure you want to delete this recipe permanently?";
+    confirm(txt);
+}
 
 function getLocalStorageArray(lsName) {
     if (localStorage.getItem(lsName)) {
@@ -129,19 +134,11 @@ function addIngredient() {
     x = document.getElementById("ingredient_region_1_measure");
     x.value = "Choose...";
 
-    // Add ingredient ID to localStorage
-    lsName = "ingredientIDLocalStorage";
-    addToLocalStorage(passIngredientData.id, lsName);
-
     return $("#ingredient_region").append(buildIngredientForm(passIngredientData));
 }
 
 function removeIngredient(iID) {
-    // Remove ingredient ID from localStorage and remove ingredient from user input form
-    console.log(iID);
-    lsName = "ingredientIDLocalStorage";
     elementID = iID;
-    removeFromLocalStorage(elementID, lsName);
     //remove panel
     return $("#" + elementID).remove();
 
@@ -152,6 +149,7 @@ function buildIngredientForm(i) {
 
     return `
     <div class="row us-ingredient-row" id="${ing.id}">
+        <input name="ingredient_id" value="${ing.id}" hidden readonly>
         <input class="col-5 us-ingredient-name" name="ingredient_name" value="${ing.name}" readonly>
         <input class="col-2 us-ingredient-quantity" name="ingredient_quantity" value="${ing.quantity}" readonly>
         <input class="col-2 md-col-3 us-ingredient-measure" name="ingredient_measure" value="${ing.measure}" readonly>

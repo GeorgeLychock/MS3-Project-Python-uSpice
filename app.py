@@ -14,6 +14,10 @@ from bson.objectid import ObjectId
 from pymongo import cursor
 from werkzeug.security import generate_password_hash, check_password_hash
 
+import tkinter as tk
+from tkinter import ttk
+from tkinter.messagebox import askyesno
+
 if os.path.exists("env.py"):
     import env
 
@@ -132,16 +136,16 @@ def search():
 def build_recipe():
     if request.method == "POST":
         # Create ingredient lists
+        ing_ids = request.form.getlist("ingredient_id")
         ing_names = request.form.getlist("ingredient_name")
         ing_quantities = request.form.getlist("ingredient_quantity")
         ing_measures = request.form.getlist("ingredient_measure")
         ing_list = []
 
-        print(ing_names)
-
         #Build ingredients dictionary
         for ind in range(len(ing_names)):
             ing_dict = {
+                "_id": ing_ids[ind],
                 "name": ing_names[ind],
                 "quantity": ing_quantities[ind],
                 "measure": ing_measures[ind]
@@ -250,14 +254,76 @@ def recipe_ratings(username):
 
 @app.route("/edit_recipe/<ruid>", methods=["GET", "POST"])
 def edit_recipe(ruid):
-    # obtail flavor category data
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    regions = mongo.db.region.find().sort("region_name", 1)
-    measures = list(mongo.db.measures.find())
-    ingredients = list(mongo.db.ingredients.find())
-    recipe_data = mongo.db.recipes.find_one_or_404({"recipe_uid": ruid})
-    return render_template("edit_recipe.html", categories=categories, regions=regions, measures=measures, ingredients=ingredients, recipe=recipe_data)
+    if request.method == "POST":
+        # Create ingredient lists
+        ing_ids = request.form.getlist("ingredient_id")
+        ing_names = request.form.getlist("ingredient_name")
+        ing_quantities = request.form.getlist("ingredient_quantity")
+        ing_measures = request.form.getlist("ingredient_measure")
+        ing_list = []
 
+        #Build ingredients dictionary
+        for ind in range(len(ing_names)):
+            ing_dict = {
+                "_id": ing_ids[ind],
+                "name": ing_names[ind],
+                "quantity": ing_quantities[ind],
+                "measure": ing_measures[ind]
+            }
+            ing_list.append(ing_dict)
+
+        recipe_data = mongo.db.recipes.find_one_or_404({"recipe_uid": ruid})
+        # Create object to upload to db
+        update = {
+            "author": session["user"],
+            "recipe_name": request.form.get("recipe_name"),
+            "recipe_uid": ruid,
+            "ingredients": ing_list,
+            "recipe_region": request.form.get("recipe_region"),
+            "date_posted": recipe_data["date_posted"],
+            "description": request.form.get("recipe_description"),
+            "preparation": request.form.get("recipe_prep"),
+            "image_url":  request.form.get("recipe_image_url"),
+            "image_alt":  request.form.get("recipe_image_alt"),
+            "url": recipe_data["url"],
+            "flavors": request.form.getlist("category"),
+            "rating": 0
+        }
+
+        mongo.db.recipes.update({"recipe_uid": ruid}, update)
+        flash("Recipe Updated!")
+        return redirect(url_for("recipe", ruid=ruid))
+    
+    try:
+        session["user"]
+        # obtail flavor category data
+        categories = mongo.db.categories.find().sort("category_name", 1)
+        regions = mongo.db.region.find().sort("region_name", 1)
+        measures = list(mongo.db.measures.find())
+        ingredients = list(mongo.db.ingredients.find())
+        recipe_data = mongo.db.recipes.find_one_or_404({"recipe_uid": ruid})
+        return render_template("edit_recipe.html", categories=categories, regions=regions, measures=measures, ingredients=ingredients, recipe=recipe_data)
+    except:
+        flash("Please log on or register before submitting a recipe. Thanks!")
+        return redirect(url_for("login"))
+
+@app.route("/delete_recipe/<ruid>")
+def delete_recipe(ruid):
+
+    # create the root window
+    root = tk.Tk()
+    root.title('Tkinter Yes/No Dialog')
+    root.geometry('300x150')
+    answer = askyesno(title='confirmation',
+                    message='Are you sure that you want to delete this recipe?')
+    if answer:
+        mongo.db.recipes.remove({"recipe_uid": ruid})
+        flash("Recipe successfully deleted.")
+        root.destroy()
+        return redirect(url_for("profile", username=session["user"]))
+    else:
+        root.destroy()
+        return redirect(url_for("profile", username=session["user"]))
 
 if __name__ == "__main__":
     app.run(

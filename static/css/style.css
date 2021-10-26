@@ -385,7 +385,7 @@ padding: 0 10%;
 
 /* Build Recipe */
 .us-ingredient-ctnr {
-  padding: 10px 10px 0 10px;
+  padding: 10px;
   border-radius: 5px;
   margin-bottom: 5px;
 }
@@ -425,7 +425,7 @@ padding: 0 10%;
 
 .us-ingredient-row {
   font-size: .8rem;
-  margin-top: 5px;
+  margin-bottom: 5px;
   padding: 0 10px;
 }
 

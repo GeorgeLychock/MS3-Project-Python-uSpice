@@ -40,28 +40,28 @@
         </div>
     </div>
     <hr class="featurette-divider">
-<!-- User Submitted Recipe Section -->
-<h5 class="us-hr-header us-h2-color-01">{{ username.capitalize() }}'s Submitted Recipes</h5>
-<div class="row us-profile-recipe-header-row">
-    <div class="col-md-2 text-start">
-        <div class="us-spacer-100p"></div>
+    <!-- User Submitted Recipe Section -->
+    <h5 class="us-hr-header us-h2-color-01">{{ username.capitalize() }}'s Submitted Recipes</h5>
+    <div class="row us-profile-recipe-header-row">
+        <div class="col-md-2 text-start">
+            <div class="us-spacer-100p"></div>
+        </div>
+        <div class="col-md-3">
+            <div class="us-spacer-100p"></div>
+        </div>
+        <div class="col-md-2">
+            <div class="us-spacer-100p"></div>
+        </div>
+        <div class="col-md-1">
+            <p>Date Posted</p>
+        </div>
+        <div class="col-md-1">
+            <p>Your Rating</p>
+        </div>
+        <div class="col-md-3 us-text-center">
+            <p>Actions</p>
+        </div>
     </div>
-    <div class="col-md-3">
-        <div class="us-spacer-100p"></div>
-    </div>
-    <div class="col-md-2">
-        <div class="us-spacer-100p"></div>
-    </div>
-    <div class="col-md-1">
-        <p>Date Posted</p>
-    </div>
-    <div class="col-md-1">
-        <p>Your Rating</p>
-    </div>
-    <div class="col-md-3 us-text-center">
-        <p>Actions</p>
-    </div>
-</div>
 {% for recipe in recipes %}
     <div class="row us-profile-recipe-row">
         <div class="col-md-2 text-start">
@@ -81,7 +81,7 @@
         </div>
         <div class="col-md-3 us-text-center">
             <a class="us-recipe-head-link us-update-rating-btn" href="../recipe/{{ recipe.recipe_uid }}" title="Update {{ recipe.recipe_name }}'s rating.">Update Rating</a>
-            <a class="us-recipe-head-link us-update-rating-btn" href="{{ url_for('edit_recipe', ruid=recipe.recipe_uid) }}" title="Update {{ recipe.recipe_name }}'s rating.">Delete</a>
+            <a class="us-recipe-head-link us-update-rating-btn" href="{{ url_for('delete_recipe', ruid=recipe.recipe_uid) }}" title="Delete {{ recipe.recipe_name }}'s rating.">Delete</a>
             <a class="us-recipe-head-link us-update-rating-btn" href="{{ url_for('edit_recipe', ruid=recipe.recipe_uid) }}" title="Edit {{ recipe.recipe_name }}.">Edit</a>
         </div>
     </div>
