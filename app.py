@@ -11,9 +11,6 @@ from flask import (
 from flask.helpers import total_seconds
 from flask_pymongo import PyMongo
 from werkzeug.security import generate_password_hash, check_password_hash
-import tkinter as tk
-from tkinter import ttk
-from tkinter.messagebox import askyesno
 
 if os.path.exists("env.py"):
     import env
