@@ -145,6 +145,7 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 <a name="FUTUREREQS"></a>
 ## Future Requirements
 (Alignments to User Stories are in paratheses, if available)
+-   Delete recipe confirmation routine needs to be incorporated, looking at Tkinker but I had issues with a duplicate root window popping up, so I reverted to not having a delete confirmation
 -   Admin fundtionality
 -   Admin Update Ingredients functionality
 -   Add a posted recipes section to the user profile page

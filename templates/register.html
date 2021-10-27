@@ -57,11 +57,23 @@
           required
           class="form-control" >
         </div>
-        <div class="form-group">
-            <label for="avitar_url">Avitar</label>
-            <input type="text" name="avitar_url" id="avitar_url" 
-            value="../static/img/avatars/avatar-02.svg"
-            class="form-control" >
+        <div class="us-avatar-box">
+            <h6>Choose an avatar for your profile:</h6>
+            <div class="us-avatar-inner-box">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="avatar" id="male_avatar1" value="../static/img/avatars/avatar-01.svg">
+                    <label class="form-check-label" for="male_avatar1">
+                        <img class="us-avatar-img" src="../static/img/avatars/avatar-01.svg" alt="Avatar of male">
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="avatar" id="female_avatar1" value="../static/img/avatars/avatar-02.svg">
+                    <label class="form-check-label" for="female_avatar1">
+                        <img class="us-avatar-img" src="../static/img/avatars/avatar-02.svg" alt="Avatar of female">
+                    </label>
+                </div>
+            </div>
+            <div>Icons made by <a href="https://www.flaticon.com/authors/catkuro" title="catkuro">catkuro</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         </div>
         <button type="submit" class="btn btn-primary us-form-btn">Register</button>
     </form>

@@ -10,9 +10,10 @@ from flask import (
     redirect, request, session, url_for)
 from flask.helpers import total_seconds
 from flask_pymongo import PyMongo
-from bson.objectid import ObjectId
-from pymongo import cursor
 from werkzeug.security import generate_password_hash, check_password_hash
+import tkinter as tk
+from tkinter import ttk
+from tkinter.messagebox import askyesno
 
 if os.path.exists("env.py"):
     import env
@@ -54,7 +55,7 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "avitar_url": request.form.get("avitar_url").lower()
+            "avatar_url": request.form.get("avatar")
         }
         mongo.db.users.insert_one(register)
 
@@ -100,7 +101,7 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     avitar = mongo.db.users.find_one(
-        {"username": session["user"]})["avitar_url"]
+        {"username": session["user"]})["avatar_url"]
     recipes = mongo.db.recipes.find({"author": username}).sort("date_posted", -1)
 
     if session["user"]:
@@ -249,12 +250,7 @@ def rated_recipes():
 @app.route("/recipe_ratings/<username>", methods=["GET"])
 def recipe_ratings(username):
     ratings = mongo.db.ratings.find({"rater": username}).sort("post_date", -1)
-    ratings2 = mongo.db.ratings.find({"rater": username}).sort("rating", -1)
-    highest_rating = dict(ratings2[0])
-    last_rating = dict(mongo.db.ratings.find_one({"rater": username}))
-    ruid = highest_rating["ruid"]
-    recipe_data = mongo.db.recipes.find_one_or_404({"recipe_uid": ruid})
-    return render_template("recipe_ratings.html", ratings=ratings, recipe=recipe_data)
+    return render_template("recipe_ratings.html", ratings=ratings)
 
 
 @app.route("/edit_recipe/<ruid>", methods=["GET", "POST"])
@@ -315,8 +311,19 @@ def edit_recipe(ruid):
 @app.route("/delete_recipe/<ruid>")
 def delete_recipe(ruid):
 
+    # create the root window
+    root = tk.Tk()
+    root.title('Tkinter Yes/No Dialog')
+    root.geometry('300x150')
+    answer = askyesno(title='confirmation',
+                    message='Are you sure that you want to delete this recipe?')
+    if answer:
         mongo.db.recipes.remove({"recipe_uid": ruid})
         flash("Recipe successfully deleted.")
+        root.destroy()
+        return redirect(url_for("profile", username=session["user"]))
+    else:
+        root.destroy()
         return redirect(url_for("profile", username=session["user"]))
 
 if __name__ == "__main__":
