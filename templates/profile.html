@@ -30,18 +30,19 @@
     <!-- #### Add a list of the user's recipes submitted -->
     <div class="row">
         <div class="col-md-4 text-start">
-            <h4>Username: {{ username.capitalize() }}</h4>
+            <h4>Username: {{ user.username.capitalize() }}</h4>
         </div>
         <div class="col-md-6">
-            <p>User Description</p>
+            <h6>User Description: </h6>
+            <p>{{ user.description }}</p>
         </div>
         <div class="col-md-2">
-            <img class="us-recipe-img" src="{{ avitar }}" alt="Image of {{ username }}'s avitar">
+            <img class="us-recipe-img" src="{{ user.avatar_url }}" alt="Image of {{ user.username }}'s avatar">
         </div>
     </div>
-    <hr class="featurette-divider">
+    <hr>
     <!-- User Submitted Recipe Section -->
-    <h5 class="us-hr-header us-h2-color-01">{{ username.capitalize() }}'s Submitted Recipes</h5>
+    <h5 class="us-hr-header us-h2-color-01">{{ user.username.capitalize() }}'s Latest Submitted Recipes</h5>
     <div class="row us-profile-recipe-header-row">
         <div class="col-md-2 text-start">
             <div class="us-spacer-100p"></div>
@@ -86,7 +87,7 @@
         </div>
     </div>
     {% if loop.index != loop.length %}
-        <hr class="featurette-divider">
+        <hr>
     {% endif %}
 {% endfor %}
 {% endblock %}

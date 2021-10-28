@@ -30,7 +30,7 @@
 
 {% block content %}
 <!-- User's Rated Recipe Section -->
-    <h4 class="us-hr-header us-h2-color-01">Your Rated Recipes</h4>
+    <h4 class="us-hr-header us-h2-color-01">Your Latest Rated Recipes</h4>
     <div class="row us-profile-recipe-header-row">
         <div class="col-md-2 text-start">
             <div class="us-spacer-100p"></div>
@@ -51,7 +51,7 @@
     {% for rating in ratings %}
         <div class="row">
             <div class="col-md-4 text-start">
-                <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="../recipe/{{ rating.ruid }}" title="See {{ rating.recipe_name }}'s recipe card."><sup>#</sup>{{ loop.index }} {{rating.recipe_name}}</a></h3>
+                <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="../recipe/{{ rating.ruid }}" title="See {{ rating.recipe_name }}'s recipe card.">{{rating.recipe_name}}</a></h3>
             </div>
             <div class="col-md-4">
                 <p>{{rating.post_date}}</p>
@@ -61,7 +61,7 @@
             </div>
         </div>
         {% if loop.index != loop.length %}
-            <hr class="featurette-divider">
+            <hr>
         {% endif %}
     {% endfor %}
 {% endblock %}

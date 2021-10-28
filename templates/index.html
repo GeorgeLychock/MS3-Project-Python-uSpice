@@ -44,22 +44,43 @@
 <!-- Highest Rated Section -->
 {% block content %}
     <h2 class="us-hr-header us-h2-color-01">uSpice's Top 5 Spice Recipes</h2>
+    <hr>
     {% for recipe in recipes %}
         <div class="row">
             <div class="col-md-3 text-start">
                 <h3 class="us-rating-dropcap3-0 us-h-color-01">{{recipe.rating}}</h3>
             </div>
-            <div class="col-md-3 text-start">
-                <a class="us-recipe-head-link" href="recipe/{{ recipe.recipe_uid }}" title="See {{ recipe.recipe_name }}'s recipe card."><h3 class="us-recipe-header">{{recipe.recipe_name}}</h3></a>
-            </div>
-            <div class="col-md-4">
-                <p>{{recipe.description}}</p>
-                {% if loop.index != loop.length %}
-                    <hr class="featurette-divider">
-                {% endif %}
-            </div>
-            <div class="col-md-2">
-                <a class="us-recipe-head-link" href="recipe/{{ recipe.recipe_uid }}" title="See {{ recipe.recipe_name }}'s recipe card."><img class="us-recipe-img" src="{{ recipe.image_url }}" alt="Image of {{ recipe.recipe_name }}"></a>
+            <div class="col-md-9">
+                <div class="row us-hr-row-box">
+                    <div class="col-6 col-md-3 text-start">
+                        <a class="us-recipe-head-link" href="recipe/{{ recipe.recipe_uid }}"
+                            title="See {{ recipe.recipe_name }}'s recipe card.">
+                            <h3 class="us-recipe-header">{{recipe.recipe_name}}</h3>
+                        </a>
+                    </div>
+                    <div class="col-3 d-md-none">
+                        <!-- Recipe Image-->
+                            <p>
+                                <a class="us-recipe-head-link" href="recipe/{{ recipe.recipe_uid }}"
+                                    title="See {{ recipe.recipe_name }}'s recipe card."><img class="us-recipe-img"
+                                        src="{{ recipe.image_url }}" alt="Image of {{ recipe.recipe_name }}"></a>
+                            </p>
+                        </div>
+                    <div class="col-md-6">
+                        <p>{{recipe.description}}</p>
+                    </div>
+                    <div class="d-none d-md-block col-md-3">
+                    <!-- Recipe Image-->
+                        <p>
+                            <a class="us-recipe-head-link" href="recipe/{{ recipe.recipe_uid }}"
+                                title="See {{ recipe.recipe_name }}'s recipe card."><img class="us-recipe-img"
+                                    src="{{ recipe.image_url }}" alt="Image of {{ recipe.recipe_name }}"></a>
+                        </p>
+                    </div>
+                    {% if loop.index != loop.length %}
+                    <hr>
+                    {% endif %}
+                </div>
             </div>
         </div>
     {% endfor %}

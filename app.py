@@ -56,7 +56,9 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "avatar_url": request.form.get("avatar")
+            "avatar_url": request.form.get("avatar"),
+            "description": request.form.get("user_description"),
+            "role": "user"
         }
         mongo.db.users.insert_one(register)
 
@@ -97,18 +99,12 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # grab the session user's username from db
-    # Code reuse from Code Institute, Backend Development, Mini Project lesson
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    avitar = mongo.db.users.find_one(
-        {"username": session["user"]})["avatar_url"]
+    # grab the session user's information from db
+    user = mongo.db.users.find_one({"username": username})
     recipes = mongo.db.recipes.find(
         {"author": username}).sort("date_posted", -1)
-
     if session["user"]:
-        return render_template(
-            "profile.html", username=username, avitar=avitar, recipes=recipes)
+        return render_template("profile.html", user=user, recipes=recipes)
 
     return redirect(url_for("login"))
 

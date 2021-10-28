@@ -24,8 +24,10 @@
 
 <!-- Register - Form -->
 {% block content %}
+    <h2 class="us-hr-header us-h2-color-01">Join uSpice's Family!</h2>
     <!-- RegEx input patterns from W3Schools - https://www.w3schools.com/tags/att_input_pattern.asp -->
     <form method="POST" action="{{ url_for('register') }}">
+        <!-- Input Username -->
         <div class="form-group">
             <i class="bi bi-person-plus"></i>
             <label for="username">Username</label>
@@ -38,6 +40,7 @@
                 class="form-control">
             <small id="usernameHelp" class="form-text text-muted">Enter a valid username.</small>
         </div>
+        <!-- Input User Email -->
         <div class="form-group">
           <label for="email">Email address</label>
           <input type="email" id="email" name="email"
@@ -57,6 +60,15 @@
           required
           class="form-control" >
         </div>
+        <!-- Input User Description -->
+        <div class="col-12">
+            <label for="recipe_description" class="form-label">Description</label>
+            <textarea id="user_description" name="user_description" 
+            class="form-control"
+            maxlength="200"
+            placeholder="Tell us a little about yourself."></textarea>
+        </div>
+        <!-- Choose User Avatar -->
         <div class="us-avatar-box">
             <h6>Choose an avatar for your profile:</h6>
             <div class="us-avatar-inner-box">

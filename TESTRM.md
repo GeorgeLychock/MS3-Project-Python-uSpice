@@ -6,7 +6,7 @@
 
 <hr>
 
-<h1 align="center"><img src="_documentation/look-and-feel/montage-screenshot.png" /></h1>
+<h1 align="center"><img src="_documentation/montage.png" /></h1>
 
 ## Table of Contents
 
