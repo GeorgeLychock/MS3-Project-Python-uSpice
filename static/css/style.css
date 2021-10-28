@@ -98,6 +98,7 @@ p {
 .us-h1-color-01 {color: #666;}
 .us-h1-color-02 {color: whitesmoke;}
 .us-h2-color-01 {color: #333;}
+.us-h2-color-02 {color: #666;}
 .us-btn-color-01 {color: rgba(147, 212, 157, .25);}
 .us-btn-color-02 {color: whitesmoke;}
 
@@ -300,6 +301,15 @@ p {
 
 .us-content-article {
   margin-top: 20px;
+  padding: 30px 20px;
+}
+
+.us-rating-dropcap1-5 {
+  font-size: 1.5rem;
+}
+
+.us-rating-dropcap3-0 {
+  font-size: 3.0rem;
 }
 
 /* Home - Highest Rated */
@@ -572,7 +582,8 @@ padding: 0 10%;
   }
 
   .us-content-article {
-    margin-top: 100px;
+    margin-top: 60px;
+    padding: 30px 20px;
   }
 
   .us-header {
