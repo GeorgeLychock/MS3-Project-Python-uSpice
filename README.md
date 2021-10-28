@@ -217,12 +217,11 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
         - A notifications library recommended by my mentor Maranatha Ilesanmi.
 
 -   ### Resources Used
-    -   [jQuery: How do I test whether an element exists?](https://learn.jquery.com/using-jquery-core/faq/how-do-i-test-whether-an-element-exists/). Used this method to check if the project panel was already added to the dashboard.
     -   [MDN General Web Docs: ](https://developer.mozilla.org/) For semantic structure reference, arrays, localStorage, fetch.
     -   [W3Schools.com](https://www.w3schools.com/), For Color Picker, html/css/js general refernece, semantic structure reference, arrays, localStorage.
-    -   [MDN - CSS Scrollbars](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scrollbars)
-    -   [How To Create a Custom Scrollbar (w3schools.com)](https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp)
-    -   [Numeric Inputs – A Comparison of Browser Defaults](https://css-tricks.com/numeric-inputs-a-comparison-of-browser-defaults/), to adjust presence of spinner controls in FF
+    -   [MindMajix: Mongodb Query Examples](https://mindmajix.com/mongodb-query-and-examples)
+    -   [Tkinker Askyesno Tutorial from Pythontutorial.net](https://mindmajix.com/mongodb-query-and-examples)
+    -   [MongoDB Documentation, Query Documents](https://docs.mongodb.com/manual/tutorial/query-documents/)
 
 -   ### APIs Used
     -   [GitHub API: ](https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api) The GitHub API code came from Code Institute, see Code Credits, but information was used from the GitHub link provided here.
@@ -297,34 +296,10 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 ## Code Credits
 -   RegEx input patterns from W3Schools - https://www.w3schools.com/tags/att_input_pattern.asp
 -   Avatar Icons made by [Flaticon](https://www.flaticon.com/)
-
+-   MongoDB queries in def profile(username) from Code Institute, Backend Development, Mini Project lesson
 -   pythonguides.com/python-for-loop-index/
-
--   All Reused styles are in reused-styles.css
--   Scrollbar CSS Styling: from Digital Ocean: https://www.digitalocean.com/community/tutorials/css-scrollbars, in reused-styles.css
-
--   GitHub Widget Code from [Code Institute](https://codeinstitute.net/)
-    -   This code originated from Code Institute's Interactive Frontend Development module for the Full Stack Software Developer course. Modifcations were mostly applied for struture and style.
-    -   All JS code is in the github-information.js file.
-
 -   The localStorage check code in script.js is from [MDN - Using_the_Web_Storage_API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API). This code checks to make sure that the browser can support localStorage and has it turned on. Find code use indicated by "CODE REUSE - localStorage Check "
 
--   Progress bars in the Project Panels came from Bootstrap Documentation: https://getbootstrap.com/docs/4.6/components/progress/:
-    Find code use indicated by "CODE REUSE - Progress Bar"
-
--   Clear form
-        Clearing loop reused from W3Schools.com: https://www.w3schools.com/js/tryit.asp?filename=tryjs_form_elements 
-        
-        var x = document.getElementById("projectFormModal");
-        var i;
-        for (i = 0; i < x.length ;i++) {
-        x.elements[i].value = "";`
-        }
--   Tooltips
-    -   Used the CSS based tooltips code from W3Schools: https://www.w3schools.com/css/css_tooltip.asp
--   fetch
-    -   Based on https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch, but customized 
--   timestamp conversion, customized to capture AM/PM to control weather background; from Convert UNIX Timestamp https://www.w3resource.com/javascript-exercises/javascript-date-exercise-17.php
 
 ## Content
 

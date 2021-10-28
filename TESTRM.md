@@ -2,7 +2,7 @@
 ### Salem State University Fullstack Software Developer Certificate
 #### Backend Development Module
 
--   [View Live Dev Site](https://georgelychock.github.io/Project-Management-Dashboard---MS2/)
+-   [View Live Dev Site](https://gl-uspice-dev-01.herokuapp.com/)
 
 <hr>
 
@@ -21,8 +21,9 @@
 # Testing
 Used test writing guidelines from the following resources:
     [Guru99](https://www.guru99.com/complete-web-application-testing-checklist.html), [softwaretestinghelp.com](https://www.softwaretestinghelp.com/web-application-testing/)
--   NOTE: Usability and Functionality test criteria were written based on development version but then verified once deployed to GitHub Pages.
--   NOTE: All Validation results reported below are based on the deployed app via GitHub Pages.
+-   NOTE: Usability and Functionality test criteria were written based on development version but then verified once deployed to Heroku.
+-   NOTE: All Validation results reported below are based on the deployed app via Heroku.
+-   All Python functions were verified for PEP8 compliance at [pep8online.com](http://pep8online.com/)
 
 
 <a name="BUGS"></a>

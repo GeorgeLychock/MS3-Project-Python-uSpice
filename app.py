@@ -2,7 +2,6 @@ import os
 import datetime
 import math
 from random import *
-import json
 from random import random
 from dns.rdatatype import NULL
 from flask import (
@@ -29,8 +28,8 @@ global new_rating
 @app.route('/')
 @app.route('/index')
 def index():
-    # obtail highest rated recipe data
-    data = mongo.db.recipes.find().sort("rating", -1)
+    # obtail highest rated recipe data, limited to the top 5
+    data = mongo.db.recipes.find().sort("rating", -1).limit(5)
     # obtail flavor category data
     categories = mongo.db.categories.find()
     return render_template("index.html", recipes=data, categories=categories)
@@ -47,7 +46,7 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
 
-        ## Future functionality: Confirm with secondary pw field
+        # Future functionality: Confirm with secondary pw field
         # add new user to db
         register = {
             "username": request.form.get("username").lower(),
@@ -73,7 +72,7 @@ def login():
         if existing_user:
             # check if hashed password matches db
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                    existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome back, {}".format(
                         request.form.get("username")))
@@ -99,10 +98,12 @@ def profile(username):
         {"username": session["user"]})["username"]
     avitar = mongo.db.users.find_one(
         {"username": session["user"]})["avatar_url"]
-    recipes = mongo.db.recipes.find({"author": username}).sort("date_posted", -1)
+    recipes = mongo.db.recipes.find(
+        {"author": username}).sort("date_posted", -1)
 
     if session["user"]:
-        return render_template("profile.html", username=username, avitar=avitar, recipes=recipes)
+        return render_template(
+            "profile.html", username=username, avitar=avitar, recipes=recipes)
 
     return redirect(url_for("login"))
 
@@ -121,8 +122,8 @@ def search():
         print("Hello brother!")
         print(request.form)
         print(request.form.get("name"))
-        flash("Thanks {}, we have received your message!".format(request.form.get(
-            "name")))
+        flash("Thanks {}, we have received your message!".format(
+            request.form.get("name")))
     return render_template("search.html")
 
 
@@ -136,7 +137,7 @@ def build_recipe():
         ing_measures = request.form.getlist("ingredient_measure")
         ing_list = []
 
-        #Build ingredients dictionary
+        # Build ingredients dictionary
         for ind in range(len(ing_names)):
             ing_dict = {
                 "_id": ing_ids[ind],
@@ -150,7 +151,8 @@ def build_recipe():
         x = datetime.datetime.now()
         post_date = x.strftime("%x")
 
-        # Create recipe url replacing spaces in name w/ underscores and making lowercase
+        # Create recipe url replacing spaces in name
+        #  w/ underscores and making lowercase
         y = request.form.get("recipe_name")
         post_url = y.lower().replace(" ", "-")
 
@@ -178,7 +180,7 @@ def build_recipe():
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe added to view by the entire world!")
         return redirect(url_for("recipe", ruid=ruid))
-    
+
     try:
         session["user"]
         # obtail category data
@@ -186,7 +188,9 @@ def build_recipe():
         regions = mongo.db.region.find().sort("region_name", 1)
         measures = list(mongo.db.measures.find())
         ingredients = list(mongo.db.ingredients.find())
-        return render_template("build_recipe.html", categories=categories, regions=regions, measures=measures, ingredients=ingredients)
+        return render_template(
+            "build_recipe.html", categories=categories, regions=regions,
+            measures=measures, ingredients=ingredients)
     except:
         flash("Please log on or register before submitting a recipe. Thanks!")
         return redirect(url_for("login"))
@@ -195,10 +199,10 @@ def build_recipe():
 @app.route("/recipe/<ruid>", methods=["GET", "POST"])
 def recipe(ruid):
     # Capture rating input from user
-    new_rating = NULL
     total = 0
     inc = 0
-    recipe_data_dict = dict(mongo.db.recipes.find_one_or_404({"recipe_uid": ruid}))
+    recipe_data_dict = dict(
+        mongo.db.recipes.find_one_or_404({"recipe_uid": ruid}))
 
     # Create date posted
     x = datetime.datetime.now()
@@ -206,13 +210,32 @@ def recipe(ruid):
 
     if request.method == "POST":
         rating_input = request.form.get("rating")
-        existing_rating = mongo.db.ratings.find_one({"ruid": ruid, "rater": session["user"]})
+        print(f'Rating Input {rating_input}')
+        existing_rating = mongo.db.ratings.find_one(
+            {"ruid": ruid, "rater": session["user"]})
         if existing_rating:
             # update the existing rating
-            mongo.db.ratings.update({"_id": existing_rating["_id"]}, {"$set": {"rating": rating_input}})
+            print(f'Exiting Rating')
+            mongo.db.ratings.update(
+                {"_id": existing_rating["_id"]},
+                {"$set": {"rating": rating_input}})
             flash("Your rating has been updated!")
-            return redirect(url_for("recipe_ratings", username=session["user"]))
+
+            # Calculate new ratings average
+            ratings = mongo.db.ratings.find({"ruid": ruid})
+            for rating in ratings:
+                rate_val = rating["rating"]
+                total = total + int(rate_val)
+                inc = inc + 1
+            new_rating = round(float(total / inc), 1)
+
+            # Update recipe db document with new ratings calc
+            mongo.db.recipes.update_one(
+                {"recipe_uid": ruid}, {"$set": {"rating": new_rating}})
+            return redirect(url_for(
+                "recipe_ratings", username=session["user"]))
         else:
+            print(f'New Rating')
             rating_post = {
                 "rating": int(rating_input),
                 "rater": session["user"],
@@ -222,15 +245,14 @@ def recipe(ruid):
             }
             mongo.db.ratings.insert_one(rating_post)
 
-        # recalculate recipe rating average and populate the rating key in the recipe data
-        ratings = list(mongo.db.ratings.find({"ruid": ruid}))
+        ratings = mongo.db.ratings.find({"ruid": ruid})
         for rating in ratings:
             rate_val = rating["rating"]
-            total = total + rate_val
+            total = total + int(rate_val)
             inc = inc + 1
-
         new_rating = round(float(total / inc), 1)
-        mongo.db.recipes.update_one({"recipe_uid": ruid}, {"$set": {"rating": new_rating}})
+        mongo.db.recipes.update_one(
+            {"recipe_uid": ruid}, {"$set": {"rating": new_rating}})
         return redirect(url_for("recipe_ratings", username=session["user"]))
 
     recipe_data = mongo.db.recipes.find_one_or_404({"recipe_uid": ruid})
@@ -260,7 +282,7 @@ def edit_recipe(ruid):
         ing_measures = request.form.getlist("ingredient_measure")
         ing_list = []
 
-        #Build ingredients dictionary
+        # Build ingredients dictionary
         for ind in range(len(ing_names)):
             ing_dict = {
                 "_id": ing_ids[ind],
@@ -291,7 +313,7 @@ def edit_recipe(ruid):
         mongo.db.recipes.update({"recipe_uid": ruid}, update)
         flash("Recipe Updated!")
         return redirect(url_for("recipe", ruid=ruid))
-    
+
     try:
         session["user"]
         # obtail flavor category data
@@ -300,7 +322,9 @@ def edit_recipe(ruid):
         measures = list(mongo.db.measures.find())
         ingredients = list(mongo.db.ingredients.find())
         recipe_data = mongo.db.recipes.find_one_or_404({"recipe_uid": ruid})
-        return render_template("edit_recipe.html", categories=categories, regions=regions, measures=measures, ingredients=ingredients, recipe=recipe_data)
+        return render_template(
+            "edit_recipe.html", categories=categories, regions=regions,
+            measures=measures, ingredients=ingredients, recipe=recipe_data)
     except:
         flash("Please log on or register before submitting a recipe. Thanks!")
         return redirect(url_for("login"))

@@ -45,7 +45,7 @@
 
 <!-- Highest Rated Section -->
 {% block content %}
-    <h2 class="us-hr-header us-h2-color-01">Highest Rated Spice Recipes</h2>
+    <h2 class="us-hr-header us-h2-color-01">uSpice's Top 5 Spice Recipes</h2>
     {% for recipe in recipes %}
         <div class="row">
             <div class="col-md-4 text-start">
@@ -55,7 +55,7 @@
                 <p>{{recipe.description}}</p>
             </div>
             <div class="col-md-2">
-                <img class="us-recipe-img" src="{{ recipe.image_url }}" alt="Image of {{ recipe.recipe_name }}">
+                <a class="us-recipe-head-link" href="recipe/{{ recipe.recipe_uid }}" title="See {{ recipe.recipe_name }}'s recipe card."><img class="us-recipe-img" src="{{ recipe.image_url }}" alt="Image of {{ recipe.recipe_name }}"></a>
             </div>
         </div>
         {% if loop.index != loop.length %}
