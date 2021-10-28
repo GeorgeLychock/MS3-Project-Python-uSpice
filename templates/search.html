@@ -24,10 +24,65 @@
 
 <!-- Search Results Block -->
 {% block content %}
-    <div id="us-hr-box-id" class="col-12 col-lg-6 us-text-center us-hr-box">
-        <h2 class="us-hr-header us-h2-color-01">Search Results</h2>
-       
+    <div id="us-hr-box-id" class="col-12 us-text-center us-hr-box">
+        <h2 class="us-hr-header us-h2-color-01">Search Results for "{{ term }}".</h2>
     </div>
+    <div id="us-hr-box-id" class="col-12 us-text-center us-hr-box">
+        <h4 class="us-hr-header us-h2-color-01">Advanced Search Form Comming Soon!</h4>
+    </div>
+ <!-- User Submitted Recipe Section -->
+ <div class="row us-profile-recipe-header-row">
+     <div class="col-md-2 text-start">
+         <div class="us-spacer-100p"></div>
+     </div>
+     <div class="col-md-3">
+         <div class="us-spacer-100p"></div>
+     </div>
+     <div class="col-md-2">
+         <div class="us-spacer-100p"></div>
+     </div>
+     <div class="col-md-1">
+         <p>Date Posted</p>
+     </div>
+     <div class="col-md-1">
+         <p>Rating</p>
+     </div>
+     <div class="col-md-1">
+         <p>Submitted By</p>
+     </div>
+     <div class="col-md-2 us-text-center">
+         <p>Actions</p>
+     </div>
+ </div>
+{% for recipe in recipes %}
+ <div class="row us-profile-recipe-row">
+     <div class="col-md-2 text-start">
+         <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="../recipe/{{ recipe.recipe_uid }}" title="See {{ recipe.recipe_name }}'s recipe card."><sup>#</sup>{{ loop.index }} {{ recipe.recipe_name }}</a></h3>
+     </div>
+     <div class="col-md-3">
+         <p>{{ recipe.description }}</p>
+     </div>
+     <div class="col-md-2">
+         <img class="us-recipe-img" src="{{ recipe.image_url }}" alt="Image of {{ recipe.recipe_name }}">
+     </div>
+     <div class="col-md-1">
+         <p>{{ recipe.date_posted }}</p>
+     </div>
+     <div class="col-md-1 us-text-center">
+         <p>{{ recipe.rating }}</p>
+     </div>
+     <div class="col-md-1 us-text-center">
+         <p>{{ recipe.author }}</p>
+     </div>
+     <div class="col-md-2 us-text-center">
+         <a class="us-recipe-head-link us-update-rating-btn" href="../recipe/{{ recipe.recipe_uid }}" title="Update {{ recipe.recipe_name }}'s rating.">Update Rating</a>
+     </div>
+ </div>
+ {% if loop.index != loop.length %}
+     <hr class="featurette-divider">
+ {% endif %}
+{% endfor %}
+
 {% endblock %}
 
 <!-- Variable user menu items -->
@@ -54,58 +109,6 @@
 {% endblock %}
 
 {% block minor_column %}
-<!-- Code Credit - from StartBootstrap.com Clean Blog Template-->
-<div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
 
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <ul class="flashes">
-                    {% for message in messages %}
-                    <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
-
-        <p>Advanced Search</p>
-        <form method="POST" name="sentMessage" id="contactForm" novalidate>
-            <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                    <label>Name</label>
-                    <input type="text" class="form-control" placeholder="Name" name="name" id="name" required data-validation-required-message="Please enter your name.">
-                    <p class="help-block text-danger"></p>
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                    <label>Email Address</label>
-                    <input type="email" class="form-control" placeholder="Email Address" name="email" id="email" required data-validation-required-message="Please enter your email address.">
-                    <p class="help-block text-danger"></p>
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="form-group col-xs-12 floating-label-form-group controls">
-                    <label>Phone Number</label>
-                    <input type="tel" class="form-control" placeholder="Phone Number" name="phone" id="phone" required data-validation-required-message="Please enter your phone number.">
-                    <p class="help-block text-danger"></p>
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="form-group floating-label-form-group controls">
-                    <label>Message</label>
-                    <textarea rows="5" class="form-control" placeholder="Message" name="message" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                    <p class="help-block text-danger"></p>
-                </div>
-            </div>
-            <br>
-            <div id="success"></div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary us-form-btn" id="sendMessageButton">Send</button>
-            </div>
-        </form>
-    </div>
-</div>
-<!-- /Code Credit - from StartBootstrap.com Clean Blog Template-->
 {% endblock %}
 

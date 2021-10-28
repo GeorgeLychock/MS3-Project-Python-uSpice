@@ -26,13 +26,18 @@ global new_rating
 
 
 @app.route('/')
-@app.route('/index')
+@app.route('/index', methods=["GET", "POST"])
 def index():
+    if request.method == "POST":
+        search_term = request.form.get("quick_search")
+        print(search_term)
+        return redirect(url_for("search", term=search_term))
+
     # obtail highest rated recipe data, limited to the top 5
     data = mongo.db.recipes.find().sort("rating", -1).limit(5)
     # obtail flavor category data
-    categories = mongo.db.categories.find()
-    return render_template("index.html", recipes=data, categories=categories)
+    regions = mongo.db.region.find()
+    return render_template("index.html", recipes=data, regions=regions)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -72,12 +77,12 @@ def login():
         if existing_user:
             # check if hashed password matches db
             if check_password_hash(
-                    existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome back, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+                existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome back, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -116,15 +121,14 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    if request.method == "POST":
-        print("Hello brother!")
-        print(request.form)
-        print(request.form.get("name"))
-        flash("Thanks {}, we have received your message!".format(
-            request.form.get("name")))
-    return render_template("search.html")
+@app.route("/search/<term>", methods=["GET", "POST"])
+def search(term):
+    if term == "All":
+        search_results = mongo.db.recipes.find().limit(5)
+    else:
+        search_results = mongo.db.recipes.find({"recipe_region": term})
+    print(search_results)
+    return render_template("search.html", recipes=search_results, term=term)
 
 
 @app.route("/build_recipe", methods=["GET", "POST"])

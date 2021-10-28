@@ -5,12 +5,12 @@
     <div class="container-fluid us-banner-container us-b-color-00">
         <nav class="row">
             <div class="col-9 col-md-6 us-index-banner">
-                <form method="POST" class="form-inline us-search-form" id="quick-search-form">
-                    <select class="form-control us-search-box" id="quick-search" name="quick-search" placeholder="Quick Search"
+                <form method="POST" class="form-inline us-search-form" id="quick-search-form" action="{{ url_for('index') }}">
+                    <select class="form-control us-search-box" id="quick-search" name="quick_search" placeholder="Quick Search"
                         aria-label="Quick Search">
-                        <option value="savory">Quick Search</option>
-                        {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name.capitalize() }}</option>
+                        <option>Quick Search</option>
+                        {% for region in regions %}
+                            <option>{{ region.region_name.capitalize() }}</option>
                         {% endfor%}
                     </select>
                     <button class="btn btn-outline-success us-search-btn" type="submit"><i class="bi bi-search us-btn-color-02"></i></button>
@@ -18,7 +18,7 @@
             </div>
             <div class="col-3 col-md-6 us-index-banner us-adv-search-col">
                 <div class="" onclick="storeClickPath('index')">
-                    <a class="nav-link us-advsearch-link us-i-color-02" href="{{ url_for('search') }}" title="Goto Advanced Search."><i class="bi bi-search us-menu-link-02 us-i-color-02"></i><sup>ADV </sup></a>
+                    <a class="nav-link us-advsearch-link us-i-color-02" href="{{ url_for('search', term='All') }}" title="Goto Advanced Search."><i class="bi bi-search us-menu-link-02 us-i-color-02"></i><sup>ADV </sup></a>
                 </div>
             </div>
         </nav>
@@ -47,7 +47,7 @@
     {% for recipe in recipes %}
         <div class="row">
             <div class="col-md-3 text-start">
-                <h3 class="us-rating-dropcap3-0">{{recipe.rating}}</h3>
+                <h3 class="us-rating-dropcap3-0 us-h-color-01">{{recipe.rating}}</h3>
             </div>
             <div class="col-md-3 text-start">
                 <a class="us-recipe-head-link" href="recipe/{{ recipe.recipe_uid }}" title="See {{ recipe.recipe_name }}'s recipe card."><h3 class="us-recipe-header">{{recipe.recipe_name}}</h3></a>
