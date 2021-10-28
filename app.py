@@ -120,7 +120,7 @@ def logout():
 @app.route("/search/<term>", methods=["GET", "POST"])
 def search(term):
     if term == "All":
-        search_results = mongo.db.recipes.find().limit(5)
+        search_results = mongo.db.recipes.find().sort("date_posted", -1).limit(5)
     else:
         search_results = mongo.db.recipes.find({"recipe_region": term})
     print(search_results)
@@ -210,15 +210,17 @@ def recipe(ruid):
 
     if request.method == "POST":
         rating_input = request.form.get("rating")
-        print(f'Rating Input {rating_input}')
         existing_rating = mongo.db.ratings.find_one(
             {"ruid": ruid, "rater": session["user"]})
         if existing_rating:
             # update the existing rating
-            print(f'Exiting Rating')
             mongo.db.ratings.update(
                 {"_id": existing_rating["_id"]},
                 {"$set": {"rating": rating_input}})
+            # update the post date
+            mongo.db.ratings.update(
+                {"_id": existing_rating["_id"]},
+                {"$set": {"post_date": post_date}})
             flash("Your rating has been updated!")
 
             # Calculate new ratings average
@@ -235,7 +237,6 @@ def recipe(ruid):
             return redirect(url_for(
                 "recipe_ratings", username=session["user"]))
         else:
-            print(f'New Rating')
             rating_post = {
                 "rating": int(rating_input),
                 "rater": session["user"],

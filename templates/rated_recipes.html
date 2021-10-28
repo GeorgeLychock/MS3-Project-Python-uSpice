@@ -28,56 +28,77 @@
 
 {% block content %}
     <!-- User Submitted Recipe Section -->
-    <h5 class="us-hr-header us-h2-color-01">Rated Recipes</h5>
+    <h5 class="us-hr-header us-h2-color-01">Rated Recipes by Highest Rating</h5>
+    <!-- Show recipe header for desktop and tablet-->
     <div class="row us-profile-recipe-header-row">
-        <div class="col-md-2 text-start">
+        <div class="d-none d-md-block col-md-2 text-start">
             <div class="us-spacer-100p"></div>
         </div>
-        <div class="col-md-3">
+        <div class="d-none d-md-block col-md-3">
             <div class="us-spacer-100p"></div>
         </div>
-        <div class="col-md-2">
+        <div class="d-none d-md-block col-md-2">
             <div class="us-spacer-100p"></div>
         </div>
-        <div class="col-md-1">
+        <div class="d-none d-md-block col-md-1">
             <p>Date Posted</p>
         </div>
-        <div class="col-md-1">
+        <div class="d-none d-md-block col-md-1">
             <p>Rating</p>
         </div>
-        <div class="col-md-1">
+        <div class="d-none d-md-block col-md-1">
             <p>Submitted By</p>
         </div>
-        <div class="col-md-2 us-text-center">
+        <div class="d-none d-md-block col-md-2 us-text-center">
             <p>Actions</p>
         </div>
     </div>
 {% for recipe in recipes %}
     <div class="row us-profile-recipe-row">
-        <div class="col-md-2 text-start">
+        <div class="col-9 col-md-2 text-start">
             <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="../recipe/{{ recipe.recipe_uid }}" title="See {{ recipe.recipe_name }}'s recipe card."><sup>#</sup>{{ loop.index }} {{recipe.recipe_name}}</a></h3>
+        </div>
+        <!-- Show recipe image for mobile-->
+        <div class="col-3 d-md-none us-recipe-img-mobile">
+            <img class="us-recipe-img" src="{{ recipe.image_url }}" alt="Image of {{ recipe.recipe_name }}">
         </div>
         <div class="col-md-3">
             <p>{{recipe.description}}</p>
         </div>
-        <div class="col-md-2">
+        <!-- Show recipe image for desktop/tablet-->
+        <div class="d-none d-md-block col-md-2">
             <img class="us-recipe-img" src="{{ recipe.image_url }}" alt="Image of {{ recipe.recipe_name }}">
         </div>
-        <div class="col-md-1">
+        <!-- Show recipe header for mobile-->
+        <div class="row d-md-none us-profile-recipe-header-row">
+            <div class="col-3">
+                <p>Date Posted</p>
+            </div>
+            <div class="col-2">
+                <p>Rating</p>
+            </div>
+            <div class="col-3">
+                <p>Submitted By</p>
+            </div>
+            <div class="col-4 us-text-center">
+                <p>Actions</p>
+            </div>
+        </div>
+        <div class="col-3 col-md-1">
             <p>{{recipe.date_posted}}</p>
         </div>
-        <div class="col-md-1 us-text-center">
+        <div class="col-2 col-md-1 us-text-center">
             <p>{{recipe.rating}}</p>
         </div>
-        <div class="col-md-1 us-text-center">
+        <div class="col-3 col-md-1 us-text-center">
             <p>{{recipe.author}}</p>
         </div>
-        <div class="col-md-2 us-text-center">
+        <div class="col-4 col-md-2 us-text-center">
             <a class="us-recipe-head-link us-update-rating-btn" href="../recipe/{{ recipe.recipe_uid }}" title="Update {{ recipe.recipe_name }}'s rating.">Update Rating</a>
         </div>
     </div>
     {% if loop.index != loop.length %}
-        <hr class="featurette-divider">
+        <hr>
     {% endif %}
 {% endfor %}
 {% endblock %}

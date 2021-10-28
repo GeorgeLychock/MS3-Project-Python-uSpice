@@ -322,6 +322,9 @@ p {
   font-size: 3.0rem;
 }
 
+.us-recipe-img-mobile {
+  margin-bottom: 8px;
+}
 
 /* Home - Highest Rated */
 .us-hr-header {
@@ -364,8 +367,10 @@ padding: 0 10%;
 
 /* Profile Page */
 .us-profile-recipe-header-row {
-  font-size: .85rem;
+  font-size: .55rem;
+  font-weight: 700;
   text-align: left;
+  margin-top: 10px;
 }
 
 .us-profile-recipe-row {
@@ -598,6 +603,13 @@ padding: 0 10%;
   .us-revenue-s1-body {
     min-height: 500px;
   }
+
+  .us-profile-recipe-header-row {
+    font-size: .85rem;
+    font-weight: 700;
+    text-align: left;
+  }
+  
 
   .us-recipe-card-image {
     width: 200px;

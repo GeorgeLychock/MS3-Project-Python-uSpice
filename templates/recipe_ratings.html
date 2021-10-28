@@ -31,33 +31,46 @@
 {% block content %}
 <!-- User's Rated Recipe Section -->
     <h4 class="us-hr-header us-h2-color-01">Your Latest Rated Recipes</h4>
+    <!-- Show recipe header for desktop and tablet-->
     <div class="row us-profile-recipe-header-row">
-        <div class="col-md-2 text-start">
+        <div class="d-none d-md-block col-md-6 text-start">
             <div class="us-spacer-100p"></div>
         </div>
-        <div class="col-md-2">
-            <div class="us-spacer-100p"></div>
-        </div>
-        <div class="col-md-1">
-            <div class="us-spacer-100p"></div>
-        </div>
-        <div class="col-md-4">
+        <div class="d-none d-md-block col-md-1">
             <p>Date Posted</p>
         </div>
-        <div class="col-md-3">
-            <p>Your Rating</p>
+        <div class="d-none d-md-block col-md-1">
+            <p>Rating</p>
+        </div>
+        <div class="d-none d-md-block col-md-3 us-text-center">
+            <p>Actions</p>
         </div>
     </div>
     {% for rating in ratings %}
-        <div class="row">
-            <div class="col-md-4 text-start">
-                <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="../recipe/{{ rating.ruid }}" title="See {{ rating.recipe_name }}'s recipe card.">{{rating.recipe_name}}</a></h3>
+        <div class="row us-profile-recipe-row">
+            <div class="col-9 col-md-6 text-start">
+                <h3 class="us-recipe-header"><a class="us-recipe-head-link" href="../recipe/{{ rating.ruid }}" title="See {{ rating.recipe_name }}'s recipe card."><sup>#</sup>{{ loop.index }} {{rating.recipe_name}}</a></h3>
             </div>
-            <div class="col-md-4">
+            <!-- Show recipe header for mobile-->
+            <div class="row d-md-none us-profile-recipe-header-row">
+                <div class="col-3">
+                    <p>Date Posted</p>
+                </div>
+                <div class="col-3">
+                    <p>Rating</p>
+                </div>
+                <div class="col-6 us-text-center">
+                    <p>Actions</p>
+                </div>
+            </div>
+            <div class="col-3 col-md-1">
                 <p>{{rating.post_date}}</p>
             </div>
-            <div class="col-md-4">
+            <div class="col-3 col-md-1 us-text-center">
                 <p>{{rating.rating}}</p>
+            </div>
+            <div class="col-6 col-md-3 us-text-center">
+                <a class="us-recipe-head-link us-update-rating-btn" href="../recipe/{{ rating.ruid }}" title="Update {{ rating.recipe_name }}'s rating.">Update Rating</a>
             </div>
         </div>
         {% if loop.index != loop.length %}

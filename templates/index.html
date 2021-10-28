@@ -58,8 +58,8 @@
                             <h3 class="us-recipe-header">{{recipe.recipe_name}}</h3>
                         </a>
                     </div>
+                    <!-- Recipe Image Image for Mobile -->                   
                     <div class="col-3 d-md-none">
-                        <!-- Recipe Image-->
                             <p>
                                 <a class="us-recipe-head-link" href="recipe/{{ recipe.recipe_uid }}"
                                     title="See {{ recipe.recipe_name }}'s recipe card."><img class="us-recipe-img"
@@ -69,8 +69,8 @@
                     <div class="col-md-6">
                         <p>{{recipe.description}}</p>
                     </div>
+                    <!-- Recipe Image for Desktop and Tablet -->
                     <div class="d-none d-md-block col-md-3">
-                    <!-- Recipe Image-->
                         <p>
                             <a class="us-recipe-head-link" href="recipe/{{ recipe.recipe_uid }}"
                                 title="See {{ recipe.recipe_name }}'s recipe card."><img class="us-recipe-img"
