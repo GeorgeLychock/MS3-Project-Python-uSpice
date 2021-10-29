@@ -10,6 +10,12 @@ function confirmDeleteRecipe() {
     confirm(txt);
 }
 
+//Confirm rating
+function ratingConfirm() {
+    let txt = "Thank you for submitting your rating!";
+    confirm(txt);
+}
+
 function getLocalStorageArray(lsName) {
     if (localStorage.getItem(lsName)) {
         var storedPaths = localStorage.getItem(lsName).split(',');
@@ -161,11 +167,6 @@ function buildIngredientForm(i) {
     `
 }
 
-function ratingConfirm() {
-    let txt = "Thank you for submitting your rating!";
-    confirm(txt);
-}
-
 function addToLocalStorage(storeValue, lsName) {
     var localStoreName = lsName;
     var valueToSave = storeValue;
@@ -174,12 +175,12 @@ function addToLocalStorage(storeValue, lsName) {
     if (storageAvailable('localStorage')) {
         // We can use localStorage, check if localStorage var has been initiated
         if (localStorage.getItem(localStoreName)) {
-            // Add widget ID to the localStorage string and store
+            // Add value to the localStorage string and store
             let valuesSaved = localStorage.getItem(localStoreName).split(','); //returns a string, comma delimited, convert to array
             valuesSaved.push(valueToSave);
             localStorage.setItem(localStoreName, valuesSaved); //stored as a string, comma delimited
         } else {
-            // Initiate localStorage and add project ID
+            // Initiate localStorage and add value
             let valuesSaved = [];
             valuesSaved.push(valueToSave);
             localStorage.setItem(localStoreName, valuesSaved);

@@ -199,7 +199,7 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 
 -   ## Frameworks, Libraries, & Programs Used
 
-    1. [Bootstrap 4.6:](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+    1. [Bootstrap 5.1:](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
         - Bootstrap was used to assist with the responsiveness and styling of the website.
     2. [Google Fonts:](https://fonts.google.com/)
         - Google fonts were used to import the 'Montserrat' and 'Raleway' fonts into the style.css file which is used on all pages throughout the project.
@@ -213,8 +213,6 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
         - GitHub is used to store the projects code after being pushed from Git.
     7. [Font Awesome:](https://fontawesome.com/)
         - Font Awesome was used for a few of the icons where I did not like the Bootstrap versions or BS did not have a suitable icon.
-    8. [Toastr:](https://github.com/CodeSeven)
-        - A notifications library recommended by my mentor Maranatha Ilesanmi.
 
 -   ### Resources Used
     -   [MDN General Web Docs: ](https://developer.mozilla.org/) For semantic structure reference, arrays, localStorage, fetch.
@@ -228,11 +226,11 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 
 #   Testing
 <a name="TESTING"></a>
-(link to testrm.md)
+-   [See Test ReadMe File](TESTRM.md)
 
 #   Known/Resolved Issues
 <a name="ISSUES"></a>
-(link to testrm.md)
+-   [See Test ReadMe File](TESTRM.md)
 
 # Product/Project Management
 -   ## UI
@@ -247,12 +245,12 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 
     The project was deployed to GitHub Pages hosting service:
 
-    [URL to GitHub Pages Site](https://github.com/GeorgeLychock/Project-Management-Dashboard---MS2)
+    [URL to GitHub Pages Site](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice)
 
     ### *CLOANING INFORMATION from CODE INSTITUTE README.md template from User Centric Module, edits have been made for changes in GH UI*
     GitHub Pages
     The project was deployed to GitHub Pages using the following steps...
-    1. Log in to GitHub and locate the [Project-Management-Dashboard---MS2 GitHub Repository](https://github.com/GeorgeLychock/Project-Management-Dashboard---MS2)
+    1. Log in to GitHub and locate the [Project-Management-Dashboard---MS2 GitHub Repository](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice)
     2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
     3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
     4. Under "Source", click the dropdown called "None" and select "Master Branch".
@@ -261,13 +259,13 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 
     ### Forking the GitHub Repository
 
-    1. Log in to GitHub and locate the [Project-Management-Dashboard---MS2 GitHub Repository](https://github.com/GeorgeLychock/Project-Management-Dashboard---MS2)
+    1. Log in to GitHub and locate the [Project-Management-Dashboard---MS2 GitHub Repository](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice)
     2. At the top of the Repository (not top of page) on the far right, locate the "Fork" Button. Sign in if needed.
     3. You should now have a copy of the original repository in your GitHub account.
 
     ### Making a Local Clone
 
-    1. Log in to GitHub and locate the [Project-Management-Dashboard---MS2 GitHub Repository](https://github.com/GeorgeLychock/Project-Management-Dashboard---MS2)
+    1. Log in to GitHub and locate the [Project-Management-Dashboard---MS2 GitHub Repository](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice)
     2. On the right of the file listings box, click the "Code" button.
     3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
     4. Open Git Bash

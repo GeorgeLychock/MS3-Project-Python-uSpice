@@ -231,6 +231,10 @@ p {
   display: inline;
 }
 
+.us-tagline-row {
+  margin-top: 10px;
+}
+
 /* Forms */
 .us-form-btn {
   margin-top: 10px;

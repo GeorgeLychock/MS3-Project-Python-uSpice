@@ -23,6 +23,12 @@
             </div>
         </nav>
     </div>
+    <div class="container-fluid">
+        <div class="row us-tagline-row us-text-center us-h2-color-02">
+            <h4>Search, rate, and build spice rubs you like.</h4>
+        </div>
+    </div>
+
 {% endblock %}
 
 <!-- Header Section -->
@@ -89,7 +95,7 @@
 <!-- Variable user menu items -->
 {% block user_menu_item_1 %}
     <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('register') }}"><i class="bi bi-pencil-square us-menu-link-01 us-i-color-01"></i>Register</a>
+        <a class="nav-link" href="{{ url_for('register') }}" title="Register so you can rate and build recipes!"><i class="bi bi-pencil-square us-menu-link-01 us-i-color-01"></i>Register</a>
     </li>
 {% endblock %}
 {% block user_menu_item_2 %}
@@ -100,7 +106,7 @@
 <!-- Variable user menu items DUPLICATED for Mobile -->
 {% block user_menu_item_1m %}
     <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('register') }}"><i class="bi bi-pencil-square us-menu-link-01 us-i-color-01"></i>Register</a>
+        <a class="nav-link" href="{{ url_for('register') }}" title="Register so you can rate and build recipes!"><i class="bi bi-pencil-square us-menu-link-01 us-i-color-01"></i>Register</a>
     </li>
 {% endblock %}
 {% block user_menu_item_2m %}
