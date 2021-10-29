@@ -42,7 +42,6 @@ function storeClickPath(path) {
         } else {
             storedPaths.push(addPath);
             updateCurrentIndex("up");
-            console.log("this is my NEW paths array" + storedPaths);
         }
     } else {
         storedPaths = [];
@@ -52,8 +51,6 @@ function storeClickPath(path) {
     localStorage.setItem(lsName, storedPaths);
 
     storedPaths = getLocalStorageArray(lsName);
-    console.log("this is my NEW stored paths" + storedPaths);
-
 }
 
 function updateCurrentIndex(direction) {
@@ -63,8 +60,6 @@ function updateCurrentIndex(direction) {
         var storedIndex;
         if (localStorage.getItem(lsName)) {
             storedIndex = parseInt(localStorage.getItem(lsName));
-
-            console.log("this is my stored index" + storedIndex); 
 
             if (direction == "up") {
                 storedIndex = storedIndex + 1;
@@ -82,9 +77,6 @@ function updateCurrentIndex(direction) {
             storedIndex = 0;
             localStorage.setItem(lsName, storedIndex);
         }
-
-        console.log("this is my NEW stored index" + storedIndex);
-
 }
 
 function buildBannerButton(direction) {
@@ -99,8 +91,6 @@ function buildBannerButton(direction) {
         var storedIndex = parseInt(localStorage.getItem(lsName));
         var storedPaths = getLocalStorageArray(lsName2);
 
-        console.log("Stored index buildBannerBtton" + ": " + storedIndex);
-
         if (direction == "back") {
             backBtnID = "backButton";
             if (storedIndex != 0) {
@@ -108,8 +98,6 @@ function buildBannerButton(direction) {
             } else {
                 urlPath = storedPaths[0];
             }
-
-            console.log("Assigned urlPath in buildBannerBtton" + ": " + urlPath);
 
             iconDirection = "left";
         } else if (direction == "forward") {

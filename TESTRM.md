@@ -221,7 +221,10 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate al
     -   Mobile Report - index.html - Logged in User, project and tools panels panels activated
     -   <img src="_documentation/testing/mobile-lighthouse-index-html-logged-in.png" />
 - [JSHint](https://jshint.com/) was used to check Javascript function logic and syntax. The following were errors captured during testing that have not been addressed:
-
     -   script.js functions
-        -   f001 - getData
-            -   <img src="_documentation/testing//jshint/JSHint-script-js-f001.png" />
+        -   Common Functions: confirmDeleteRecipe(), ratingConfirm(), getLocalStorageArray(lsName), clearLocalStorage(lsName)
+            -   <img src="_documentation/testing//jshint/script-js-01.png" />
+        -   Ingredient Functions: addIngredient(), removeIngredient(iID), buildIngredientForm(i)
+            -   <img src="_documentation/testing//jshint/script-js-02.png" />
+        -   Click Path Arrow Functions: storeClickPath(path), updateCurrentIndex(direction), buildBannerButton(direction)
+            -   <img src="_documentation/testing//jshint/script-js-02.png" />
