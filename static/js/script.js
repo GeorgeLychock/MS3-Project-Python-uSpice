@@ -31,8 +31,9 @@ function storeClickPath(path) {
     // Add url click path localStorage
     var lsName = "clickPathLocalStorage";
     var addPath = path;
+    var storedPaths;
     if (localStorage.getItem(lsName)) {
-        var storedPaths = getLocalStorageArray(lsName);
+        storedPaths = getLocalStorageArray(lsName);
         // Limit number of stored path clicks to 10
         if (storedPaths.length >= 10) {
             // remove first path item and add new path
@@ -44,7 +45,7 @@ function storeClickPath(path) {
             console.log("this is my NEW paths array" + storedPaths);
         }
     } else {
-        var storedPaths = [];
+        storedPaths = [];
         storedPaths.push(addPath);
         updateCurrentIndex();
     }
@@ -59,15 +60,16 @@ function updateCurrentIndex(direction) {
         // Track current click path index in localStorage
         var lsName = "clickPathIndexLocalStorage";
         var lsName2 = "clickPathLocalStorage";
+        var storedIndex;
         if (localStorage.getItem(lsName)) {
-            var storedIndex = parseInt(localStorage.getItem(lsName));
+            storedIndex = parseInt(localStorage.getItem(lsName));
 
             console.log("this is my stored index" + storedIndex); 
 
-            if (direction = "up") {
+            if (direction == "up") {
                 storedIndex = storedIndex + 1;
                 localStorage.setItem(lsName, storedIndex);
-            } else if (direction = "down") {
+            } else if (direction == "down") {
                 if (storedIndex == 0) {
                     clearLocalStorage(lsName);
                     clearLocalStorage(lsName2);
@@ -89,6 +91,9 @@ function buildBannerButton(direction) {
 
     var lsName = "clickPathIndexLocalStorage";
     var lsName2 = "clickPathLocalStorage";
+    var urlPath;
+    var iconDirection;
+    var backBtnID;
 
     if (localStorage.getItem(lsName)) {
         var storedIndex = parseInt(localStorage.getItem(lsName));
@@ -96,21 +101,21 @@ function buildBannerButton(direction) {
 
         console.log("Stored index buildBannerBtton" + ": " + storedIndex);
 
-        if (direction = "back") {
-            var backBtnID = "backButton";
+        if (direction == "back") {
+            backBtnID = "backButton";
             if (storedIndex != 0) {
-                var urlPath = storedPaths[storedIndex];
+                urlPath = storedPaths[storedIndex];
             } else {
-                var urlPath = storedPaths[0];
+                urlPath = storedPaths[0];
             }
 
             console.log("Assigned urlPath in buildBannerBtton" + ": " + urlPath);
 
-            var iconDirection = "left";
-        } else if (direction = "forward") {
-            var backBtnID = "forwardButton";
-            var urlPath = storedPaths[storedIndex+1];
-            var iconDirection = "right";
+            iconDirection = "left";
+        } else if (direction == "forward") {
+            backBtnID = "forwardButton";
+            urlPath = storedPaths[storedIndex+1];
+            iconDirection = "right";
         }
         return $("#" + backBtnID).html(`<a class="nav-link us-padding-0" onclick="updateCurrentIndex('down')" href="${urlPath}"><i class="bi bi-chevron-${iconDirection} us-user-menu-link-01 us-i-color-02"></i></a>`);
     } else {
