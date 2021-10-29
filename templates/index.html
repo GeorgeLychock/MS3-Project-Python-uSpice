@@ -41,8 +41,8 @@
             <h1 class="us-header us-h1-color-01">Welcome to uSpice.</h1>
         </div>
         <div class="us-header-menu">
-            <button type="button" class="btn btn-outline-success us-nav-btn" href="{{ url_for('build_recipe') }}">Build Recipes</button>
-            <button type="button" class="btn btn-outline-success us-nav-btn" href="{{ url_for('rated_recipes') }}">Recipe Ratings</button>
+            <div type="button" class="btn btn-outline-success us-nav-btn"><a class="nav-link" href="{{ url_for('build_recipe') }}">Build Recipes</a></div>
+            <div type="button" class="btn btn-outline-success us-nav-btn"><a class="nav-link" href="{{ url_for('rated_recipes') }}">Recipe Ratings</a></div>
         </div>
     </header>
 {% endblock %}
