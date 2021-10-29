@@ -6,9 +6,9 @@
         <nav class="row">
             <div class="col-9 col-md-6 us-index-banner">
                 <form method="POST" class="form-inline us-search-form" id="quick-search-form" action="{{ url_for('index') }}">
-                    <select class="form-control us-search-box" id="quick-search" name="quick_search" placeholder="Quick Search"
+                    <select class="form-control us-search-box" id="quick-search" name="quick_search" 
                         aria-label="Quick Search">
-                        <option>Quick Search</option>
+                        <option selected>Quick Search</option>
                         {% for region in regions %}
                             <option>{{ region.region_name.capitalize() }}</option>
                         {% endfor%}
@@ -35,14 +35,14 @@
 {% block header %}
     <header class="col-12 d-md-none us-text-center us-header-box">
         <div id="logo-outer">
-            <div><img class="logo-image" src="{{ url_for('static', filename='img/logo-1000.png' ) }}"></div>
+            <div><img class="logo-image" src="{{ url_for('static', filename='img/logo-1000.png' ) }}" alt="uSpice logo"></div>
         </div>
         <div class="">
             <h1 class="us-header us-h1-color-01">Welcome to uSpice.</h1>
         </div>
         <div class="us-header-menu">
-            <button type="button" class="btn btn-outline-success us-nav-btn"><a class="nav-link" href="{{ url_for('build_recipe') }}">Build Recipes</a></button>
-            <button type="button" class="btn btn-outline-success us-nav-btn"><a class="nav-link" href="{{ url_for('rated_recipes') }}">Recipe Ratings</a></button>
+            <button type="button" class="btn btn-outline-success us-nav-btn" href="{{ url_for('build_recipe') }}">Build Recipes</button>
+            <button type="button" class="btn btn-outline-success us-nav-btn" href="{{ url_for('rated_recipes') }}">Recipe Ratings</button>
         </div>
     </header>
 {% endblock %}
@@ -119,7 +119,7 @@
 {% block minor_column %}
     <aside class="us-revenue-s1">
         <div>
-            <h1 class="us-revenue-s1-header">Revenue Stream Side 1</h1>
+            <h2 class="us-revenue-s1-header">Revenue Stream Side 1</h2>
             <div class="us-revenue-s1-body">
                 <p>
                     Saleable/Ad Space Content

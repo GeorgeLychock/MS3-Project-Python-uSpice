@@ -69,14 +69,14 @@
                 {% endblock %}
                 <header class="d-none d-md-block col-12 col-md-3 us-text-center us-header-box">
                     <div id="logo-outer">
-                        <div><a href="{{ url_for('index') }}"><img class="logo-image" src="{{ url_for('static', filename='img/logo-1000.png' ) }}"></a></div>
+                        <div><a href="{{ url_for('index') }}"><img class="logo-image" src="{{ url_for('static', filename='img/logo-1000.png' ) }}" alt="uSpice logo"></a></div>
                     </div>
                     <div class="">
                         <h1 class="us-header us-h1-color-01">Welcome to uSpice.</h1>
                     </div>
                     <div class="us-header-menu">
-                        <button type="button" class="btn btn-outline-success us-nav-btn us-b-color-01a"><a class="nav-link" href="{{ url_for('build_recipe') }}">Build Recipes</a></button>
-                        <button type="button" class="btn btn-outline-success us-nav-btn us-b-color-01a"><a class="nav-link" href="{{ url_for('rated_recipes') }}">Rated Recipes</a></button>
+                        <button type="button" class="btn btn-outline-success us-nav-btn us-b-color-01a" href="{{ url_for('build_recipe') }}">Build Recipes</button>
+                        <button type="button" class="btn btn-outline-success us-nav-btn us-b-color-01a" href="{{ url_for('rated_recipes') }}">Rated Recipes</button>
                     </div>
                 </header>
                 <!-- Insert main content depending on page type -->
