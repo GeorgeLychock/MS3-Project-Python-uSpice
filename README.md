@@ -229,6 +229,7 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
     -   [MindMajix: Mongodb Query Examples](https://mindmajix.com/mongodb-query-and-examples)
     -   [Tkinker Askyesno Tutorial from Pythontutorial.net](https://mindmajix.com/mongodb-query-and-examples)
     -   [MongoDB Documentation, Query Documents](https://docs.mongodb.com/manual/tutorial/query-documents/)
+    -   [For Loop Examples from pythonguides.com:](pythonguides.com/python-for-loop-index/)
 
 -   ### APIs Used
     -   [GitHub API: ](https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api) The GitHub API code came from Code Institute, see Code Credits, but information was used from the GitHub link provided here.
@@ -305,7 +306,6 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 -   RegEx input patterns from W3Schools - https://www.w3schools.com/tags/att_input_pattern.asp
 -   Avatar Icons made by [Flaticon](https://www.flaticon.com/)
 -   MongoDB queries in def profile(username) from Code Institute, Backend Development, Mini Project lesson
--   pythonguides.com/python-for-loop-index/
 -   The localStorage check code in script.js is from [MDN - Using_the_Web_Storage_API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API). This code checks to make sure that the browser can support localStorage and has it turned on. Find code use indicated by "CODE REUSE - localStorage Check "
 
 
