@@ -98,14 +98,13 @@ function buildBannerButton(direction) {
             } else {
                 urlPath = storedPaths[0];
             }
-
             iconDirection = "left";
         } else if (direction == "forward") {
             backBtnID = "forwardButton";
             urlPath = storedPaths[storedIndex+1];
             iconDirection = "right";
         }
-        return $("#" + backBtnID).html(`<a class="nav-link us-padding-0" onclick="updateCurrentIndex('down')" href="${urlPath}"><i class="bi bi-chevron-${iconDirection} us-user-menu-link-01 us-i-color-02"></i></a>`);
+        return $("#" + backBtnID).html(`<a class="nav-link us-padding-0" onclick="updateCurrentIndex('down')" href="../{{ url_for('${urlPath}') }}"><i class="bi bi-chevron-${iconDirection} us-user-menu-link-01 us-i-color-02"></i></a>`);
     } else {
         return $("#" + backBtnID).html(`<a class="nav-link us-padding-0"><i class="bi bi-chevron-${iconDirection} us-user-menu-link-01 us-i-color-02a"></i></a>`);
     }

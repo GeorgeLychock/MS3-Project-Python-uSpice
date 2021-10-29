@@ -240,9 +240,6 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
     -   [MongoDB Documentation, Query Documents](https://docs.mongodb.com/manual/tutorial/query-documents/)
     -   [For Loop Examples from pythonguides.com:](pythonguides.com/python-for-loop-index/)
 
--   ### APIs Used
-    -   [GitHub API: ](https://docs.github.com/en/rest/guides/getting-started-with-the-rest-api) The GitHub API code came from Code Institute, see Code Credits, but information was used from the GitHub link provided here.
-
 #   Testing
 <a name="TESTING"></a>
 -   [See Test ReadMe File](TESTRM.md)
