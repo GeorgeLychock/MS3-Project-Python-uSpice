@@ -12,7 +12,7 @@
 - [Use Case](#UC)
     - [User Stories](#US)
     - [Requirements](#REQS)
-    - [Future Requirements](#FUTUREREQS)
+    - [Backlog (Future Requirements)](#BACKLOG)
 - [UI/UX](#UXUI)
     - [UI](#UI)
         -   [Wireframes](#UIWF)
@@ -133,19 +133,16 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 -   Logging in provides user with feature to build a recipe (US6)
 -   Allow users to search recipes, using an advanced search. Advanced search should allow user to search by recipe name, main ingredient, author, date (US7)
 -   Provide a method for users to build a recipe and submit to the app
--   Provide a method for the user to upload an image for their recipe
 -   Monitor/regulate the number of recipes a user can upload per day (US8)
 -   Show users the results of the search criteria (US2)
 -   Allow users to view details about the recipe including an image (US3)
 -   Allow users to rate a recipe (US7)
--   Allow users to view top 10 rated recipes
--   Provide users links to available spice vendors so the user can purchase recipe ingredients
--   Allow users to print a printable version of the recipe page
+-   Allow users to view top 5 rated recipes
 -   Create a pie chart showing the porportions of the recipe ingredients on the recipe page
--   Add a posted recipes section to the user profile page
+-   Display a posted recipes section on the user profile page
 -   Allow Users to choose an avatar from a pallet of avatars
 
-<a name="FUTUREREQS"></a>
+<a name="BACKLOG"></a>
 ## Future Requirements
 (Alignments to User Stories are in paratheses, if available)
 -   Delete recipe confirmation routine needs to be incorporated, looking at Tkinker but I had issues with a duplicate root window popping up, so I reverted to not having a delete confirmation
@@ -154,6 +151,9 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 -   Admin Functionality: Update Flavors, Regions(Categories), Measures collection functionality
 -   Add second password input field on Registration page to confirm password submitted
 -   Any empty data sets (eg user does not have any submitted recipes to be displayed on Profile page) should fire a message to the user confirming data does not exist
+-   Provide users links to available spice vendors so the user can purchase recipe ingredients
+-   Allow users to print a printable version of the recipe page
+-   Provide a method for the user to upload an image for their recipe
 
 
 
@@ -205,6 +205,7 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
     -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
     -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
     -   [JavaScript](https://www.javascript.com/)
+    -   [Python3](https://www.python.org/)
 
 -   ## Frameworks, Libraries, & Programs Used
 
@@ -222,6 +223,14 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
         - GitHub is used to store the projects code after being pushed from Git.
     7. [Font Awesome:](https://fontawesome.com/)
         - Font Awesome was used for a few of the icons where I did not like the Bootstrap versions or BS did not have a suitable icon.
+    8. [Flask:](https://flask.palletsprojects.com/en/2.0.x/)
+        - Micro Framework for Python apps
+    9.  [draw.io](https://app.diagrams.net/)
+        - Wireframing tool
+    10. [Inkscape](https://inkscape.org/)
+        - Drawing app used for logo design
+    11. [Flaticons](https://www.flaticon.com/authors/flat-icons)
+        - Avatar images
 
 -   ### Resources Used
     -   [MDN General Web Docs: ](https://developer.mozilla.org/) For semantic structure reference, arrays, localStorage, fetch.
