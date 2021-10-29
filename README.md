@@ -39,7 +39,8 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 >
 > ### Notes
 >
->-   The primary focus of this project is to display Python and database skills learned in the Python Essentials Module of the Salem State University / Code Institute Full Stack Software Developer Certificate Program.
+>-  The primary focus of this project is to display Python and database skills learned in the Python Essentials Module of the Salem State University / Code Institute Full Stack Software Developer Certificate Program.
+>-  
 
 <a name="US"></a>
 
@@ -141,15 +142,20 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 -   Provide users links to available spice vendors so the user can purchase recipe ingredients
 -   Allow users to print a printable version of the recipe page
 -   Create a pie chart showing the porportions of the recipe ingredients on the recipe page
+-   Add a posted recipes section to the user profile page
+-   Allow Users to choose an avatar from a pallet of avatars
 
 <a name="FUTUREREQS"></a>
 ## Future Requirements
 (Alignments to User Stories are in paratheses, if available)
 -   Delete recipe confirmation routine needs to be incorporated, looking at Tkinker but I had issues with a duplicate root window popping up, so I reverted to not having a delete confirmation
--   Admin fundtionality
--   Admin Update Ingredients functionality
--   Add a posted recipes section to the user profile page
--   Allow Users to choose an avatar from a pallet of avatars
+-   Add Admin profile for user collection
+-   Admin Functionality: Update Ingredients collection functionality
+-   Admin Functionality: Update Flavors, Regions(Categories), Measures collection functionality
+-   Add second password input field on Registration page to confirm password submitted
+-   Any empty data sets (eg user does not have any submitted recipes to be displayed on Profile page) should fire a message to the user confirming data does not exist
+
+
 
 # UX/UI
 -   ## UI
@@ -186,6 +192,9 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 
 <a name="TECH"></a>
 # Technical Background
+-   ## Features and Logic
+    -   The app uses custom Javascript and localStorage for the add ingredient functionality on the Build Recipe and Edit Recipe pages
+    -   The app uses custom Javascript and localStorage for the nav click path arrows functionality
 -   ## Sitemap, UI, and Data Structures
     -   UI Sitemap  - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/ui/Site-UI-Map-.jpg)
     -   Sprints  - [View](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice/blob/master/_documentation/ui/Site-UI-Sprints-.jpg)
@@ -243,9 +252,10 @@ When I buy expensive pre-made spice rubs I rarely know what all the ingredients 
 # Deployment
 -   ## Hosting
 
-    The project was deployed to GitHub Pages hosting service:
+    The project was deployed to Heroku hosting service:
 
-    [URL to GitHub Pages Site](https://github.com/GeorgeLychock/MS3-Project-Python-uSpice)
+    [URL to Heroku Site](https://gl-uspice-dev-01.herokuapp.com/)
+    All Python requirements used can be found in the requirements.txt file. Procfile can be be found in Git repo as well. Environmnt variables are stored in a secure uncommitted file.
 
     ### *CLOANING INFORMATION from CODE INSTITUTE README.md template from User Centric Module, edits have been made for changes in GH UI*
     GitHub Pages
