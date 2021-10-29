@@ -164,7 +164,7 @@ function buildIngredientForm(i) {
             <button type="button" class="us-ingredient-delbtn" onclick="removeIngredient('${ing.id}')">Remove</button>
         </div>
     </div>
-    `
+    `;
 }
 
 function addToLocalStorage(storeValue, lsName) {
@@ -186,7 +186,6 @@ function addToLocalStorage(storeValue, lsName) {
             localStorage.setItem(localStoreName, valuesSaved);
 
             valuesSaved = localStorage.getItem(localStoreName).split(',');
-            console.log("Add to LS" + valuesSaved);
         }
     } else {
         // no localStorage
@@ -205,8 +204,6 @@ function removeFromLocalStorage(storeValue, lsName) {
         var removedWidgetIDs = savedValues.splice(delValueIndex, 1);
 
         localStorage.setItem(localStoreName, savedValues);
-
-        valuesSaved = localStorage.getItem(localStoreName).split(',');
 
     } // else capture error, if needed
 }

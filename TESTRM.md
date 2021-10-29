@@ -188,11 +188,29 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate al
 -   [W3C Markup Validator (Nu)](https://validator.w3.org/nu/)
     -   index.html, ERRORS
         -   The duplicate error is from the duplication of code for the desktop/tablet and mobile views, no real error
-    -   <img src="_documentation/testing/index-html.png" />
+            -   <img src="_documentation/testing/index-html.png" />
+    -   register.html, NO ERRORS
+            -   <img src="_documentation/testing/register-html.png" />
+    -   login.html, NO ERRORS
+        -   <img src="_documentation/testing/login-html.png" />
+    -   recipe.html, NO ERRORS
+            -   <img src="_documentation/testing/recipe-html.png" />
+    -   build_recipe.html, Testing Not Complete
+        -   Results TK
+    -   edit_recipe.html, Testing Not Complete
+        -   Results TK
+    -   profile.html, Testing Not Complete
+        -   Results TK
+    -   rated_recipes.html, Testing Not Complete
+        -   Results TK
+    -   recipe_ratings.html, Testing Not Complete
+        -   Results TK
+    -   search.html, Testing Not Complete
+        -   Results TK
 
 -   [W3C CSS Validator (Jigsaw)](https://jigsaw.w3.org/css-validator/#validate_by_uri+with_options)
     -   style.css, NO ERRORS
-    -   <img src="_documentation/testing/css-validate-style-css.png" />
+    -   <img src="_documentation/testing/style-css.png" />
 -   [Lighthouse](https://developers.google.com/web/tools/lighthouse)
     -   Desktop Report - index.html
     -   <img src="_documentation/testing/desktop-lighthouse-index-html.png" />
@@ -207,17 +225,3 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate al
     -   script.js functions
         -   f001 - getData
             -   <img src="_documentation/testing//jshint/JSHint-script-js-f001.png" />
-        -   f003 - whatColorScheme
-            -   <img src="_documentation/testing//jshint/JSHint-script-js-f003.png" />
-        -   f004 - validateInput
-            -   <img src="_documentation/testing//jshint/JSHint-script-js-f004.png" />
-    -   projects.js functions
-        -   f001 - createActiveProjects
-            -   <img src="_documentation/testing//jshint/JSHint-projects-js-f001.png" />
-        -   f002 - createProjectLibBtns
-            -   <img src="_documentation/testing//jshint/JSHint-projects-js-f002.png" />
-        -   f003 - delProject
-            -   <img src="_documentation/testing//jshint/JSHint-projects-js-f003.png" />
-    -   widgets.js functions
-        -   f001 - buildWeatherPanelMU
-            -   <img src="_documentation/testing//jshint/JSHint-widgets-js-f001.png" />
