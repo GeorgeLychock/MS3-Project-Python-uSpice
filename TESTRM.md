@@ -14,9 +14,7 @@
 -   [Functionality](#TESTFUNCTIONALITY)
 -   [User Stories](#TESTSTORIES)
 -   [Validation](#TESTVALID)
--   [Compatibility](#TESTCOMP)
-
-- [Bugs and Fixes](#BUGS)
+-   [Bugs and Fixes](#BUGS)
 
 # Testing
 Followed test writing guidelines from the following resources:
@@ -188,13 +186,13 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate al
 -   [W3C Markup Validator (Nu)](https://validator.w3.org/nu/)
     -   index.html, ERRORS
         -   The duplicate error is from the duplication of code for the desktop/tablet and mobile views, no real error
-            -   <img src="_documentation/testing/index-html.png" />
+            -   <img src="_documentation/testing/screenshots/index-html.png" />
     -   register.html, NO ERRORS
-            -   <img src="_documentation/testing/register-html.png" />
+        -   <img src="_documentation/testing/screenshots/register-html.png" />
     -   login.html, NO ERRORS
-        -   <img src="_documentation/testing/login-html.png" />
+        -   <img src="_documentation/testing/screenshots/login-html.png" />
     -   recipe.html, NO ERRORS
-            -   <img src="_documentation/testing/recipe-html.png" />
+        -   <img src="_documentation/testing/screenshots/recipe-html.png" />
     -   build_recipe.html, Testing Not Complete
         -   Results TK
     -   edit_recipe.html, Testing Not Complete
@@ -210,15 +208,130 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate al
 
 -   [W3C CSS Validator (Jigsaw)](https://jigsaw.w3.org/css-validator/#validate_by_uri+with_options)
     -   style.css, NO ERRORS
-    -   <img src="_documentation/testing/style-css.png" />
+    -   <img src="_documentation/testing/screenshots/style-css.png" />
 -   [Lighthouse](https://developers.google.com/web/tools/lighthouse)
     -   Testing and results TK
 -   [JSHint](https://jshint.com/) was used to check Javascript function logic and syntax. The following were errors captured during testing that have not been addressed:
     -   script.js functions
         -   Common Functions: confirmDeleteRecipe(), ratingConfirm(), getLocalStorageArray(lsName), clearLocalStorage(lsName)
-            -   <img src="_documentation/testing//jshint/script-js-01.png" />
+            -   <img src="_documentation/testing/screenshots/script-js-01.png" />
         -   Ingredient Functions: addIngredient(), removeIngredient(iID), buildIngredientForm(i)
-            -   <img src="_documentation/testing//jshint/script-js-02.png" />
+            -   <img src="_documentation/testing/screenshots/script-js-02.png" />
         -   Click Path Arrow Functions: storeClickPath(path), updateCurrentIndex(direction), buildBannerButton(direction)
-            -   <img src="_documentation/testing//jshint/script-js-02.png" />
+            -   <img src="_documentation/testing/screenshots/script-js-02.png" />
 -   All Python functions were verified for PEP8 compliance at [pep8online.com](http://pep8online.com/)
+
+<a name="TESTSTORIES"></a>
+## User Story Testing
+Testing User Stories from User Experience (UX) Section
+
+-   #### **Story 1** As a Site Visitor, I want to be able to search recipes by using a quick search method.
+    -  #### *Acceptance Criteria*
+        1.  A search form is presented without leaving the home page
+        2.  A minimal number of search criteria is presented to choose from
+        3.  When the form is submitted, user is redirected to the advanced search page and presented the results list/table
+        -   Results
+            -   PASS: All criteria met
+                -   Screeshots:
+                    -   <img src="_documentation/testing/user-stories/US-01.png" />
+                    -   <img src="_documentation/testing/user-stories/US-02.png" />
+
+-   #### **Story 2** As a Site Visitor, I want to see results of my search on a new page that offers sortable headers.
+    -  #### *Acceptance Criteria*
+        1.  Results are displayed in a list/table, with recipe title, date posted, base ingredient, and author
+        2.  The list can be sorted by active headers
+        3.  A recipe has a clickable link to display the recipe details
+        -   Results
+            -   FAIL: Criteria not met, search results page does not offer a method to sort by headers. User story was created prior to developer's understanding of what would be achievable with curriculum taught
+
+-   #### **Story 3** As a Site Visitor, I want to see recipe details displayed on a recipe detail page
+    -  #### *Acceptance Criteria*
+        -   Recipe page includes the following details:
+            1.  Recipe Name
+            2.  Author
+            3.  Ingredients
+            4.  Description
+            5.  Instructions (commentary)
+            6.  Image
+            7.  Posted Date
+            -   Results
+                -   PASS: All criteria met
+                    -   Screeshot:
+                        -   <img src="_documentation/testing/user-stories/US-03.png" />
+
+-   #### **Story 4** As a Site Visitor, I want to have a similar experience whether on a desktop, tablet, or mobile device, so that I can later access information in a similar manner if I change devices.
+    -  #### *Acceptance Criteria*
+        1.  All content has to be accessible from desktop, tablet, or mobile device.
+        2.  All images should have alt text
+        3.  Icons should be consistent across viewports
+        4.  Indentation (margins and padding) should be structurally similar across viewports
+        5.  Pages and sections use the same names throughout the site ie when referring to Work History, it's not later referred to Work Experience or Job Summary etc somewhere else in the site or on site nav
+        6.  All fonts are consistent for each section and element across all viewports
+        7.  All documents and links to external sites should open a new tab in the browser
+        8.  Any page or internal site links should never open a new browser tab
+        -   Results
+            -   PASS, with exception: All criteria met but tablet viewport needs minor MU adjustment and some media targeted styles to be more inline to mobile and desktop views
+
+-   #### **Story 5** As a Site Visitor, I want to be able to search recipes by using an advanced search method.
+    -  #### *Acceptance Criteria*
+        1.  A search form is presented on a new page when a user navigates to the advanced search
+        2.  The search form allows input for recipe name, author, main ingredient, and date
+        3. The submit button displays a results list/table on the advanced search page
+        -   Results
+            -   FAIL: Criteria not met, advanced search page does not offer a method to search recipes by multiple criteria. User story was created prior to developer's understanding of what would be achievable with curriculum taught
+
+-   #### **Story 6** As a Site Visitor, I want the ability to log in and log out so I can gain access to features that are only for logged in users.
+-   #### *Acceptance Criteria*
+    1.  User can create a profile and log in
+    2.  The profile is a user name, a valid email address, a description, and an avatar
+    3.  Once logged in, access to rate and build recipes is provided
+    4.  User can log out
+    5.  Once logged in, user is redirected to profile page
+    -   Results
+        -   PASS: All criteria met
+            -   Screeshot:
+                -   <img src="_documentation/testing/user-stories/US-06.png" />
+
+-   #### **Story 7** As a Logged In User, I want the ability to create my own recipe and upload to the app.
+-   #### *Acceptance Criteria*
+    -   User Input should include the following:
+        1.  Recipe Name
+        2.  Author
+        3.  Ingredients
+        4.  Region
+        5.  Preparation (commentary)
+        6.  Flavor Profile
+        7.  Recipe Image URL
+        8.  Description
+    -   User can save recipe
+    -   User is routed to the recipe view page once submitted
+    -   User can update the recipe
+    -   User can delete the recipe
+    -   Unauthenticated users cannot create and upload recipes
+        -   Results
+            -   PASS: All criteria met
+                -   Screeshots:
+                    -   <img src="_documentation/testing/user-stories/US-07.png" />
+                    -   <img src="_documentation/testing/user-stories/US-07a.png" />
+
+-   #### **Story 8** As a Logged In User and on the Recipe View page, I want the ability to view a graphcal representation of my recipe ingredient breakdown.
+-   #### *Acceptance Criteria*
+    -   User is shown or presented a method to show a graphic depicting the recipe's ingredient ratios
+        -   Results
+            -   FAIL: Ingredient proportion calculations and display feature was not developed for this release.
+
+-   #### **Story 9** As a Logged In User I want to be able to rate recipes.
+-   #### *Acceptance Criteria*
+    1.  User can rate a recipe with a simple 5 star system when logged in and on the recipe card page
+    2.  A user cannot rate a recipe if they are not logged in
+        -   Results
+            -   PASS: All criteria met
+                    -   Screeshots:
+                        -   <img src="_documentation/testing/user-stories/US-09.png" />
+
+-   ### Administrator User Experience
+    -   #### **Story 10** As a Site Administrator, I want to be able to regulate the number of postings for any user globally
+        -  #### *Acceptance Criteria*
+            1.  App only allows any user to upload 5 recipes a day
+            -   Results
+                -   FAIL: This security feature was not developed for this release.
