@@ -188,7 +188,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate al
 -   [W3C Markup Validator (Nu)](https://validator.w3.org/nu/)
     -   index.html, ERRORS
         -   The duplicate error is from the duplication of code for the desktop/tablet and mobile views, no real error
-    -   <img src="_documentation/testing/nu-html-validate-index-html.png" />
+    -   <img src="_documentation/testing/index-html.png" />
 
 -   [W3C CSS Validator (Jigsaw)](https://jigsaw.w3.org/css-validator/#validate_by_uri+with_options)
     -   style.css, NO ERRORS

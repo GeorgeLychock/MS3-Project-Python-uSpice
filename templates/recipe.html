@@ -30,15 +30,15 @@
 
 {% block content %}
     <div>
-        <div class="float-end"><img class="us-recipe-card-image" src="{{ recipe.image_url }}" alt="{{ recipe.image_alt }}" width=100%></div>
+        <div class="float-end"><img class="us-recipe-card-image" src="{{ recipe.image_url }}" alt="{{ recipe.image_alt }}"></div>
         <div class=""><h2 class="us-recipe-name">{{ recipe.recipe_name }}</h2></div>
     </div>
-    <row class="us-text-left">
+    <div class="row us-text-left">
         <div class="col">
-        <p>{{ recipe.description }}</p>
+            <p>{{ recipe.description }}</p>
+        </div>
     </div>
-    </row>
-    <row class="us-text-left">
+    <div class="row us-text-left">
         <div class="col">
             <h3 class="us-recipe-info">Recipe Info</h3>
             <p>Author: {{ recipe.author }}</p>
@@ -53,22 +53,22 @@
             <p>Region: {{ recipe.recipe_region }}</p>
             <p>Date Posted: {{ recipe.date_posted }}</p>
         </div>
-    </row>
-    <row>
-        <div class="col us-text-left">
+    </div>
+    <div class="row us-text-left">
+        <div class="col">
             <h3 class="us-recipe-info">Ingredients</h3>
             {% for ingredient in recipe.ingredients %}
                 <p>{{ ingredient.name }}: {{ ingredient.quantity }} {{ ingredient.measure }}</p>
             {% endfor %}
         </div>
-    </row>
-    <row>
+    </div>
+    <div class="row us-text-left">
         <div class="col">
             <h3 class="us-recipe-info us-text-left">Preparation</h3>
             <p>{{ recipe.preparation }}</p>
         </div>
-    </row>
-    <row>
+    </div>
+    <div class="row">
         {% if session.user %}
             <div class="col">
                 <!-- Button trigger modal -->
@@ -80,11 +80,11 @@
         {% else %}
             <div class="col">
                 <!-- Login Button -->
-                <button type="button" class="btn btn-primary us-nav-btn-01"><a class="nav-link us-i-color-02" href="{{ url_for('login') }}">Log in to Rate this recipe!</a>
-                </button>
+                <div class="btn btn-primary us-nav-btn-01"><a class="nav-link us-i-color-02" href="{{ url_for('login') }}">Log in to Rate this recipe!</a>
+                </div>
             </div>
         {% endif %}
-    </row>
+        </div>
 {% endblock%}
 
 <!-- Variable user menu items -->
@@ -164,7 +164,7 @@
                       5
                     </label>
                   </div>
-                  <button type="submit" class="btn btn-outline-success us-nav-btn" onclick="ratingConfirm()"><a class="nav-link">Submit Rating</a></button>
+                  <button type="submit" class="btn btn-outline-success us-nav-btn" onclick="ratingConfirm()">Submit Rating</button>
             </form>
         </div>
         <div class="modal-footer">
